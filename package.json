@@ -1,0 +1,10 @@
+{
+  "name": "@contentacms/contentajs",
+  "version": "0.0.0-development",
+  "description": "A nodejs server that proxies to Contenta CMS and holds custom code.",
+  "main": "lib/server.js",
+  "repository": "https://github.com/contentacms/contentajs",
+  "author": "Mateu Aguiló Bosch (e0ipso) <mateu.aguilo.bosch@gmail.com>",
+  "license": "MIT",
+  "private": false
+}
