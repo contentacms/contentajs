@@ -1,7 +1,7 @@
-# <!--emdaer-p
-  - '@emdaer/plugin-value-from-package'
-  - value: name
--->
+# ContentaJS
+
+</br>
+<img src="./logo.svg" alt="Contenta logo" title="Contenta logo" width="100">
 
 <!--emdaer-p
   - '@emdaer/plugin-import'
