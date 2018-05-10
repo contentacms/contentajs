@@ -11,9 +11,9 @@ an ultra high performing headless CMS.</p>
 <p><strong>IMPORTANT:</strong> this project is meant to be a starting kit for the node
 integration of your application based on Contenta CMS. We <strong>do not</strong> provide
 upgrade paths or backwards compatibility. The model for this is <em>Fork &amp; Go</em>. If
-you have an existing application and want to include some new features to your
-to it based on this repo’s latest updates you will have to do it yourself.
-However this repo will help you figure out the necessary details for it.</p>
+you have an existing application and want to include some new features to it
+based on this repo’s latest updates you will have to do it yourself. However
+this repo will help you figure out the necessary details for it.</p>
 <!-- toc -->
 <ul>
 <li><a href="#features">Features</a></li>
