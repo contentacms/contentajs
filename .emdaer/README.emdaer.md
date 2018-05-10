@@ -39,3 +39,21 @@
   - path: docs/notes.md
     runEmdaer: false
 -->
+
+## Contributors
+<!--emdaer-p
+  - '@emdaer/plugin-contributors-details-github'
+-->
+
+## License
+<!--emdaer-p
+  - '@emdaer/plugin-license-reference'
+-->
+
+<!--emdaer-t
+  - '@emdaer/transform-prettier'
+  - options:
+      proseWrap: preserve
+      singleQuote: true
+      trailingComma: es5
+-->

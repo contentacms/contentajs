@@ -23,6 +23,8 @@ this repo will help you figure out the necessary details for it.</p>
 <li><a href="#install-using-docker">Install Using Docker</a></li>
 </ul>
 </li>
+<li><a href="#contributors">Contributors</a></li>
+<li><a href="#license">License</a></li>
 </ul>
 <!-- tocstop -->
 <p><a href="https://travis-ci.org/nbcdotcom/cache-invalidator/"><img src="https://img.shields.io/travis/nbcdotcom/cache-invalidator.svg?style=flat-square" alt="Travis"></a> <a href="https://github.com/emdaer/emdaer"><img src="https://img.shields.io/badge/📓-documented%20with%20emdaer-F06632.svg?style=flat-square" alt="Documented with emdaer"></a></p>
@@ -57,3 +59,15 @@ just meant to save ideas for documentation to process some other time.</em></p>
 <ul>
 <li>Mention that both Drupal and node need to talk to the same Redis server.</li>
 </ul>
+<h2 id="contributors">Contributors</h2>
+<details>
+<summary><strong>Contributors</strong></summary><br>
+<a title="Engineer and programmer focused on online applications." href="https://github.com/e0ipso">
+  <img align="left" src="https://avatars0.githubusercontent.com/u/1140906?s=24">
+</a>
+<strong>Mateu Aguiló Bosch</strong>
+<br><br>
+</details>
+
+<h2 id="license">License</h2>
+<p>@contentacms/contentajs is <a href="./LICENSE">MIT licensed</a>.</p>
