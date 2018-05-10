@@ -62,6 +62,9 @@ Contenta CMS (Drupal), ContentaJS, and the Redis server.</em></p>
 just meant to save ideas for documentation to process some other time.</em></p>
 <ul>
 <li>Mention that both Drupal and node need to talk to the same Redis server.</li>
+<li>Make it clear that this is a starting point. To this node install you can:
+proxy to other microservices, add server side rendering, etc.</li>
+<li>Server side rendering can be added as a package / middleware.</li>
 </ul>
 <h2 id="contributors">Contributors</h2>
 <details>
