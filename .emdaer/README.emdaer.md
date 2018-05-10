@@ -1,7 +1,4 @@
-# ContentaJS
-
-</br>
-<img src="./logo.svg" alt="Contenta logo" title="Contenta logo" width="100">
+# ContentaJS <img align="right" src="./logo.svg" alt="Contenta logo" title="Contenta logo" width="100">
 
 <!--emdaer-p
   - '@emdaer/plugin-import'
