@@ -24,3 +24,21 @@
        link: 'https://github.com/emdaer/emdaer'
        style: 'flat-square'
 -->
+
+<!--emdaer-p
+  - '@emdaer/plugin-import'
+  - path: docs/features.md
+    runEmdaer: false
+-->
+
+<!--emdaer-p
+  - '@emdaer/plugin-import'
+  - path: docs/install.md
+    runEmdaer: true
+-->
+
+<!--emdaer-p
+  - '@emdaer/plugin-import'
+  - path: docs/notes.md
+    runEmdaer: false
+-->
