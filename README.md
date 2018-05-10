@@ -20,7 +20,10 @@ this repo will help you figure out the necessary details for it.</p>
 <li><a href="#installation">Installation</a><ul>
 <li><a href="#local-installation">Local Installation</a></li>
 <li><a href="#aws-installation">AWS Installation</a></li>
-<li><a href="#install-using-docker">Install Using Docker</a></li>
+<li><a href="#install-using-docker">Install Using Docker</a><ul>
+<li><a href="#notes">Notes</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li><a href="#contributors">Contributors</a></li>
@@ -54,6 +57,7 @@ eliminate latency obtaining connections with the server.</li>
 <h3 id="install-using-docker">Install Using Docker</h3>
 <p><em>Fill in the instructions on how to install using Docker. Ideally this installs
 Contenta CMS (Drupal), ContentaJS, and the Redis server.</em></p>
+<h4 id="notes">Notes</h4>
 <p><em>This is a dumping ground of notes. This section will disappear eventually, it’s
 just meant to save ideas for documentation to process some other time.</em></p>
 <ul>
