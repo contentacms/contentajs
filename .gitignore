@@ -1,0 +1,16 @@
+# package directories
+/lib
+/config/local.yml
+/config/local.yaml
+node_modules
+jspm_packages
+
+# Serverless directories
+.serverless
+
+# Jest data
+__coverage__
+
+# Local development
+.vscode
+.idea

@@ -1,0 +1,56 @@
+parser: babel-eslint
+parserOptions:
+  ecmaVersion: 6
+extends:
+  - airbnb-base
+  - prettier
+  - prettier/flowtype
+plugins:
+  - flowtype
+  - jest
+rules:
+  brace-style:
+    - error
+    - stroustrup
+  class-methods-use-this: off
+  comma-dangle:
+    - error
+    -
+      arrays: always-multiline
+      objects: always-multiline
+      imports: always-multiline
+      exports: always-multiline
+      functions: ignore
+  max-len:
+    - warn
+    -
+      code: 100
+      comments: 80
+      ignoreUrls: true
+      ignorePattern: "(new Error\\(|new TypeError\\(|`\\{\\{)"
+      ignoreTrailingComments: true
+      tabWidth: 2
+  no-param-reassign: off
+  no-underscore-dangle: off
+  no-unused-vars: warn
+  no-warning-comments: warn
+  quotes:
+    - error
+    - single
+    -
+      avoidEscape: true
+      allowTemplateLiterals: true
+  require-jsdoc:
+    - error
+    -
+      require:
+        FunctionDeclaration: true
+        MethodDefinition: true
+        ClassDeclaration: true
+  valid-jsdoc: error
+  no-unused-expressions: off
+  flowtype/no-unused-expressions: error
+  valid-typeof:
+    - error
+    -
+      requireStringLiterals: false

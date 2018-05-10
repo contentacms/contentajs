@@ -1,0 +1,30 @@
+language: node_js
+cache:
+  directories:
+    - node_modules
+    - .tmp
+notifications:
+  email: false
+before_install:
+  - git fetch --tags
+
+stages:
+  - name: test
+    # require the event type to not be a semantic release tag.
+    if: NOT tag =~ ^v\d+\.\d+\.\d+$
+
+jobs:
+  include:
+    -
+      stage: test
+      node_js: 'lts/carbon'
+      script:
+        - npm run lint
+        - npm test-ci
+
+    -
+      stage: deploy
+      if: branch = master
+      # Semantic release will fail if it's not using node 8.
+      node_js: 'lts/carbon'
+      script: npm run semantic-release
