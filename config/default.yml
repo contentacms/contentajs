@@ -1,2 +1,8 @@
 # This is the default configuration file for the project. This configuration is
 # used in any environment unless specifically overridden.
+# DO NOT CHANGE THIS FILE. Instead create a new configuration file that holds
+# the overwrites as explained in https://www.npmjs.com/package/config.
+cms:
+  # Add the URL including the protocol to your Contenta CMS installation.
+  # Example: https://www.example.com
+  host: http://localhost
