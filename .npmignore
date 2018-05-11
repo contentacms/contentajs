@@ -11,3 +11,4 @@ util
 *.config.js
 .flowconfig
 .gitignore
+flow-typed

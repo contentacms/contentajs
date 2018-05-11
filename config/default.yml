@@ -2,7 +2,21 @@
 # used in any environment unless specifically overridden.
 # DO NOT CHANGE THIS FILE. Instead create a new configuration file that holds
 # the overwrites as explained in https://www.npmjs.com/package/config.
+
 cms:
   # Add the URL including the protocol to your Contenta CMS installation.
   # Example: https://www.example.com
   host: http://localhost
+
+redis:
+  # Add the URL including the protocol to your Redis node or Cluster using the
+  # "redis" scheme name (https://www.iana.org/assignments/uri-schemes/prov/redis).
+  # Example: redis://:authpassword@127.0.0.1:6380/4 (Connect to 127.0.0.1:6380,
+  # db 4, using password "authpassword")
+  host: redis://127.0.0.1:6379
+  # Additional options for ioredis https://www.npmjs.com/package/ioredis passed
+  # verbatim.
+  options: {}
+  # Configuration about the connection pool using generic-pool. The options are
+  # passed verbatim to the pool.
+  pool: {}
