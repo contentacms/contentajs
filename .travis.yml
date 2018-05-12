@@ -20,7 +20,7 @@ jobs:
       node_js: 'lts/carbon'
       script:
         - npm run lint
-        - npm test-ci
+        - npm run test-ci
 
     -
       stage: deploy
