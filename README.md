@@ -30,7 +30,7 @@ this repo will help you figure out the necessary details for it.</p>
 <li><a href="#license">License</a></li>
 </ul>
 <!-- tocstop -->
-<p><a href="https://travis-ci.org/nbcdotcom/cache-invalidator/"><img src="https://img.shields.io/travis/nbcdotcom/cache-invalidator.svg?style=flat-square" alt="Travis"></a> <a href="https://github.com/emdaer/emdaer"><img src="https://img.shields.io/badge/📓-documented%20with%20emdaer-F06632.svg?style=flat-square" alt="Documented with emdaer"></a></p>
+<p><a href="https://travis-ci.org/contentacms/contentajs/"><img src="https://img.shields.io/travis/contentacms/contentajs.svg?style=flat-square" alt="Travis"></a> <a href="https://coveralls.io/github/contentacms/contentajs/"><img src="https://img.shields.io/coveralls/github/contentacms/contentajs.svg?style=flat-square" alt="Coverage"></a> <a href="https://github.com/emdaer/emdaer"><img src="https://img.shields.io/badge/📓-documented%20with%20emdaer-F06632.svg?style=flat-square" alt="Documented with emdaer"></a></p>
 <h2 id="features">Features</h2>
 <p><em>This section is still under development.</em></p>
 <p>The main features of this project cover:</p>
