@@ -66,6 +66,19 @@ class Cache {
   }
 
   /**
+   * Release the connection back to the connection pool and disconnect.
+   *
+   * @param {Redis} resource
+   *   The resource to release.
+   *
+   * @return {Promise<void>}
+   *   Resolves when the resource is released.
+   */
+  destroy(resource: Redis): Promise<void> {
+    return this.pool.destroy(resource);
+  }
+
+  /**
    * Execute a Redis command.
    *
    * @param {string} command
@@ -93,12 +106,10 @@ class Cache {
         process.nextTick(() => this.release(connection));
         return res;
       })
-      .catch(error => {
-        // Release the connection, then re-throw the error.
-        this.release(connection).then(() => {
-          throw error;
-        });
-      });
+      // Release the connection, then re-throw the error.
+      .catch(error => this.release(connection).then(() => {
+        throw error;
+      }));
   }
 }
 
