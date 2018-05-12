@@ -100,7 +100,10 @@ class Cache {
         connection = resource;
       })
       // 2. Execute the command on the acquired connection.
-      .then(() => connection[command](...args))
+      .then(() => {
+        const commandCb: Function = _.get(connection, command);
+        commandCb(...args);
+      })
       // 3. Release the connection in the next tick and return the result
       .then((res) => {
         process.nextTick(() => this.release(connection));
