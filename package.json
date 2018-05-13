@@ -5,13 +5,13 @@
   "main": "lib/server.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/contentacms/contentajs.git"
+    "url": "git+https://github.com/contentacms/contentajs.git"
   },
   "bugs": {
     "url": "https://github.com/contentacms/contentajs/issues"
   },
   "homepage": "https://github.com/contentacms/contentajs#readme",
-  "author": "Mateu Aguiló Bosch (e0ipso) <mateu.aguilo.bosch@gmail.com>",
+  "author": "Mateu Aguiló Bosch <mateu.aguilo.bosch@gmail.com> (e0ipso)",
   "license": "MIT",
   "private": false,
   "scripts": {
@@ -105,5 +105,16 @@
   },
   "release": {
     "analyzeCommits": "semantic-release-conventional-commits"
-  }
+  },
+  "directories": {
+    "doc": "docs",
+    "lib": "lib"
+  },
+  "keywords": [
+    "Contenta",
+    "proxy",
+    "CMS",
+    "headless",
+    "redis"
+  ]
 }
