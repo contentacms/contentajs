@@ -3,6 +3,19 @@
 # DO NOT CHANGE THIS FILE. Instead create a new configuration file that holds
 # the overwrites as explained in https://www.npmjs.com/package/config.
 
+app:
+  name:
+    machine: 'contentajs'
+    human-readable: 'ContentaJS'
+  # The port for the server to listen on.
+  port: 3000
+
+  # The number of child processes to start. The total number of processes will be
+  # split between web workers. 0 will instruct the application to use the maximum
+  # number of processors available on the machine.
+  processes: 0
+  adiosSocket: ./adios.sock
+
 cms:
   # Add the URL including the protocol to your Contenta CMS installation.
   # Example: https://www.example.com
@@ -16,7 +29,56 @@ redis:
   host: redis://127.0.0.1:6379
   # Additional options for ioredis https://www.npmjs.com/package/ioredis passed
   # verbatim.
-  options: {}
+  options:
+    scaleReads: 'slave'
   # Configuration about the connection pool using generic-pool. The options are
   # passed verbatim to the pool.
-  pool: {}
+  pool:
+    # Limit the connection pool to the specified number of sockets.
+    max: 30
+
+# These settings will determine the TTL for edge cache.
+cache:
+  max-age:
+    # Cache OPTIONS responses for one day.
+    OPTIONS: 86400
+    # The value to use for all GET requests unless otherwise specified.
+    default: 900
+    # Add sub-routes here to override the defaults
+    # articles: 420
+    # node--volatiles: 60
+
+timeout:
+  # Time in milliseconds before worker processes are forcefully killed when the
+  # master process receives a SIGINT.
+  killTimeout: 10000
+  # The time in milliseconds to allow before a request is considered timed out
+  # and the client connection severed. Timeouts can be per version and per entity
+  # type.
+  requestTimeout:
+    default: 12000
+    defaultListing: 12000
+  # The time in milliseconds to set the retry-after header value to in the event
+  # of a request timeout.
+  retryAfter: 1200
+
+cors:
+  origin:
+    default: http://localhost:3000
+    whitelisted:
+      - http://localhost:3000
+      - https://localhost:3443
+  headers:
+    - 'Accept'
+    - 'Authorization'
+    - 'Cache-Control'
+    - 'Content-Length'
+    - 'Content-Type'
+    - 'Keep-Alive'
+    - 'Origin'
+    - 'User-Agent'
+    - 'X-Forwarded-For'
+    - 'X-Forwarded-Port'
+    - 'X-Forwarded-Proto'
+    - 'X-HTTP-Method-Override'
+    - 'X-Requested-With'
