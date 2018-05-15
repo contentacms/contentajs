@@ -12,7 +12,7 @@
 <p>ContentaJS is a project that integrates with Contenta CMS to provide
 an ultra high performing headless CMS. It also provides a nodejs application
 where to host your Server Side Rendering and custom code integrations.</p>
-<p><img src="./docs/assets/contentacms-node.png" alt="Contenta Stack Architecture"></p>
+<p><img src="./.emdaer/docs/assets/contentacms-node.png" alt="Contenta Stack Architecture"></p>
 <p><strong>IMPORTANT:</strong> this project is meant to be a starting kit for the node
 integration of your application based on Contenta CMS. We <strong>do not</strong> provide
 upgrade paths or backwards compatibility. The model for this is <em>Fork &amp; Go</em>.</p>
@@ -41,6 +41,7 @@ upgrade paths or backwards compatibility. The model for this is <em>Fork &amp; G
 Just provide the URL of the site and everything is taken care of for you.</li>
 <li>Multi-threaded nodejs server that takes advantage of all the cores of the
 server’s CPU.</li>
+<li>A Subrequests server for request aggregation. Learn more about <a href="./.emdaer/docs/subrequests.md">subrequests</a>.</li>
 <li>A <a href="http://redis.io">Redis</a> integration. This comes with a connection pool to
 eliminate latency obtaining connections with the server.</li>
 <li>Type safe development environment using <a href="http://flow.org">Flow</a>.</li>
@@ -71,7 +72,6 @@ proxy to other microservices, add server side rendering, etc.</li>
 <li>Create a separate package using passport to integrate with Simple OAuth.</li>
 <li>Make CORS customizable from configuration.</li>
 <li>Add subrequests.</li>
-<li>Add documentation about subrequests.</li>
 <li>If all subrequests are to the CMS forward the blueprint to Drupal’s subrequests.</li>
 <li>Make Flow types nicer in the middlewares.</li>
 <li>Read jsonApiPrefix from the Contenta CMS server.</li>

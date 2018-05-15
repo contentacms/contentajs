@@ -6,18 +6,18 @@ In order to install ContentaJS you will need to meet the following requirements:
 
 <!--emdaer-p
   - '@emdaer/plugin-import'
-  - path: docs/local-install.md
+  - path: .emdaer/docs/local-install.md
     runEmdaer: false
 -->
 
 <!--emdaer-p
   - '@emdaer/plugin-import'
-  - path: docs/aws-install.md
+  - path: .emdaer/docs/aws-install.md
     runEmdaer: false
 -->
 
 <!--emdaer-p
   - '@emdaer/plugin-import'
-  - path: docs/docker-install.md
+  - path: .emdaer/docs/docker-install.md
     runEmdaer: false
 -->

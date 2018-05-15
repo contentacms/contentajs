@@ -10,7 +10,6 @@ just meant to save ideas for documentation to process some other time._
 - Create a separate package using passport to integrate with Simple OAuth.
 - Make CORS customizable from configuration.
 - Add subrequests.
-- Add documentation about subrequests.
 - If all subrequests are to the CMS forward the blueprint to Drupal's subrequests.
 - Make Flow types nicer in the middlewares.
 - Read jsonApiPrefix from the Contenta CMS server.

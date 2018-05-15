@@ -1,8 +1,12 @@
-# ContentaJS <img align="right" src="./logo.svg" alt="Contenta logo" title="Contenta logo" width="100">
+<!--emdaer-p
+  - '@emdaer/plugin-import'
+  - path: .emdaer/docs/title.md
+    runEmdaer: false
+-->
 
 <!--emdaer-p
   - '@emdaer/plugin-import'
-  - path: docs/header.md
+  - path: .emdaer/docs/header.md
     runEmdaer: false
 -->
 
@@ -28,19 +32,19 @@
 
 <!--emdaer-p
   - '@emdaer/plugin-import'
-  - path: docs/features.md
+  - path: .emdaer/docs/features.md
     runEmdaer: false
 -->
 
 <!--emdaer-p
   - '@emdaer/plugin-import'
-  - path: docs/install.md
+  - path: .emdaer/docs/install.md
     runEmdaer: true
 -->
 
 <!--emdaer-p
   - '@emdaer/plugin-import'
-  - path: docs/notes.md
+  - path: .emdaer/docs/notes.md
     runEmdaer: false
 -->
 
