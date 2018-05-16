@@ -19,18 +19,19 @@ module.exports = (req: any, res: any, next: Function): void => {
 
     // Add Access-Control-Allow-Methods based on the allowed property in the
     // response body.
-    if (req.method === 'OPTIONS' && typeof res.locals.body.meta.allowed === 'string') {
+    if (
+      req.method === 'OPTIONS' &&
+      typeof res.locals.body.meta.allowed === 'string'
+    ) {
       res.set('Access-Control-Allow-Methods', res.locals.body.meta.allowed);
     }
 
     // Send response body.
     res.send(res.locals.body);
-  }
-  else if (hasStatus) {
+  } else if (hasStatus) {
     // End requests with a status but no body.
     res.end();
-  }
-  else {
+  } else {
     // Pass unhandled requests to the error handler.
     next(createError(404, 'Not Found'));
   }

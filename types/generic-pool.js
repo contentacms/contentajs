@@ -13,5 +13,5 @@ export type GenericPoolOptions = {
   numTestsPerRun: ?number,
   softIdleTimeoutMillis: ?number,
   idleTimeoutMillis: ?number,
-  Promise: ?(typeof Promise),
+  Promise: ?typeof Promise,
 };

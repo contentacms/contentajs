@@ -5,7 +5,7 @@ import type { GenericPoolOptions } from '../../types/generic-pool';
 
 const _ = require('lodash');
 const Redis = require('ioredis');
-const { createPool }= require('generic-pool');
+const { createPool } = require('generic-pool');
 let commands: Array<string> = require('redis-commands').list;
 
 // Make some alterations to the list of commands.
@@ -31,7 +31,11 @@ class Cache {
    * @param {GenericPoolOptions} poolOptions
    *   The options to be passed to generic-pool.
    */
-  constructor(redisHost: string, redisOptions: {[string]: any}, poolOptions: GenericPoolOptions) {
+  constructor(
+    redisHost: string,
+    redisOptions: { [string]: any },
+    poolOptions: GenericPoolOptions
+  ) {
     const factory = {
       create: () => new Redis(redisHost, redisOptions),
       destroy: (connection: Redis) => connection.disconnect(),
@@ -94,25 +98,29 @@ class Cache {
     // the connection from the pool.
     let connection: Redis;
     // 1. Acquire the connection from the pool.
-    return this.acquire()
-      .then((resource: Redis) => {
-        // Save to a local variable for later use.
-        connection = resource;
-      })
-      // 2. Execute the command on the acquired connection.
-      .then(() => {
-        const commandCb: Function = _.get(connection, command);
-        commandCb(...args);
-      })
-      // 3. Release the connection in the next tick and return the result
-      .then((res) => {
-        process.nextTick(() => this.release(connection));
-        return res;
-      })
-      // Release the connection, then re-throw the error.
-      .catch(error => this.release(connection).then(() => {
-        throw error;
-      }));
+    return (
+      this.acquire()
+        .then((resource: Redis) => {
+          // Save to a local variable for later use.
+          connection = resource;
+        })
+        // 2. Execute the command on the acquired connection.
+        .then(() => {
+          const commandCb: Function = _.get(connection, command);
+          commandCb(...args);
+        })
+        // 3. Release the connection in the next tick and return the result
+        .then(res => {
+          process.nextTick(() => this.release(connection));
+          return res;
+        })
+        // Release the connection, then re-throw the error.
+        .catch(error =>
+          this.release(connection).then(() => {
+            throw error;
+          })
+        )
+    );
   }
 }
 

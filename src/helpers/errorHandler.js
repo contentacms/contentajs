@@ -4,12 +4,13 @@ const _ = require('lodash');
 const config = require('config');
 const logger = require('pino')();
 
-module.exports = (err: any, req: any, res: any, next: Function): void => { // eslint-disable-line no-unused-vars
+module.exports = (err: any, req: any, res: any, next: Function): void => {
+  // eslint-disable-line no-unused-vars
   const errors = Array.isArray(err) ? err : [err];
   res.set('Cache-Control', 'private, max-age=0, no-cache');
   res.status(errors[0].status || 500);
 
-  const errorObjects = _.map(errors, (error) => {
+  const errorObjects = _.map(errors, error => {
     let eObject: { [string]: any } = {
       status: 500,
       code: 'InternalServerError',
@@ -19,16 +20,14 @@ module.exports = (err: any, req: any, res: any, next: Function): void => { // es
     if (error.status) {
       if (req.timedout) {
         res.set('Retry-After', config.get('timeout.retryAfter'));
-        error.message = `Response time exceeded ${error.timeout / 1000} second(s).`;
+        error.message = `Response time exceeded ${error.timeout /
+          1000} second(s).`;
       }
 
-      eObject = _.merge(eObject, _.pick(error, [
-        'status',
-        'links',
-        'detail',
-        'source',
-        'meta',
-      ]));
+      eObject = _.merge(
+        eObject,
+        _.pick(error, ['status', 'links', 'detail', 'source', 'meta'])
+      );
       eObject.code = error.name;
       eObject.title = error.message;
     }

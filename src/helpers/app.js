@@ -17,10 +17,6 @@ const cmsHost = config.get('cms.host');
 const cacheControl = require('./cacheControl');
 const response = require('./response');
 const errorHandler = require('./errorHandler');
-const jsonrpc = require('./jsonrpc');
-
-// Initialize JSON RPC.
-jsonrpc.init(cmsHost);
 
 const app = express();
 
@@ -47,7 +43,7 @@ app.get('/healthcheck', (req, res) => {
   res.json({ meta: { healthcheck: 'good' } });
 });
 
-const jsonApiPrefix = '/api';
+const jsonApiPrefix = `/${_.get(process, 'env.jsonApiPrefix')}`;
 
 // Proxy for the JSON API server in Contenta CMS.
 app.use(jsonApiPrefix, bodyParser.json({ type: 'application/vnd.api+json' }));

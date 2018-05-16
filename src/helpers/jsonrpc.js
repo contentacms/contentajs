@@ -2,7 +2,8 @@
 
 import type { JsonRpcRequest, JsonRpcResponse } from '../../types/jsonrpc';
 
-const got = require('got');
+const _ = require('lodash');
+const got = require('./got');
 
 /**
  * A class for a JSON RPC executor.
@@ -37,7 +38,8 @@ class ContentaJsonRpc {
   init(): Promise<void> {
     return got(`${this.host}/jsonrpc/methods`)
       .then(res => {
-        this.methods = res.data.map(method => method.id).filter(i => i);
+        const body: { [string]: any } = _.get(res, 'body');
+        this.methods = body.data.map(method => method.id).filter(i => i);
       })
       .then(() => {});
   }
@@ -52,34 +54,47 @@ class ContentaJsonRpc {
    *   The response from the Contenta CMS JSON-RPC server.
    */
   execute(request: JsonRpcRequest): Promise<JsonRpcResponse> {
+    // TODO: We probably want to validate input here with a JSON Schema.
     if (
       !Array.isArray(request) &&
-      this.methods.indexOf(request.method) !== -1
+      this.methods.indexOf(request.method) === -1
     ) {
-      const res: JsonRpcResponse = {
-        jsonrpc: '2.0',
-        error: {
-          code: -32601,
-          message: 'Method not found',
-        },
-      };
-      return Promise.reject(res);
+      return Promise.reject(
+        new Error(
+          JSON.stringify({
+            jsonrpc: '2.0',
+            error: {
+              code: -32601,
+              message: 'Method not found',
+            },
+          })
+        )
+      );
     }
-    const res: Promise<JsonRpcResponse> = got.post(`${this.host}/jsonrpc`, {
-      json: true,
-      body: request,
-    });
-    return res;
+    return (
+      got(`${this.host}/jsonrpc`, {
+        method: 'POST',
+        json: true,
+        body: request,
+      })
+        // Reject if the request errored and is not a batched request.
+        .then(res => {
+          const body: JsonRpcResponse = _.get(res, 'body');
+          const isError = body && typeof _.get(body, 'error') !== 'undefined';
+          return isError
+            ? Promise.reject(new Error(JSON.stringify(body)))
+            : Promise.resolve(body);
+        })
+    );
   }
 }
-let jsonrpc;
-module.exports = {
-  init(host: string): Promise<ContentaJsonRpc> {
-    const inst = new ContentaJsonRpc(host);
-    return inst.init().then(() => {
-      jsonrpc = inst;
-      return jsonrpc;
-    });
-  },
-  jsonrpc,
+module.exports = (host: string) => {
+  const jsonrpc = new ContentaJsonRpc(host);
+  return {
+    init(): Promise<ContentaJsonRpc> {
+      return jsonrpc.init().then(() => jsonrpc);
+    },
+    jsonrpc,
+    ContentaJsonRpc,
+  };
 };
