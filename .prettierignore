@@ -1,0 +1,8 @@
+# node_modules ignored by default
+
+# Ignore generated files
+__coverage__
+scratch
+lib
+__tests__
+flow-typed
