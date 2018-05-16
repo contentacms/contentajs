@@ -17,6 +17,10 @@ const cmsHost = config.get('cms.host');
 const cacheControl = require('./cacheControl');
 const response = require('./response');
 const errorHandler = require('./errorHandler');
+const jsonrpc = require('./jsonrpc');
+
+// Initialize JSON RPC.
+jsonrpc.init(cmsHost);
 
 const app = express();
 
@@ -29,7 +33,10 @@ app.use((req, res, next) => {
   res.set('x-powered-by', config.get('app.name.machine'));
   // Enable CORS.
   res.set('Access-Control-Allow-Origin', '*');
-  res.set('Access-Control-Allow-Headers', config.get('cors.headers').join(', '));
+  res.set(
+    'Access-Control-Allow-Headers',
+    config.get('cors.headers').join(', ')
+  );
 
   next();
 });
@@ -44,22 +51,27 @@ const jsonApiPrefix = '/api';
 
 // Proxy for the JSON API server in Contenta CMS.
 app.use(jsonApiPrefix, bodyParser.json({ type: 'application/vnd.api+json' }));
-app.use(jsonApiPrefix, proxy(cmsHost, {
-  proxyReqPathResolver(req) {
-    const thePath: string = _.get(url.parse(req.url), 'path', '');
-    return `${jsonApiPrefix}${thePath}`;
-  },
-  proxyReqBodyDecorator(bodyContent, srcReq) {
-    if (['GET', 'HEAD', 'OPTIONS', 'TRACE'].indexOf(srcReq.method) !== -1) {
-      return '';
-    }
-    if (typeof srcReq.headers['content-type'] === 'undefined') {
-      logger.warn('The request body was ignored because the Content-Type header is not present.');
-      return '';
-    }
-    return bodyContent;
-  },
-}));
+app.use(
+  jsonApiPrefix,
+  proxy(cmsHost, {
+    proxyReqPathResolver(req) {
+      const thePath: string = _.get(url.parse(req.url), 'path', '');
+      return `${jsonApiPrefix}${thePath}`;
+    },
+    proxyReqBodyDecorator(bodyContent, srcReq) {
+      if (['GET', 'HEAD', 'OPTIONS', 'TRACE'].indexOf(srcReq.method) !== -1) {
+        return '';
+      }
+      if (typeof srcReq.headers['content-type'] === 'undefined') {
+        logger.warn(
+          'The request body was ignored because the Content-Type header is not present.'
+        );
+        return '';
+      }
+      return bodyContent;
+    },
+  })
+);
 
 // Set cache control header.
 app.use(cacheControl);
