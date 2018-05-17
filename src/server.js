@@ -10,9 +10,7 @@ const os = require('os');
 const Adios = require('adios');
 const logger = require('pino')();
 
-const cmsHost = config.get('cms.host');
-
-const jsonrpc = require('./helpers/jsonrpc')(cmsHost);
+const fetchCmsMeta = require('./helpers/fetchCmsMeta');
 
 const webWorkers = {};
 /**
@@ -45,38 +43,30 @@ if (cluster.isMaster) {
   const procs = config.get('app.processes') || os.cpus().length;
 
   // Initialize JSON RPC.
-  jsonrpc
-    .init()
-    .then(requestor =>
-      requestor.execute({
-        jsonrpc: '2.0',
-        method: 'jsonapi.metadata',
-        id: 'cms-meta',
-      })
-    )
-    .then((res: JsonRpcResponse) => {
-      const jsonApiPrefix: string = _.get(res, 'result.prefix');
-      // Proxy for the JSON API server in Contenta CMS.
-      let x;
-      for (x = 0; x < procs; x += 1) {
+  fetchCmsMeta().then((res: JsonRpcResponse) => {
+    const jsonApiPrefix: string = _.get(res, '0.result.prefix');
+    const redisCidTemplate: string = _.get(res, '1.result.cidTemplate');
+    // Proxy for the JSON API server in Contenta CMS.
+    let x;
+    for (x = 0; x < procs; x += 1) {
+      spawnWebWorker({ jsonApiPrefix, redisCidTemplate });
+    }
+
+    cluster.on('exit', (worker, code) => {
+      if (code === 0) {
+        return;
+      }
+      logger.error(
+        'Worker %d died. Spawning a new process',
+        worker.process.pid
+      );
+      if (webWorkers[worker.process.pid]) {
+        webWorkers[worker.process.pid] = null;
+        delete webWorkers[worker.process.pid];
         spawnWebWorker({ jsonApiPrefix });
       }
-
-      cluster.on('exit', (worker, code) => {
-        if (code === 0) {
-          return;
-        }
-        logger.error(
-          'Worker %d died. Spawning a new process',
-          worker.process.pid
-        );
-        if (webWorkers[worker.process.pid]) {
-          webWorkers[worker.process.pid] = null;
-          delete webWorkers[worker.process.pid];
-          spawnWebWorker({ jsonApiPrefix });
-        }
-      });
     });
+  });
 } else if (process.env.type === 'webWorker') {
   require('./helpers/workers/web'); // eslint-disable-line global-require
 }
