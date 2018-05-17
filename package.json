@@ -16,6 +16,7 @@
   "private": false,
   "scripts": {
     "start": "npm run build && node ./lib/server.js",
+    "debug": "npm run build && DEBUG:* node ./debug/singleWorker.js",
     "stop": "pkill -SIGINT contentajs",
     "test": "npm run build && NODE_ENV=test jest --coverage",
     "test-ci": "npm run build && NODE_ENV=test jest --coverage --ci --runInBand",
@@ -52,7 +53,6 @@
     "eslint-plugin-jest": "^21.15.1",
     "eslint-plugin-prettier": "^2.6.0",
     "flow-bin": "^0.71.0",
-    "flow-remove-types": "^1.2.3",
     "flow-typed": "^2.4.0",
     "husky": "^0.14.3",
     "jest": "^22.4.3",
@@ -68,6 +68,7 @@
     "coveralls": "^3.0.1",
     "express": "^4.16.3",
     "express-http-proxy": "^1.2.0",
+    "flow-remove-types": "^1.2.3",
     "generic-pool": "^3.4.2",
     "got": "^8.3.1",
     "http-errors": "^1.6.3",
