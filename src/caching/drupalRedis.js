@@ -1,23 +1,24 @@
 // @flow
 
 import type { CacheEntry } from '../../types/drupalRedis';
+import type { GenericPoolOptions } from '../../types/generic-pool';
 
 const _ = require('lodash');
 const config = require('config');
 
 // I am not convinced that Drupal's Redis integration supports clustering. So
 // until that happens we don't need to bother ourselves with clustering in here.
-const Redis = require('ioredis');
+const Cache = require('./Cache');
 
-let drupalRedis: ?Redis;
-const init = (prefix: string): Redis => {
+let drupalCache: ?Cache;
+const init = (prefix: string, poolOptions: GenericPoolOptions): Cache => {
   const redisOptions: { [string]: any } = config.util.toObject(
     config.get('redis.options')
   );
   redisOptions.keyPrefix = prefix;
   const redisHost: string = config.get('redis.host');
-  drupalRedis = new Redis(redisHost, redisOptions);
-  return drupalRedis;
+  drupalCache = new Cache(redisHost, redisOptions, poolOptions);
+  return drupalCache;
 };
 
 /**
@@ -43,8 +44,8 @@ const generateCid = (cid: string, bin: string, template: string): string =>
  *   The cache entry to check.
  * @param {string} template
  *   The cache ID template to replace.
- * @param {Redis} instance
- *   The Redis client.
+ * @param {Cache} instance
+ *   The Cache client.
  *
  * @return {Promise<boolean>}
  *   TRUE if it's valid. FALSE otherwise.
@@ -52,7 +53,7 @@ const generateCid = (cid: string, bin: string, template: string): string =>
 const isValidCacheEntry = (
   cached: CacheEntry,
   template: string,
-  instance: Redis
+  instance: Cache
 ): Promise<boolean> => {
   // Inspect the cache object to make sure it's valid.
   if (
@@ -68,7 +69,7 @@ const isValidCacheEntry = (
   const cacheIds = tags.map(tag => generateCid(tag, 'cachetags', template));
   return (
     instance
-      .mget(cacheIds)
+      .execute('mget', cacheIds)
       // Remove all the empty responses.
       .then(tagsData => tagsData.filter(i => i))
       // Calculate the checksum by adding the results.
@@ -83,14 +84,15 @@ const isValidCacheEntry = (
 
 module.exports = (
   prefix: string,
-  template: string
-): { redisGet: Function, redis: Redis } => {
-  const instance = !drupalRedis ? init(prefix) : drupalRedis;
+  template: string,
+  poolOptions: GenericPoolOptions
+): { redisGet: Function, redis: Cache } => {
+  const instance = !drupalCache ? init(prefix, poolOptions) : drupalCache;
   return {
     redisGet(cid: string) {
       const newCid = generateCid(cid, 'page', template);
-      return instance.hgetall(newCid).then((res: CacheEntry) => {
-        if (!Object.keys(res).length) {
+      return instance.execute('hgetall', newCid).then((res: CacheEntry) => {
+        if (!res || !Object.keys(res).length) {
           return Promise.resolve();
         }
         return !isValidCacheEntry(res, template, instance).then(isValid => {

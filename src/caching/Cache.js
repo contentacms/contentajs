@@ -93,7 +93,7 @@ class Cache {
    * @return {Promise<*>}
    *   The result of the command.
    */
-  execute(command: string, ...args: Array<*>) {
+  execute(command: string, ...args: Array<*>): Promise<any> {
     // 1. get a connection from the pool, 2. execute the command, 3. release
     // the connection from the pool.
     let connection: Redis;
@@ -106,7 +106,9 @@ class Cache {
         })
         // 2. Execute the command on the acquired connection.
         .then(() => {
-          const commandCb: Function = _.get(connection, command);
+          const commandCb: Function = _.get(connection, command).bind(
+            connection
+          );
           commandCb(...args);
         })
         // 3. Release the connection in the next tick and return the result

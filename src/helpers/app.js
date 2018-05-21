@@ -16,9 +16,10 @@ const cmsHost = config.get('cms.host');
 
 const cacheControl = require('./cacheControl');
 const errorHandler = require('./errorHandler');
-const { redisGet } = require('./drupalRedis')(
+const { redisGet } = require('../caching/drupalRedis')(
   _.get(process, 'env.redisPrefix', ''),
-  _.get(process, 'env.redisCidTemplate', '')
+  _.get(process, 'env.redisCidTemplate', ''),
+  config.get('redis.pool')
 );
 
 const app = express();
