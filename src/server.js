@@ -46,10 +46,11 @@ if (cluster.isMaster) {
   fetchCmsMeta().then((res: JsonRpcResponse) => {
     const jsonApiPrefix: string = _.get(res, '0.result.prefix');
     const redisCidTemplate: string = _.get(res, '1.result.cidTemplate');
+    const redisPrefix: string = _.get(res, '1.result.prefix');
     // Proxy for the JSON API server in Contenta CMS.
     let x;
     for (x = 0; x < procs; x += 1) {
-      spawnWebWorker({ jsonApiPrefix, redisCidTemplate });
+      spawnWebWorker({ jsonApiPrefix, redisCidTemplate, redisPrefix });
     }
 
     cluster.on('exit', (worker, code) => {

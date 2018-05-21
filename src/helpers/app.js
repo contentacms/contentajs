@@ -15,8 +15,11 @@ const url = require('url');
 const cmsHost = config.get('cms.host');
 
 const cacheControl = require('./cacheControl');
-const response = require('./response');
 const errorHandler = require('./errorHandler');
+const { redisGet } = require('./drupalRedis')(
+  _.get(process, 'env.redisPrefix', ''),
+  _.get(process, 'env.redisCidTemplate', '')
+);
 
 const app = express();
 
@@ -43,37 +46,60 @@ app.get('/healthcheck', (req, res) => {
   res.json({ meta: { healthcheck: 'good' } });
 });
 
-const jsonApiPrefix = `/${_.get(process, 'env.jsonApiPrefix')}`;
+// Set cache control header.
+app.use(cacheControl);
 
+const jsonApiPrefix = `/${_.get(process, 'env.jsonApiPrefix')}`;
 // Proxy for the JSON API server in Contenta CMS.
 app.use(jsonApiPrefix, bodyParser.json({ type: 'application/vnd.api+json' }));
 app.use(
   jsonApiPrefix,
-  proxy(cmsHost, {
-    proxyReqPathResolver(req) {
-      const thePath: string = _.get(url.parse(req.url), 'path', '');
-      return `${jsonApiPrefix}${thePath}`;
-    },
-    proxyReqBodyDecorator(bodyContent, srcReq) {
-      if (['GET', 'HEAD', 'OPTIONS', 'TRACE'].indexOf(srcReq.method) !== -1) {
-        return '';
-      }
-      if (typeof srcReq.headers['content-type'] === 'undefined') {
-        logger.warn(
-          'The request body was ignored because the Content-Type header is not present.'
-        );
-        return '';
-      }
-      return bodyContent;
-    },
-  })
+  // Try to load from cache, then fallback to the CMS.
+  (req, res, next) => {
+    const fallbackToCms = proxy(cmsHost, {
+      proxyReqPathResolver(rq) {
+        const thePath: string = _.get(url.parse(rq.url), 'path', '');
+        return `${jsonApiPrefix}${thePath}`;
+      },
+      proxyReqBodyDecorator(bodyContent, srcReq) {
+        if (['GET', 'HEAD', 'OPTIONS', 'TRACE'].indexOf(srcReq.method) !== -1) {
+          return '';
+        }
+        if (typeof srcReq.headers['content-type'] === 'undefined') {
+          logger.warn(
+            'The request body was ignored because the Content-Type header is not present.'
+          );
+          return '';
+        }
+        return bodyContent;
+      },
+      proxyErrorHandler: (err, eRes, eNext) =>
+        errorHandler(err, req, eRes, eNext),
+      userResHeaderDecorator(headers, userReq) {
+        // Make sure to overwrite the cache control headers set by the CMS.
+        const fakeRes = {
+          set(k, v) {
+            headers[k] = v;
+          },
+        };
+        cacheControl(userReq, fakeRes, () => {});
+        return headers;
+      },
+    });
+    redisGet(`${cmsHost}${req.originalUrl}:html`)
+      .then(cached => {
+        if (!cached) {
+          fallbackToCms(req, res, next);
+          return;
+        }
+        res.send(cached);
+      })
+      .catch(error => {
+        logger.error(error);
+        fallbackToCms(req, res, next);
+      });
+  }
 );
-
-// Set cache control header.
-app.use(cacheControl);
-
-// Send the response.
-app.use(response);
 
 // Fallback error handling. If there is any unhandled exception or error,
 // catch them here to allow the app to continue normally.
