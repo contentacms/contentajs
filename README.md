@@ -4,6 +4,10 @@
   Its template can be found at .emdaer/README.emdaer.md
 -->
 
+<!--
+  emdaerHash:fa7c1ad43f3fe1454371a09785dd0141
+-->
+
 <h1 id="contentajs-img-align-right-src-logo-svg-alt-contenta-logo-title-contenta-logo-width-100-">ContentaJS <img align="right" src="./logo.svg" alt="Contenta logo" title="Contenta logo" width="100"></h1>
 <p>ContentaJS is a project that integrates with Contenta CMS to provide
 an ultra high performing headless CMS. It also provides a nodejs application
