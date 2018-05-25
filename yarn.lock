@@ -220,66 +220,67 @@
   dependencies:
     find-up "^2.1.0"
 
-"@emdaer/cli@^2.4.0":
-  version "2.4.0"
-  resolved "https://registry.yarnpkg.com/@emdaer/cli/-/cli-2.4.0.tgz#3351f71e1128221a5fdd3eaad0be8c88685f8e9e"
+"@emdaer/cli@^3.2.2":
+  version "3.2.2"
+  resolved "https://registry.yarnpkg.com/@emdaer/cli/-/cli-3.2.2.tgz#ecce9939dc898b3881d617a30340fc54f9900a83"
   dependencies:
-    "@emdaer/core" "^2.4.0"
-    chalk "2.0.1"
+    "@emdaer/core" "^3.2.2"
+    bluebird "^3.5.1"
+    chalk "^2.4.1"
     commander "2.11.0"
     fs-extra "3.0.1"
     glob "^7.1.2"
-    rxjs "^5.5.5"
+    inquirer "^5.1.0"
 
-"@emdaer/core@^2.4.0":
-  version "2.4.0"
-  resolved "https://registry.yarnpkg.com/@emdaer/core/-/core-2.4.0.tgz#a4a10bbe0d4ad0aaa19668f3c114fa9712eee558"
+"@emdaer/core@^3.2.2":
+  version "3.2.2"
+  resolved "https://registry.yarnpkg.com/@emdaer/core/-/core-3.2.2.tgz#d229248abcac68793e666f57df6e77bd78f03c0f"
   dependencies:
     html-minifier "^3.5.14"
     js-yaml "3.8.4"
     marked "^0.3.19"
 
-"@emdaer/plugin-contributors-details-github@^2.4.0":
-  version "2.4.0"
-  resolved "https://registry.yarnpkg.com/@emdaer/plugin-contributors-details-github/-/plugin-contributors-details-github-2.4.0.tgz#ad7114767ce53383979b8330269de4eb8611e490"
+"@emdaer/plugin-contributors-details-github@^3.2.2":
+  version "3.2.2"
+  resolved "https://registry.yarnpkg.com/@emdaer/plugin-contributors-details-github/-/plugin-contributors-details-github-3.2.2.tgz#0f89fd38b9889c8f49666369faaf20e409dd5c51"
   dependencies:
     fs-extra "^4.0.2"
     glob "^7.1.2"
     node-fetch "^1.7.3"
 
-"@emdaer/plugin-import@^2.4.0":
-  version "2.4.0"
-  resolved "https://registry.yarnpkg.com/@emdaer/plugin-import/-/plugin-import-2.4.0.tgz#e1ed595c2a911e5b7d832a6e614bec99c2a0320b"
+"@emdaer/plugin-import@^3.2.2":
+  version "3.2.2"
+  resolved "https://registry.yarnpkg.com/@emdaer/plugin-import/-/plugin-import-3.2.2.tgz#10050581da75c6e282fa95936f14c0fc2c8e580c"
   dependencies:
-    "@emdaer/core" "^2.4.0"
+    "@emdaer/core" "^3.2.2"
     fs-extra "3.0.1"
     lodash.get "^4.4.2"
 
-"@emdaer/plugin-license-reference@^2.4.0":
-  version "2.4.0"
-  resolved "https://registry.yarnpkg.com/@emdaer/plugin-license-reference/-/plugin-license-reference-2.4.0.tgz#75642a20249f30916f158c9430ae43ce8c8ea166"
+"@emdaer/plugin-license-reference@^3.2.2":
+  version "3.2.2"
+  resolved "https://registry.yarnpkg.com/@emdaer/plugin-license-reference/-/plugin-license-reference-3.2.2.tgz#6587d368330fbd5aa1e547be2e93ec5fe74f9699"
   dependencies:
-    "@emdaer/plugin-value-from-package" "^2.4.0"
+    "@emdaer/plugin-value-from-package" "^3.2.2"
 
-"@emdaer/plugin-shields@^2.4.0":
-  version "2.4.0"
-  resolved "https://registry.yarnpkg.com/@emdaer/plugin-shields/-/plugin-shields-2.4.0.tgz#ad9661350e86fc4ef45bc757cc93308801e6c68f"
+"@emdaer/plugin-shields@^3.2.2":
+  version "3.2.2"
+  resolved "https://registry.yarnpkg.com/@emdaer/plugin-shields/-/plugin-shields-3.2.2.tgz#b367672a21693ae27ae9ca72cf6bc2406a972275"
 
-"@emdaer/plugin-value-from-package@^2.4.0":
-  version "2.4.0"
-  resolved "https://registry.yarnpkg.com/@emdaer/plugin-value-from-package/-/plugin-value-from-package-2.4.0.tgz#b4cd558ce4a1562048cd8508904ce9a2b75aba5a"
+"@emdaer/plugin-value-from-package@^3.2.2":
+  version "3.2.2"
+  resolved "https://registry.yarnpkg.com/@emdaer/plugin-value-from-package/-/plugin-value-from-package-3.2.2.tgz#6a17996fbff4fb8a6c0e2037af63342f48f7b59e"
   dependencies:
     fs-extra "3.0.1"
 
-"@emdaer/transform-prettier@^2.4.0":
-  version "2.4.0"
-  resolved "https://registry.yarnpkg.com/@emdaer/transform-prettier/-/transform-prettier-2.4.0.tgz#ececa4ce5ae6148e9c9c8aa99f7d5ca472378209"
+"@emdaer/transform-prettier@^3.2.2":
+  version "3.2.2"
+  resolved "https://registry.yarnpkg.com/@emdaer/transform-prettier/-/transform-prettier-3.2.2.tgz#cd99c669908e75ac98b958a5fc2b4035e4231a01"
   dependencies:
     prettier "^1.12.0"
 
-"@emdaer/transform-table-of-contents@^2.4.0":
-  version "2.4.0"
-  resolved "https://registry.yarnpkg.com/@emdaer/transform-table-of-contents/-/transform-table-of-contents-2.4.0.tgz#e86dc97cc11baa456eabcf03f8f5a445ffdf54d5"
+"@emdaer/transform-table-of-contents@^3.2.2":
+  version "3.2.2"
+  resolved "https://registry.yarnpkg.com/@emdaer/transform-table-of-contents/-/transform-table-of-contents-3.2.2.tgz#5df521ab171134cd76b00fa0ee29c6dcbb11bb8d"
   dependencies:
     markdown-toc "^1.2.0"
 
@@ -491,7 +492,7 @@ ansi-styles@^2.2.1:
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/ansi-styles/-/ansi-styles-2.2.1.tgz#b432dd3358b634cf75e1e4664368240533c1ddbe"
 
-ansi-styles@^3.1.0, ansi-styles@^3.2.0, ansi-styles@^3.2.1:
+ansi-styles@^3.2.0, ansi-styles@^3.2.1:
   version "3.2.1"
   resolved "https://registry.yarnpkg.com/ansi-styles/-/ansi-styles-3.2.1.tgz#41fbb20243e50b12be0f04b8dedbf07520ce841d"
   dependencies:
@@ -857,7 +858,7 @@ binary@~0.3.0:
     buffers "~0.1.1"
     chainsaw "~0.1.0"
 
-bluebird@^3.3.4:
+bluebird@^3.3.4, bluebird@^3.5.1:
   version "3.5.1"
   resolved "https://registry.yarnpkg.com/bluebird/-/bluebird-3.5.1.tgz#d9551f9de98f1fcda1e683d17ee91a0602ee2eb9"
 
@@ -1059,14 +1060,6 @@ chainsaw@~0.1.0:
   dependencies:
     traverse ">=0.3.0 <0.4"
 
-chalk@2.0.1:
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/chalk/-/chalk-2.0.1.tgz#dbec49436d2ae15f536114e76d14656cdbc0f44d"
-  dependencies:
-    ansi-styles "^3.1.0"
-    escape-string-regexp "^1.0.5"
-    supports-color "^4.0.0"
-
 chalk@2.3.1:
   version "2.3.1"
   resolved "https://registry.yarnpkg.com/chalk/-/chalk-2.3.1.tgz#523fe2678aec7b04e8041909292fe8b17059b796"
@@ -1085,7 +1078,7 @@ chalk@^1.1.3:
     strip-ansi "^3.0.0"
     supports-color "^2.0.0"
 
-chalk@^2.0.0, chalk@^2.0.1, chalk@^2.1.0, chalk@^2.3.0, chalk@^2.3.2:
+chalk@^2.0.0, chalk@^2.0.1, chalk@^2.1.0, chalk@^2.3.0, chalk@^2.3.2, chalk@^2.4.1:
   version "2.4.1"
   resolved "https://registry.yarnpkg.com/chalk/-/chalk-2.4.1.tgz#18c49ab16a037b6eb0152cc83e3471338215b66e"
   dependencies:
@@ -1985,7 +1978,7 @@ extend@~3.0.1:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/extend/-/extend-3.0.1.tgz#a755ea7bc1adfcc5a31ce7e762dbaadc5e636444"
 
-external-editor@^2.0.4:
+external-editor@^2.0.4, external-editor@^2.1.0:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/external-editor/-/external-editor-2.2.0.tgz#045511cfd8d133f3846673d1047c154e214ad3d5"
   dependencies:
@@ -2509,10 +2502,6 @@ has-flag@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/has-flag/-/has-flag-1.0.0.tgz#9d9e793165ce017a00f00418c43f942a7b1d11fa"
 
-has-flag@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/has-flag/-/has-flag-2.0.0.tgz#e8207af1cc7b30d446cc70b734b5e8be18f88d51"
-
 has-flag@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/has-flag/-/has-flag-3.0.0.tgz#b5d454dc2199ae225699f3467e5a07f3b955bafd"
@@ -2733,6 +2722,24 @@ inquirer@^3.0.6:
     run-async "^2.2.0"
     rx-lite "^4.0.8"
     rx-lite-aggregates "^4.0.8"
+    string-width "^2.1.0"
+    strip-ansi "^4.0.0"
+    through "^2.3.6"
+
+inquirer@^5.1.0:
+  version "5.2.0"
+  resolved "https://registry.yarnpkg.com/inquirer/-/inquirer-5.2.0.tgz#db350c2b73daca77ff1243962e9f22f099685726"
+  dependencies:
+    ansi-escapes "^3.0.0"
+    chalk "^2.0.0"
+    cli-cursor "^2.1.0"
+    cli-width "^2.0.0"
+    external-editor "^2.1.0"
+    figures "^2.0.0"
+    lodash "^4.3.0"
+    mute-stream "0.0.7"
+    run-async "^2.2.0"
+    rxjs "^5.5.2"
     string-width "^2.1.0"
     strip-ansi "^4.0.0"
     through "^2.3.6"
@@ -5009,9 +5016,9 @@ rx-lite@*, rx-lite@^4.0.8:
   version "4.0.8"
   resolved "https://registry.yarnpkg.com/rx-lite/-/rx-lite-4.0.8.tgz#0b1e11af8bc44836f04a6407e92da42467b79444"
 
-rxjs@^5.5.5:
-  version "5.5.10"
-  resolved "https://registry.yarnpkg.com/rxjs/-/rxjs-5.5.10.tgz#fde02d7a614f6c8683d0d1957827f492e09db045"
+rxjs@^5.5.2:
+  version "5.5.11"
+  resolved "https://registry.yarnpkg.com/rxjs/-/rxjs-5.5.11.tgz#f733027ca43e3bec6b994473be4ab98ad43ced87"
   dependencies:
     symbol-observable "1.0.1"
 
@@ -5452,12 +5459,6 @@ supports-color@^3.1.2:
   resolved "https://registry.yarnpkg.com/supports-color/-/supports-color-3.2.3.tgz#65ac0504b3954171d8a64946b2ae3cbb8a5f54f6"
   dependencies:
     has-flag "^1.0.0"
-
-supports-color@^4.0.0:
-  version "4.5.0"
-  resolved "https://registry.yarnpkg.com/supports-color/-/supports-color-4.5.0.tgz#be7a0de484dec5c5cddf8b3d59125044912f635b"
-  dependencies:
-    has-flag "^2.0.0"
 
 supports-color@^5.2.0, supports-color@^5.3.0:
   version "5.4.0"
