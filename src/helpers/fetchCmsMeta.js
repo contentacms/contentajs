@@ -8,6 +8,12 @@ const cmsHost = config.get('cms.host');
 
 const jsonrpc = require('./jsonrpc')(cmsHost);
 
+/**
+ * Connects to the CMS to get some important bootstrap information.
+ *
+ * @return {Promise<JsonRpcResponse>}
+ *   The data from the CMS used to initialize the node proxy.
+ */
 module.exports = (): Promise<JsonRpcResponse> =>
   jsonrpc.init().then(requestor =>
     requestor.execute([

@@ -283,6 +283,13 @@
   dependencies:
     markdown-toc "^1.2.0"
 
+"@keyv/redis@^1.3.8":
+  version "1.3.8"
+  resolved "https://registry.yarnpkg.com/@keyv/redis/-/redis-1.3.8.tgz#049abc6f86466291db7388071749afe7b75bf7df"
+  dependencies:
+    pify "3.0.0"
+    redis "2.8.0"
+
 "@marionebl/sander@^0.6.0":
   version "0.6.1"
   resolved "https://registry.yarnpkg.com/@marionebl/sander/-/sander-0.6.1.tgz#1958965874f24bc51be48875feb50d642fc41f7b"
@@ -3690,13 +3697,6 @@ jsprim@^1.2.2:
     extsprintf "1.3.0"
     json-schema "0.2.3"
     verror "1.10.0"
-
-keyv-redis@^1.3.4:
-  version "1.3.4"
-  resolved "https://registry.yarnpkg.com/keyv-redis/-/keyv-redis-1.3.4.tgz#bb491590b738510fd7908eb6b3c9245c22826ee6"
-  dependencies:
-    pify "3.0.0"
-    redis "2.8.0"
 
 keyv@3.0.0, keyv@^3.0.0:
   version "3.0.0"

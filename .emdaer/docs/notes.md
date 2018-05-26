@@ -12,8 +12,6 @@ just meant to save ideas for documentation to process some other time._
 - Add subrequests.
 - If all subrequests are to the CMS forward the blueprint to Drupal's subrequests.
 - Make Flow types nicer in the middlewares.
-- Read jsonApiPrefix from the Contenta CMS server.
-- Fix the link in the responses from Contenta CSM.
-- Use the JSON RPC client to connect to the CMS to fetch the API prefix.
+- Fix the link in the responses from Contenta CMS.
 - Validate the request bodies before reaching the CMS using the resource schemas.
 - Filter requests that the CMS should not be bothered with using the resource lists.
