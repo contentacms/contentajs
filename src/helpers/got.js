@@ -1,7 +1,7 @@
-// @flow
+/* @flow */
 
-import type { ObjectLiteral } from '../../types/common';
-import type { GotResponse } from '../../types/got';
+import type { ObjectLiteral } from '../../flow/types/common';
+import type { GotResponse } from '../../flow/types/got';
 
 const config = require('config');
 const got = require('got');

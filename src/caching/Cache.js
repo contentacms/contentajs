@@ -1,7 +1,7 @@
 // @flow
 
 import type { Pool } from 'generic-pool';
-import type { GenericPoolOptions } from '../../types/generic-pool';
+import type { GenericPoolOptions } from '../../flow/types/generic-pool';
 
 const _ = require('lodash');
 const Redis = require('ioredis');

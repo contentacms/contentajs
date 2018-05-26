@@ -1,7 +1,7 @@
 // @flow
 
-import type { CacheEntry } from '../../types/drupalRedis';
-import type { GenericPoolOptions } from '../../types/generic-pool';
+import type { CacheEntry } from '../../flow/types/drupalRedis';
+import type { GenericPoolOptions } from '../../flow/types/generic-pool';
 
 const _ = require('lodash');
 const config = require('config');

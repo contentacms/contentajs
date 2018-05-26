@@ -1,6 +1,6 @@
 // @flow
 
-import type { JsonRpcResponse } from '../../types/jsonrpc';
+import type { JsonRpcResponse } from '../../flow/types/jsonrpc';
 
 const config = require('config');
 

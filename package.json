@@ -18,22 +18,27 @@
     "start": "npm run build && node ./lib/server.js",
     "debug": "npm run build && DEBUG:* node ./debug/singleWorker.js",
     "stop": "pkill -SIGINT contentajs",
-    "test": "npm run build && NODE_ENV=test jest --coverage",
-    "test-ci": "npm run build && NODE_ENV=test jest --coverage --ci --runInBand",
+    "test": "NODE_ENV=test jest --coverage",
+    "test-ci": "NODE_ENV=test jest --coverage --ci --runInBand",
     "debug-test": "npm run build && NODE_ENV=test node --inspect-brk ./node_modules/.bin/jest --runInBand",
     "commitmsg": "commitlint -e $GIT_PARAMS",
-    "precommit": "lint-staged && npm run build && npm run flow && npm run emdaer",
+    "precommit": "lint-staged && npm run flow",
     "emdaer": "emdaer && git add *.md",
-    "prepush": "npm test",
-    "postinstall": "npm run build",
-    "flow": "flow",
-    "build": "rimraf lib && flow-remove-types --all src/ --out-dir lib/",
+    "prepush": "npm run lint && npm run flow && npm test",
+    "prepublish": "npm run build",
+    "flow": "flow status",
+    "build": "./node_modules/.bin/babel src -d lib --delete-dir-on-start",
     "prettier": "prettier --write './**/*.js' && eslint './**/*.js' --fix",
     "lint": "eslint .",
     "lint-json": "eslint --format=json . > ./__coverage__/eslint.json",
     "semantic-release": "semantic-release"
   },
   "devDependencies": {
+    "@babel/cli": "^7.0.0-beta.47",
+    "@babel/core": "^7.0.0-beta.47",
+    "@babel/node": "^7.0.0-beta.47",
+    "@babel/preset-env": "^7.0.0-beta.47",
+    "@babel/preset-flow": "^7.0.0-beta.47",
     "@commitlint/cli": "^6.2.0",
     "@commitlint/config-angular": "^6.1.3",
     "@emdaer/cli": "^2.4.0",
@@ -44,16 +49,18 @@
     "@emdaer/plugin-value-from-package": "^2.4.0",
     "@emdaer/transform-prettier": "^2.4.0",
     "@emdaer/transform-table-of-contents": "^2.4.0",
+    "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^8.2.3",
+    "babel-jest": "^22.4.4",
     "eslint": "^4.19.1",
-    "eslint-config-airbnb-base": "^12.1.0",
     "eslint-config-prettier": "^2.9.0",
-    "eslint-plugin-flowtype": "^2.46.3",
-    "eslint-plugin-import": "^2.11.0",
-    "eslint-plugin-jest": "^21.15.1",
+    "eslint-config-problems": "^0.1.1",
+    "eslint-plugin-babel": "^5.1.0",
+    "eslint-plugin-better": "^0.1.5",
+    "eslint-plugin-flowtype": "^2.47.1",
+    "eslint-plugin-jest": "^21.15.2",
     "eslint-plugin-prettier": "^2.6.0",
     "flow-bin": "^0.71.0",
-    "flow-typed": "^2.4.0",
     "husky": "^0.14.3",
     "jest": "^22.4.3",
     "lint-staged": "^7.1.0",
@@ -69,7 +76,6 @@
     "coveralls": "^3.0.1",
     "express": "^4.16.3",
     "express-http-proxy": "^1.2.0",
-    "flow-remove-types": "^1.2.3",
     "generic-pool": "^3.4.2",
     "got": "^8.3.1",
     "http-errors": "^1.6.3",
@@ -78,34 +84,7 @@
     "keyv": "^3.0.0",
     "lodash": "^4.17.10",
     "pino": "^4.16.1",
-    "redis-commands": "^1.3.5",
-    "rimraf": "^2.6.2"
-  },
-  "commitlint": {
-    "extends": [
-      "@commitlint/config-angular"
-    ]
-  },
-  "jest": {
-    "coverageDirectory": "__coverage__",
-    "coverageThreshold": {
-      "global": {
-        "branches": 0,
-        "functions": 0,
-        "lines": 0,
-        "statements": 0
-      }
-    },
-    "collectCoverageFrom": [
-      "<rootDir>/lib/**/*.js"
-    ],
-    "testEnvironment": "node",
-    "testMatch": [
-      "<rootDir>/__tests__/**/*.js"
-    ],
-    "testPathIgnorePatterns": [
-      "<rootDir>/__tests__/mocks"
-    ]
+    "redis-commands": "^1.3.5"
   },
   "publishConfig": {
     "access": "public"

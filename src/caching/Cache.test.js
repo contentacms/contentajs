@@ -1,6 +1,6 @@
 jest.mock('ioredis');
 const ioredis = require('ioredis');
-const Cache = require('../../lib/caching/Cache');
+const Cache = require('./Cache');
 
 describe('The cache layer', () => {
   let cache;

@@ -2,8 +2,7 @@ jest.mock('got');
 const got = require('got');
 
 got.mockImplementation((url, options) => {
-  const resFromObj = obj =>
-    Promise.resolve({ body: Buffer.from(JSON.stringify(obj)) });
+  const resFromObj = obj => Promise.resolve({ body: obj });
   switch (url) {
     case 'foo/jsonrpc/methods':
       return resFromObj({ data: [{ id: 'lorem' }, { id: 'broken' }] });
@@ -21,7 +20,7 @@ got.mockImplementation((url, options) => {
   }
 });
 
-const jsonrpc = require('../../lib/helpers/jsonrpc')('foo');
+const jsonrpc = require('./jsonrpc')('foo');
 
 describe('The JSON RPC 2.0 requestor', () => {
   it('should initialize correctly', () => {

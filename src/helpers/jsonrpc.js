@@ -1,6 +1,6 @@
 // @flow
 
-import type { JsonRpcRequest, JsonRpcResponse } from '../../types/jsonrpc';
+import type { JsonRpcRequest, JsonRpcResponse } from '../../flow/types/jsonrpc';
 
 const _ = require('lodash');
 const got = require('./got');

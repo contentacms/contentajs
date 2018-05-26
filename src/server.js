@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // @flow
 
-import type { JsonRpcResponse } from '../types/jsonrpc';
+import type { JsonRpcResponse } from '../flow/types/jsonrpc';
 
 const _ = require('lodash');
 const config = require('config');
