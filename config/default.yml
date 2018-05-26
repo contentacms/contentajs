@@ -32,7 +32,8 @@ redis:
   options:
     scaleReads: 'slave'
   # Configuration about the connection pool using generic-pool. The options are
-  # passed verbatim to the pool.
+  # passed verbatim to the pool. These defaults are very generic, you should
+  # take the time to tune it for your traffic.
   pool:
     # Limit the connection pool to the specified number of sockets.
     max: 30

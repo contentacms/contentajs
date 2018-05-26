@@ -40,6 +40,9 @@ const generateCid = (cid: string, bin: string, template: string): string =>
 /**
  * Checks if the existing cache entry is still valid to use.
  *
+ * Uses the valid flag, the expire field and requests the cache tags to make
+ * sure they haven't been expired.
+ *
  * @param {CacheEntry} cached
  *   The cache entry to check.
  * @param {string} template
@@ -90,17 +93,23 @@ module.exports = (
   const instance = !drupalCache ? init(prefix, poolOptions) : drupalCache;
   return {
     redisGet(cid: string) {
+      // Generate the cache ID based on the metadata extracted from the CMS.
       const newCid = generateCid(cid, 'page', template);
+      // The cache entry contains meta information and data. All is stored
+      // together in a Redis hash.
       return instance.execute('hgetall', newCid).then((res: CacheEntry) => {
         if (!res || !Object.keys(res).length) {
           return Promise.resolve();
         }
+        // Uses all the cache entry metadata (valid flag, expiration, and cache
+        // tags to decide if the cache entry can be used or not.
         return !isValidCacheEntry(res, template, instance).then(isValid => {
           if (!isValid) {
             return Promise.resolve();
           }
           // Cache entries coming from Drupal are PHP-serialized responses. This
-          // regular expression will extract the response data from there.
+          // regular expression will extract the response data from there. This
+          // is sad, but there is nothing we can do.
           const content = _.get(res, 'data', '').replace(
             /(.*"\0\*\0content";s:\d+:")([^\0]+)([^\\])";.*/,
             '$2$3'
