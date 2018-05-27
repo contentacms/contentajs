@@ -1,4 +1,4 @@
-/* @flow */
+// @flow
 
 import type { ObjectLiteral } from '../../flow/types/common';
 import type { GotResponse } from '../../flow/types/got';
@@ -7,13 +7,12 @@ const config = require('config');
 const got = require('got');
 const Keyv = require('keyv');
 const logger = require('pino')();
+const pkg = require('../../package.json');
 
 const keyv = new Keyv(config.get('redis.host'));
 keyv.on('error', error => {
   logger.error(error);
 });
-
-const pkg = require('../../package.json');
 
 const defaults = {
   headers: {

@@ -23,7 +23,7 @@
     "debug-test": "npm run build && NODE_ENV=test node --inspect-brk ./node_modules/.bin/jest --runInBand",
     "commitmsg": "commitlint -e $GIT_PARAMS",
     "precommit": "lint-staged && npm run flow",
-    "emdaer": "emdaer && git add *.md",
+    "emdaer": "emdaer --yes && git add *.md",
     "prepush": "npm run lint && npm run flow && npm test",
     "prepublish": "npm run build",
     "flow": "flow status",

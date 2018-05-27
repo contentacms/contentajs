@@ -1,11 +1,13 @@
-jest.mock('got');
-const got = require('got');
-
 const ourGot = require('./got');
 
+jest.mock('got');
+jest.mock('keyv');
+
 describe('Our got helper', () => {
-  it('can provide defaults to got', () => {
+  test('can provide defaults to got', () => {
     expect.assertions(6);
+
+    const got = require('got');
     const url = 'foo';
     ourGot(url);
     expect(got).toHaveBeenCalled();
