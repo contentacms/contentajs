@@ -74,7 +74,7 @@ const isValidCacheEntry = (
     instance
       .execute('mget', cacheIds)
       // Remove all the empty responses.
-      .then(tagsData => tagsData.filter(i => i))
+      .then(tagsData => tagsData.filter(i => typeof i !== 'undefined'))
       // Calculate the checksum by adding the results.
       .then(tagsData =>
         tagsData.reduce((carry, item) => carry + parseInt(item, 10), 0)
@@ -103,7 +103,7 @@ module.exports = (
         }
         // Uses all the cache entry metadata (valid flag, expiration, and cache
         // tags to decide if the cache entry can be used or not.
-        return !isValidCacheEntry(res, template, instance).then(isValid => {
+        return isValidCacheEntry(res, template, instance).then(isValid => {
           if (!isValid) {
             return Promise.resolve();
           }
