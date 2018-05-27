@@ -23,6 +23,7 @@ const { redisGet } = require('../caching/drupalRedis')(
 );
 
 const app = express();
+app.disable('x-powered-by');
 
 // Enable etags.
 app.enable('etag');
