@@ -22,3 +22,5 @@ Adios.child.init(
     }),
   config.get('app.adiosSocket')
 );
+
+module.exports = server;
