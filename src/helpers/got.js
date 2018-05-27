@@ -10,9 +10,7 @@ const logger = require('pino')();
 const pkg = require('../../package.json');
 
 const keyv = new Keyv(config.get('redis.host'));
-keyv.on('error', error => {
-  logger.error(error);
-});
+keyv.on('error', logger.error.bind(logger));
 
 const defaults = {
   headers: {
