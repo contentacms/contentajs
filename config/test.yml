@@ -1,2 +1,6 @@
 app:
   port: 65535
+
+cache:
+  max-age:
+    bar: 1500
