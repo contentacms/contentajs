@@ -4,6 +4,7 @@ const healthcheck = require('./healthcheck');
 
 describe('The healthcheck route', () => {
   test('It responds', () => {
+    expect.assertions(2);
     const res = {
       set: jest.fn(),
       json: jest.fn(),
