@@ -41,13 +41,14 @@ server’s CPU.</li>
 <li>A <a href="http://redis.io">Redis</a> integration. This comes with a connection pool to
 eliminate latency obtaining connections with the server.</li>
 <li>Type safe development environment using <a href="http://flow.org">Flow</a>.</li>
+<li>Configurable CORS.</li>
 </ul>
 <h2 id="installation">Installation</h2>
 <p>In order to install ContentaJS you will need to meet the following requirements:</p>
 <ul>
 <li><code>nodejs</code> ^8.11.1 or higher.</li>
 <li>A working installation of <a href="https://github.com/contentacms/contenta_jsonapi">Contenta CMS</a>.<ul>
-<li>You should enable the <em>Contenta Redis</em> optional modulel.</li>
+<li>You should enable the <em>Contenta Redis</em> optional module.</li>
 <li>You should configure the connection from Drupal to Redis according to the instructions <a href="https://cgit.drupalcode.org/redis/tree/README.Predis.txt">here</a>.</li>
 </ul>
 </li>
@@ -58,8 +59,8 @@ eliminate latency obtaining connections with the server.</li>
 <h3 id="aws-installation">AWS Installation</h3>
 <p><em>Fill in the instructions on how to install in AWS with ElastiCache using CloudFormation or a custom AMI</em></p>
 <h3 id="install-using-docker">Install Using Docker</h3>
-<p><em>Fill in the instructions on how to install using Docker. Ideally this installs
-Contenta CMS (Drupal), ContentaJS, and the Redis server.</em></p>
+<p><em>Fill in the instructions on how to install using Docker.</em></p>
+<p><em>Ideally this installs Contenta CMS (Drupal), ContentaJS, and the Redis server.</em></p>
 <h4 id="internal-development-notes">Internal Development Notes</h4>
 <p><em>This is a dumping ground of notes. This section will disappear eventually, it’s
 just meant to save ideas for documentation to process some other time.</em></p>
