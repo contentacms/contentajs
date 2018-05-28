@@ -1,5 +1,3 @@
-// @flow
-
 const copyToRequestObject = require('./copyToRequestObject');
 
 describe('The set up process', () => {
