@@ -17,3 +17,4 @@ just meant to save ideas for documentation to process some other time._
 - Filter requests that the CMS should not be bothered with using the resource lists.
 - Make sure to mention that the _Contenta Redis_ module needs to be enabled.
 - Make sure to mention that the /healthckeck is for auto-scaling policies.
+- Create @contentacms/… submodules for logging interfaces like Splunk.
