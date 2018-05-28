@@ -22,8 +22,8 @@ jest.mock('pino', () => {
 
 const pino = require('pino');
 describe('The proxy middleware', () => {
-  afterEach(() => {
-    jest.resetAllMocks();
+  afterAll(() => {
+    jest.restoreAllMocks();
   });
 
   test('It can respond from cache', done => {

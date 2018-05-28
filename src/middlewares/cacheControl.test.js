@@ -57,7 +57,7 @@ describe('The cache control middleware', () => {
 
   test("It won't set any headers: POST", () => {
     expect.assertions(2);
-    req.method = 'POSY';
+    req.method = 'POST';
     req.url = '/api/lorem';
     const next = jest.fn();
     cacheControl(req, res, next);

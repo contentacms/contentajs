@@ -1,5 +1,3 @@
-// @flow
-
 const healthcheck = require('./healthcheck');
 
 describe('The healthcheck route', () => {

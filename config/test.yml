@@ -1,6 +1,12 @@
 app:
   port: 65535
+  processes: 2
 
 cache:
   max-age:
     bar: 1500
+
+cors:
+  headers:
+    - 'Lorem'
+    - 'Foo'

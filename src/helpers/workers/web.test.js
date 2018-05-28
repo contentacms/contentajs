@@ -5,13 +5,13 @@ jest.mock('pino', () => {
   return output;
 });
 
-const Adios = require('adios');
 const pino = require('pino');
 
 describe('The web worker', () => {
   test('Initializes with the adios socket', () => {
     expect.assertions(4);
     let shutdown;
+    const Adios = require('adios');
     jest.spyOn(Adios.child, 'init').mockImplementation(cb => {
       shutdown = cb;
     });

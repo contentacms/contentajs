@@ -11,6 +11,7 @@ module.exports = {
   collectCoverageFrom: [
     '<rootDir>/src/**',
     '!<rootDir>/src/**/__snapshots__/**',
+    '!<rootDir>/src/server.js',
   ],
   testEnvironment: 'node',
   testPathIgnorePatterns: ['<rootDir>/lib'],
