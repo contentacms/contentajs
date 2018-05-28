@@ -41,7 +41,7 @@ server’s CPU.</li>
 <li>A <a href="http://redis.io">Redis</a> integration. This comes with a connection pool to
 eliminate latency obtaining connections with the server.</li>
 <li>Type safe development environment using <a href="http://flow.org">Flow</a>.</li>
-<li>Configurable CORS.</li>
+<li><a href="https://github.com/contentacms/contentajs/blob/master/config/default.yml#L66-L85">Configurable CORS</a>.</li>
 </ul>
 <h2 id="installation">Installation</h2>
 <p>In order to install ContentaJS you will need to meet the following requirements:</p>

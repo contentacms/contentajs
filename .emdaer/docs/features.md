@@ -12,4 +12,4 @@ The main features of this project cover:
   - A [Redis](http://redis.io) integration. This comes with a connection pool to
     eliminate latency obtaining connections with the server.
   - Type safe development environment using [Flow](http://flow.org).
-  - Configurable CORS.
+  - [Configurable CORS](https://github.com/contentacms/contentajs/blob/master/config/default.yml#L66-L85).
