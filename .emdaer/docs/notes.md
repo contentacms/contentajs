@@ -1,4 +1,4 @@
-#### Notes
+#### Internal Development Notes
 _This is a dumping ground of notes. This section will disappear eventually, it's
 just meant to save ideas for documentation to process some other time._
 
@@ -15,6 +15,5 @@ just meant to save ideas for documentation to process some other time._
 - Fix the link in the responses from Contenta CMS.
 - Validate the request bodies before reaching the CMS using the resource schemas.
 - Filter requests that the CMS should not be bothered with using the resource lists.
-- Make sure to mention that the _Contenta Redis_ module needs to be enabled.
 - Make sure to mention that the /healthckeck is for auto-scaling policies.
 - Create @contentacms/… submodules for logging interfaces like Splunk.

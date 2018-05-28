@@ -4,10 +4,6 @@
   Its template can be found at .emdaer/README.emdaer.md
 -->
 
-<!--
-  emdaerHash:fa7c1ad43f3fe1454371a09785dd0141
--->
-
 <h1 id="contentajs-img-align-right-src-logo-svg-alt-contenta-logo-title-contenta-logo-width-100-">ContentaJS <img align="right" src="./logo.svg" alt="Contenta logo" title="Contenta logo" width="100"></h1>
 <p>ContentaJS is a project that integrates with Contenta CMS to provide
 an ultra high performing headless CMS. It also provides a nodejs application
@@ -23,7 +19,7 @@ upgrade paths or backwards compatibility. The model for this is <em>Fork &amp; G
 <li><a href="#local-installation">Local Installation</a></li>
 <li><a href="#aws-installation">AWS Installation</a></li>
 <li><a href="#install-using-docker">Install Using Docker</a><ul>
-<li><a href="#notes">Notes</a></li>
+<li><a href="#internal-development-notes">Internal Development Notes</a></li>
 </ul>
 </li>
 </ul>
@@ -50,7 +46,11 @@ eliminate latency obtaining connections with the server.</li>
 <p>In order to install ContentaJS you will need to meet the following requirements:</p>
 <ul>
 <li><code>nodejs</code> ^8.11.1 or higher.</li>
-<li>A working installation of <a href="https://github.com/contentacms/contenta_jsonapi">Contenta CMS</a>.</li>
+<li>A working installation of <a href="https://github.com/contentacms/contenta_jsonapi">Contenta CMS</a>.<ul>
+<li>You should enable the <em>Contenta Redis</em> optional modulel.</li>
+<li>You should configure the connection from Drupal to Redis according to the instructions <a href="https://cgit.drupalcode.org/redis/tree/README.Predis.txt">here</a>.</li>
+</ul>
+</li>
 <li>A Redis server.</li>
 </ul>
 <h3 id="local-installation">Local Installation</h3>
@@ -60,7 +60,7 @@ eliminate latency obtaining connections with the server.</li>
 <h3 id="install-using-docker">Install Using Docker</h3>
 <p><em>Fill in the instructions on how to install using Docker. Ideally this installs
 Contenta CMS (Drupal), ContentaJS, and the Redis server.</em></p>
-<h4 id="notes">Notes</h4>
+<h4 id="internal-development-notes">Internal Development Notes</h4>
 <p><em>This is a dumping ground of notes. This section will disappear eventually, it’s
 just meant to save ideas for documentation to process some other time.</em></p>
 <ul>
@@ -77,6 +77,8 @@ proxy to other microservices, add server side rendering, etc.</li>
 <li>Fix the link in the responses from Contenta CMS.</li>
 <li>Validate the request bodies before reaching the CMS using the resource schemas.</li>
 <li>Filter requests that the CMS should not be bothered with using the resource lists.</li>
+<li>Make sure to mention that the /healthckeck is for auto-scaling policies.</li>
+<li>Create @contentacms/… submodules for logging interfaces like Splunk.</li>
 </ul>
 <h2 id="contributors">Contributors</h2>
 <details>
