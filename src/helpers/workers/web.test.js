@@ -5,20 +5,31 @@ jest.mock('pino', () => {
   return output;
 });
 
+const app = require('../app');
+const Adios = require('adios');
 const pino = require('pino');
 
 describe('The web worker', () => {
+  afterAll(() => {
+    jest.restoreAllMocks();
+  });
+
   test('Initializes with the adios socket', () => {
     expect.assertions(4);
     let shutdown;
-    const Adios = require('adios');
     jest.spyOn(Adios.child, 'init').mockImplementation(cb => {
       shutdown = cb;
     });
+    const fakeServer = {
+      close: jest.fn().mockImplementation(cb => {
+        cb();
+      }),
+    };
+    jest.spyOn(app, 'listen').mockImplementation(() => fakeServer);
     const server = require('./web');
-    expect(server.listening).toBe(true);
+    expect(app.listen).toHaveBeenCalled();
     return shutdown().then(() => {
-      expect(server.listening).toBe(false);
+      expect(server.close).toHaveBeenCalled();
       expect(pino.info.mock.calls[0][0]).toBe(
         'Shutting down server for web worker %s.'
       );
