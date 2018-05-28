@@ -9,11 +9,12 @@ const bodyParser = require('body-parser');
 const config = require('config');
 const express = require('express');
 
-const cmsHost = config.get('cms.host');
-
-const cacheControl = require('./cacheControl');
-const errorHandler = require('./errorHandler');
-const proxyHandler = require('./proxyHandler');
+const cacheControl = require('../middlewares/cacheControl');
+const copyToRequestObject = require('../middlewares/copyToRequestObject');
+const customCors = require('../middlewares/customCors');
+const errorHandler = require('../middlewares/errorHandler');
+const healthcheck = require('../routes/healthcheck');
+const proxyHandler = require('../routes/proxyHandler');
 
 const app = express();
 app.disable('x-powered-by');
@@ -22,28 +23,16 @@ app.disable('x-powered-by');
 app.enable('etag');
 app.set('etag', 'strong');
 const jsonApiPrefix = `/${_.get(process, 'env.jsonApiPrefix')}`;
+const cmsHost = config.get('cms.host');
+
+// Initialize the request object with valuable information.
+app.use(copyToRequestObject({ jsonApiPrefix, cmsHost }));
 
 // Add headers.
-app.use((req, res, next) => {
-  // Enable CORS.
-  res.set('Access-Control-Allow-Origin', '*');
-  res.set(
-    'Access-Control-Allow-Headers',
-    config.get('cors.headers').join(', ')
-  );
-
-  // Set the cmsHost and jsonApiPrefix in the request.
-  req.cmsHost = cmsHost;
-  req.jsonApiPrefix = jsonApiPrefix;
-
-  next();
-});
+app.use(customCors);
 
 // Healthcheck is a special endpoint used for application monitoring.
-app.get('/healthcheck', (req, res) => {
-  res.set('Cache-Control', 'private, max-age=0, no-cache');
-  res.json({ meta: { healthcheck: 'good' } });
-});
+app.get('/healthcheck', healthcheck);
 
 // Set cache control header.
 app.use(cacheControl);

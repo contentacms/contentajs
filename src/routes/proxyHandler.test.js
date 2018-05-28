@@ -1,6 +1,6 @@
 const proxyHandler = require('./proxyHandler');
 
-jest.mock('./fallbackToCms');
+jest.mock('../middlewares/fallbackToCms');
 jest.mock('../caching/drupalRedis', () => () => ({
   redisGet(uri) {
     switch (uri) {
@@ -43,7 +43,7 @@ describe('The proxy middleware', () => {
     let fallbackToCms;
 
     beforeEach(() => {
-      fallbackToCms = require('./fallbackToCms');
+      fallbackToCms = require('../middlewares/fallbackToCms');
     });
 
     test('It falls back on cache miss', done => {

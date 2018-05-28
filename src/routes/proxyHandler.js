@@ -3,7 +3,7 @@
 const _ = require('lodash');
 const config = require('config');
 const logger = require('pino')();
-const fallbackToCms = require('./fallbackToCms');
+const fallbackToCms = require('../middlewares/fallbackToCms');
 const { redisGet } = require('../caching/drupalRedis')(
   _.get(process, 'env.redisPrefix', ''),
   _.get(process, 'env.redisCidTemplate', ''),
