@@ -70,7 +70,6 @@ proxy to other microservices, add server side rendering, etc.</li>
 <li>Introduce the ability to timeout requests.</li>
 <li>Create a separate package using passport to integrate with Simple OAuth.</li>
 <li>Make CORS customizable from configuration.</li>
-<li>Add subrequests.</li>
 <li>If all subrequests are to the CMS forward the blueprint to Drupal’s subrequests.</li>
 <li>Make Flow types nicer in the middlewares.</li>
 <li>Fix the link in the responses from Contenta CMS.</li>
