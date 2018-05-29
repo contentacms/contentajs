@@ -32,6 +32,12 @@
 
 <!--emdaer-p
   - '@emdaer/plugin-import'
+  - path: .emdaer/docs/why.md
+    runEmdaer: false
+-->
+
+<!--emdaer-p
+  - '@emdaer/plugin-import'
   - path: .emdaer/docs/features.md
     runEmdaer: false
 -->

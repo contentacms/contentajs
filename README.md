@@ -14,6 +14,13 @@ integration of your application based on Contenta CMS. We <strong>do not</strong
 upgrade paths or backwards compatibility. The model for this is <em>Fork &amp; Go</em>.</p>
 <!-- toc -->
 <ul>
+<li><a href="#why">Why?</a><ul>
+<li><a href="#microservices">Microservices</a></li>
+<li><a href="#server-side-rendering">Server-Side Rendering</a></li>
+<li><a href="#performance">Performance</a></li>
+<li><a href="#other">Other</a></li>
+</ul>
+</li>
 <li><a href="#features">Features</a></li>
 <li><a href="#installation">Installation</a><ul>
 <li><a href="#local-installation">Local Installation</a></li>
@@ -27,6 +34,51 @@ upgrade paths or backwards compatibility. The model for this is <em>Fork &amp; G
 </ul>
 <!-- tocstop -->
 <p><a href="https://travis-ci.org/contentacms/contentajs/"><img src="https://img.shields.io/travis/contentacms/contentajs.svg?style=flat-square" alt="Travis"></a> <a href="https://coveralls.io/github/contentacms/contentajs/"><img src="https://img.shields.io/coveralls/github/contentacms/contentajs.svg?style=flat-square" alt="Coverage"></a> <a href="https://github.com/emdaer/emdaer"><img src="https://img.shields.io/badge/📓-documented%20with%20emdaer-F06632.svg?style=flat-square" alt="Documented with emdaer"></a></p>
+<h2 id="why-">Why?</h2>
+<p><strong>Contenta CMS</strong> (aka <em>the Drupal part</em>) is designed to serve your project’s
+content. ContentaJS (aka <em>the node.js part</em>) is designed to serve the requests
+to your client side applications. Some of those requests will end up requesting
+data from Contenta CMS, others won’t.</p>
+<p>You may need <strong>ContentaJS</strong> because for many reasons <strong>you will end up needing a
+node.js server for your project anyways</strong>. You may as well use an opinionated
+and optimized starter kit that will solve many of your needs without effort.</p>
+<h3 id="microservices">Microservices</h3>
+<p>If your API needs to aggregate data from other services you <strong>should not</strong> use
+PHP for that. That is because all I/O in PHP is blocking and the performance of
+these tasks is very poor.</p>
+<p>An example of this would be if you are showing weather data from a 3rd party
+API. Another example is if you need to make requests to an analytics tool.
+Another example is if you need to run a request through an anti-fraud service
+before accessing the content.</p>
+<p>In these situations you will want to treat <strong>Contenta CMS</strong> just as any other
+microservice. Then you will need a node.js server to orchestrate the different
+microservices.</p>
+<h3 id="server-side-rendering">Server-Side Rendering</h3>
+<p>Chances are that you are building a website as part of your digital project. In
+most cases you will be using a front-end framework like React, Vue, Angular,
+etc. All of those frameworks recommend using server-side rendering
+<a href="https://ssr.vuejs.org/#why-ssr">for many reasons</a>. In order to implement
+server-side rendering you will need a node.js server.</p>
+<p>You can use this node.js server (aka <em>ContentaJS</em>) to implement server-side
+rendering.</p>
+<h3 id="performance">Performance</h3>
+<p>Your LAMP stack (or alternative) runs your Contenta CMS installation. We all
+know how flexible and powerful Drupal is. But at the same time it is not great
+from a performance point of view. In fact it can rapidly become your bottleneck.</p>
+<p>With ContentaJS you can reduce the load in your LAMP stack. This is because you
+don’t even need to hit this stack to access cached responses. ContentaJS will
+fetch the data from cache, and will only check with Drupal when there is no
+cache. That reduces greatly the amount of requests Apache needs to process. This
+reduces the load on Drupal, hence improving performance overall.</p>
+<p>ContentaJS integrates transparently with Contenta CMS and can analyze requests
+that will fail in Drupal. When that happens the request never hits Drupal thus
+reducing the load there. Examples of this are: a request to a non-existing
+resource, a request that contains a payload that doesn’t validate against the
+schema of the resource, etc.</p>
+<h3 id="other">Other</h3>
+<p>Other server tasks like executing actions on cron, or sending emails, etc. can
+be done in this node.js server (and/or the machine running it) instead of on
+the LAMP stack.</p>
 <h2 id="features">Features</h2>
 <p><em>This section is still under development.</em></p>
 <p>The main features of this project cover:</p>
