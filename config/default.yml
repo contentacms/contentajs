@@ -83,3 +83,9 @@ cors:
     - 'X-Forwarded-Proto'
     - 'X-HTTP-Method-Override'
     - 'X-Requested-With'
+
+subrequests:
+  # The path where the request aggregator lives.
+  path: /subrequests
+  # You can set this to 'multipart' as well.
+  responseMerger: json

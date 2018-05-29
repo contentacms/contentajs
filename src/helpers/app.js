@@ -15,6 +15,7 @@ const customCors = require('../middlewares/customCors');
 const errorHandler = require('../middlewares/errorHandler');
 const healthcheck = require('../routes/healthcheck');
 const proxyHandler = require('../routes/proxyHandler');
+const { initSubrequests } = require('../routes/subrequests');
 
 const app = express();
 app.disable('x-powered-by');
@@ -41,6 +42,8 @@ app.use(cacheControl);
 app.use(jsonApiPrefix, bodyParser.json({ type: 'application/vnd.api+json' }));
 // Try to load from cache, then fallback to the CMS.
 app.use(jsonApiPrefix, proxyHandler);
+
+initSubrequests(app);
 
 // Fallback error handling. If there is any unhandled exception or error,
 // catch them here to allow the app to continue normally.
