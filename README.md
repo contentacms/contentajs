@@ -43,16 +43,16 @@ data from Contenta CMS, others won’t.</p>
 node.js server for your project anyways</strong>. You may as well use an opinionated
 and optimized starter kit that will solve many of your needs without effort.</p>
 <h3 id="microservices">Microservices</h3>
-<p>If your API needs to aggregate data from other services you <strong>should not</strong> use
-PHP for that. That is because all I/O in PHP is blocking and the performance of
-these tasks is very poor.</p>
+<p>If your API needs to aggregate data for use on the front-end from other services
+you <strong>should not</strong> use PHP for that. That is because, in practice, all I/O in
+Drupal is blocking and the performance of these tasks is usually very poor.</p>
 <p>An example of this would be if you are showing weather data from a 3rd party
 API. Another example is if you need to make requests to an analytics tool.
 Another example is if you need to run a request through an anti-fraud service
 before accessing the content.</p>
 <p>In these situations you will want to treat <strong>Contenta CMS</strong> just as any other
-microservice. Then you will need a node.js server to orchestrate the different
-microservices.</p>
+microservice. Then you will need a server, like this one written in node.js, to
+orchestrate the different microservices.</p>
 <h3 id="server-side-rendering">Server-Side Rendering</h3>
 <p>Chances are that you are building a website as part of your digital project. In
 most cases you will be using a front-end framework like React, Vue, Angular,
@@ -60,7 +60,7 @@ etc. All of those frameworks recommend using server-side rendering
 <a href="https://ssr.vuejs.org/#why-ssr">for many reasons</a>. In order to implement
 server-side rendering you will need a node.js server.</p>
 <p>You can use this node.js server (aka <em>ContentaJS</em>) to implement server-side
-rendering.</p>
+rendering on.</p>
 <h3 id="performance">Performance</h3>
 <p>Your LAMP stack (or alternative) runs your Contenta CMS installation. We all
 know how flexible and powerful Drupal is. But at the same time it is not great
