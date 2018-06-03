@@ -1,7 +1,5 @@
 // @flow
 
-import type { JsonRpcResponse } from '../flow/types/jsonrpc';
-
 const _ = require('lodash');
 const config = require('config');
 const cluster = require('cluster');
@@ -46,17 +44,22 @@ const bootstrap = () => {
     const procs = config.get('app.processes') || os.cpus().length;
 
     // Initialize JSON RPC.
-    return fetchCmsMeta().then((res: JsonRpcResponse) => {
-      const jsonApiPrefix: string = _.get(res, '0.result.prefix');
-      const redisCidTemplate: string = _.get(res, '1.result.cidTemplate');
-      const redisPrefix: string = _.get(res, '1.result.prefix');
+    return fetchCmsMeta().then(res => {
+      const mapped = {};
+      res.forEach(([map, jsonRpcResponse]) => {
+        Object.keys(map).forEach(variableName => {
+          const variableValue = _.get(jsonRpcResponse, [
+            'result',
+            map[variableName],
+          ]);
+          mapped[variableName] = variableValue;
+        });
+      });
+      Object.assign(process.env, mapped);
       // Proxy for the JSON API server in Contenta CMS.
       let x;
       for (x = 0; x < procs; x += 1) {
-        spawnWebWorker(
-          { jsonApiPrefix, redisCidTemplate, redisPrefix },
-          webWorkers
-        );
+        spawnWebWorker(mapped, webWorkers);
       }
 
       cluster.on('exit', (worker, code) => {
@@ -70,7 +73,7 @@ const bootstrap = () => {
         if (webWorkers[worker.process.pid]) {
           webWorkers[worker.process.pid] = null;
           delete webWorkers[worker.process.pid];
-          spawnWebWorker({ jsonApiPrefix }, webWorkers);
+          spawnWebWorker(mapped, webWorkers);
         }
       });
     });

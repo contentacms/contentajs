@@ -37,6 +37,8 @@ redis:
   pool:
     # Limit the connection pool to the specified number of sockets.
     max: 30
+    autostart: true
+    testOnBorrow: true
 
 # These settings will determine the TTL for edge cache.
 cache:

@@ -1,33 +1,48 @@
 // @flow
 
 const _ = require('lodash');
-const config = require('config');
 const logger = require('pino')();
-const fallbackToCms = require('../middlewares/fallbackToCms');
-const { redisGet } = require('../caching/drupalRedis')(
-  _.get(process, 'env.redisPrefix', ''),
-  _.get(process, 'env.redisCidTemplate', ''),
-  config.get('redis.pool')
-);
+const proxy = require('express-http-proxy');
+const url = require('url');
+
+const cacheControl = require('../middlewares/cacheControl');
+const errorHandler = require('../middlewares/errorHandler');
 
 /**
- * Tries to load an API request to the CMS from cache then from the CMS.
+ * Middleware to send the requests to Contenta CMS.
  *
- * If the request is not present/valid in the cache, then it's when we bother
- * the CMS with the request.
+ * This uses 'express-http-proxy' which terminates the request after proxying.
  */
 module.exports = (req: any, res: any, next: Function): void => {
-  redisGet(`${req.cmsHost}${req.originalUrl}:html`)
-    .then(cached => {
-      if (!cached) {
-        fallbackToCms(req, res, next);
-        return;
+  const options = {
+    proxyReqPathResolver(rq) {
+      const thePath: string = _.get(url.parse(rq.url), 'path', '');
+      return `${req.jsonApiPrefix}${thePath}`;
+    },
+    proxyReqBodyDecorator(bodyContent, srcReq) {
+      if (['GET', 'HEAD', 'OPTIONS', 'TRACE'].indexOf(srcReq.method) !== -1) {
+        return '';
       }
-      res.send(cached);
-    })
-    .catch(error => {
-      // If there is an error getting the cache entry, fallback to the CMS.
-      logger.error(error);
-      fallbackToCms(req, res, next);
-    });
+      if (typeof srcReq.headers['content-type'] === 'undefined') {
+        logger.warn(
+          'The request body was ignored because the Content-Type header is not present.'
+        );
+        return '';
+      }
+      return bodyContent;
+    },
+    proxyErrorHandler: (err, eRes, eNext) =>
+      errorHandler(err, req, eRes, eNext),
+    userResHeaderDecorator(headers, userReq) {
+      // Make sure to overwrite the cache control headers set by the CMS.
+      const fakeRes = {
+        set(k, v) {
+          headers[k] = v;
+        },
+      };
+      cacheControl(userReq, fakeRes, () => {});
+      return headers;
+    },
+  };
+  return proxy(req.cmsHost, options)(req, res, next);
 };

@@ -7,12 +7,17 @@ const fetchCmsMeta = require('../src/helpers/fetchCmsMeta');
 
 // Initialize JSON RPC.
 fetchCmsMeta().then(res => {
-  const jsonApiPrefix = _.get(res, '0.result.prefix');
-  const redisCidTemplate = _.get(res, '1.result.cidTemplate');
-  const redisPrefix = _.get(res, '1.result.prefix');
-  process.env.jsonApiPrefix = jsonApiPrefix;
-  process.env.redisCidTemplate = redisCidTemplate;
-  process.env.redisPrefix = redisPrefix;
+  const mapped = {};
+  res.forEach(([map, jsonRpcResponse]) => {
+    Object.keys(map).forEach(variableName => {
+      const variableValue = _.get(jsonRpcResponse, [
+        'result',
+        map[variableName],
+      ]);
+      mapped[variableName] = variableValue;
+    });
+  });
+  Object.assign(process.env, mapped);
   const app = require('../src/helpers/app'); // eslint-disable-line global-require
 
   app.listen(config.get('app.port'));

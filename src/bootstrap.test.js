@@ -7,8 +7,7 @@ jest
   .mockImplementation(() => ({ process: { pid: 42 } }));
 jest.mock('./helpers/fetchCmsMeta', () => () =>
   Promise.resolve([
-    { result: { prefix: 'myPrefix' } },
-    { result: { prefix: 'redisPrefix', cidTemplate: 'myTemplate' } },
+    [{ jsonApiPrefix: 'prefix' }, { result: { prefix: 'myPrefix' } }],
   ])
 );
 jest.spyOn(Adios.master, 'init').mockImplementation();
