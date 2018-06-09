@@ -10,10 +10,8 @@ const logger = require('pino')();
 const pkg = require('../../package.json');
 
 const activeApplicationCache = config.get('applicationCache.activePlugin');
-const host = config.get(
-  `applicationCache.plugins.${activeApplicationCache}.host`
-);
-const keyv = new Keyv(host);
+const opts = config.get(`applicationCache.plugins.${activeApplicationCache}`);
+const keyv = new Keyv(opts);
 keyv.on('error', logger.error.bind(logger));
 
 const defaults = {
