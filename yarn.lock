@@ -1467,7 +1467,7 @@ binary-extensions@^1.0.0:
   version "1.11.0"
   resolved "https://registry.yarnpkg.com/binary-extensions/-/binary-extensions-1.11.0.tgz#46aa1751fb6a2f93ee5e689bb1087d4b14c6c205"
 
-bluebird@^3.3.4, bluebird@^3.4.1, bluebird@^3.5.1:
+bluebird@^3.4.1, bluebird@^3.5.1:
   version "3.5.1"
   resolved "https://registry.yarnpkg.com/bluebird/-/bluebird-3.5.1.tgz#d9551f9de98f1fcda1e683d17ee91a0602ee2eb9"
 
@@ -1862,10 +1862,6 @@ clone-stats@^0.0.1:
 clone@^1.0.0:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/clone/-/clone-1.0.4.tgz#da309cc263df15994c688ca902179ca3c7cd7c7e"
-
-cluster-key-slot@^1.0.6:
-  version "1.0.9"
-  resolved "https://registry.yarnpkg.com/cluster-key-slot/-/cluster-key-slot-1.0.9.tgz#a538b001da90157efe6f758ae9ddde2ecd9a3077"
 
 co@^4.6.0:
   version "4.6.0"
@@ -2286,10 +2282,6 @@ delayed-stream@~1.0.0:
 delegates@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/delegates/-/delegates-1.0.0.tgz#84c6e159b81904fdca59a0ef44cd870d31250f9a"
-
-denque@^1.1.0:
-  version "1.2.3"
-  resolved "https://registry.yarnpkg.com/denque/-/denque-1.2.3.tgz#98c50c8dd8cdfae318cc5859cc8ee3da0f9b0cc2"
 
 depd@1.1.1:
   version "1.1.1"
@@ -3011,10 +3003,6 @@ flatstr@^1.0.5:
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/flatstr/-/flatstr-1.0.5.tgz#5b451b08cbd48e2eac54a2bbe0bf46165aa14be3"
 
-flexbuffer@0.0.6:
-  version "0.0.6"
-  resolved "https://registry.yarnpkg.com/flexbuffer/-/flexbuffer-0.0.6.tgz#039fdf23f8823e440c38f3277e6fef1174215b30"
-
 flow-bin@^0.71.0:
   version "0.71.0"
   resolved "https://registry.yarnpkg.com/flow-bin/-/flow-bin-0.71.0.tgz#fd1b27a6458c3ebaa5cb811853182ed631918b70"
@@ -3713,34 +3701,6 @@ invariant@^2.2.0, invariant@^2.2.2:
 invert-kv@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/invert-kv/-/invert-kv-1.0.0.tgz#104a8e4aaca6d3d8cd157a8ef8bfab2d7a3ffdb6"
-
-ioredis@^3.2.2:
-  version "3.2.2"
-  resolved "https://registry.yarnpkg.com/ioredis/-/ioredis-3.2.2.tgz#b7d5ff3afd77bb9718bb2821329b894b9a44c00b"
-  dependencies:
-    bluebird "^3.3.4"
-    cluster-key-slot "^1.0.6"
-    debug "^2.6.9"
-    denque "^1.1.0"
-    flexbuffer "0.0.6"
-    lodash.assign "^4.2.0"
-    lodash.bind "^4.2.1"
-    lodash.clone "^4.5.0"
-    lodash.clonedeep "^4.5.0"
-    lodash.defaults "^4.2.0"
-    lodash.difference "^4.5.0"
-    lodash.flatten "^4.4.0"
-    lodash.foreach "^4.5.0"
-    lodash.isempty "^4.4.0"
-    lodash.keys "^4.2.0"
-    lodash.noop "^3.0.1"
-    lodash.partial "^4.2.1"
-    lodash.pick "^4.4.0"
-    lodash.sample "^4.2.1"
-    lodash.shuffle "^4.2.0"
-    lodash.values "^4.3.0"
-    redis-commands "^1.2.0"
-    redis-parser "^2.4.0"
 
 ip@^1.1.4, ip@^1.1.5:
   version "1.1.5"
@@ -4823,53 +4783,25 @@ lodash.assignin@^4.2.0:
   version "4.2.0"
   resolved "https://registry.yarnpkg.com/lodash.assignin/-/lodash.assignin-4.2.0.tgz#ba8df5fb841eb0a3e8044232b0e263a8dc6a28a2"
 
-lodash.bind@^4.2.1:
-  version "4.2.1"
-  resolved "https://registry.yarnpkg.com/lodash.bind/-/lodash.bind-4.2.1.tgz#7ae3017e939622ac31b7d7d7dcb1b34db1690d35"
-
 lodash.camelcase@4.3.0:
   version "4.3.0"
   resolved "https://registry.yarnpkg.com/lodash.camelcase/-/lodash.camelcase-4.3.0.tgz#b28aa6288a2b9fc651035c7711f65ab6190331a6"
 
-lodash.clone@^4.5.0:
-  version "4.5.0"
-  resolved "https://registry.yarnpkg.com/lodash.clone/-/lodash.clone-4.5.0.tgz#195870450f5a13192478df4bc3d23d2dea1907b6"
-
-lodash.clonedeep@^4.3.0, lodash.clonedeep@^4.3.1, lodash.clonedeep@^4.5.0:
+lodash.clonedeep@^4.3.0, lodash.clonedeep@^4.3.1:
   version "4.5.0"
   resolved "https://registry.yarnpkg.com/lodash.clonedeep/-/lodash.clonedeep-4.5.0.tgz#e23f3f9c4f8fbdde872529c1071857a086e5ccef"
-
-lodash.defaults@^4.2.0:
-  version "4.2.0"
-  resolved "https://registry.yarnpkg.com/lodash.defaults/-/lodash.defaults-4.2.0.tgz#d09178716ffea4dde9e5fb7b37f6f0802274580c"
-
-lodash.difference@^4.5.0:
-  version "4.5.0"
-  resolved "https://registry.yarnpkg.com/lodash.difference/-/lodash.difference-4.5.0.tgz#9ccb4e505d486b91651345772885a2df27fd017c"
 
 lodash.flatten@^4.4.0:
   version "4.4.0"
   resolved "https://registry.yarnpkg.com/lodash.flatten/-/lodash.flatten-4.4.0.tgz#f31c22225a9632d2bbf8e4addbef240aa765a61f"
 
-lodash.foreach@^4.5.0:
-  version "4.5.0"
-  resolved "https://registry.yarnpkg.com/lodash.foreach/-/lodash.foreach-4.5.0.tgz#1a6a35eace401280c7f06dddec35165ab27e3e53"
-
 lodash.get@^4.4.2:
   version "4.4.2"
   resolved "https://registry.yarnpkg.com/lodash.get/-/lodash.get-4.4.2.tgz#2d177f652fa31e939b4438d5341499dfa3825e99"
 
-lodash.isempty@^4.4.0:
-  version "4.4.0"
-  resolved "https://registry.yarnpkg.com/lodash.isempty/-/lodash.isempty-4.4.0.tgz#6f86cbedd8be4ec987be9aaf33c9684db1b31e7e"
-
 lodash.kebabcase@4.1.1:
   version "4.1.1"
   resolved "https://registry.yarnpkg.com/lodash.kebabcase/-/lodash.kebabcase-4.1.1.tgz#8489b1cb0d29ff88195cceca448ff6d6cc295c36"
-
-lodash.keys@^4.2.0:
-  version "4.2.0"
-  resolved "https://registry.yarnpkg.com/lodash.keys/-/lodash.keys-4.2.0.tgz#a08602ac12e4fb83f91fc1fb7a360a4d9ba35205"
 
 lodash.merge@4.6.1:
   version "4.6.1"
@@ -4879,33 +4811,17 @@ lodash.mergewith@4.6.1:
   version "4.6.1"
   resolved "https://registry.yarnpkg.com/lodash.mergewith/-/lodash.mergewith-4.6.1.tgz#639057e726c3afbdb3e7d42741caa8d6e4335927"
 
-lodash.noop@^3.0.1:
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/lodash.noop/-/lodash.noop-3.0.1.tgz#38188f4d650a3a474258439b96ec45b32617133c"
-
 lodash.omit@4.5.0:
   version "4.5.0"
   resolved "https://registry.yarnpkg.com/lodash.omit/-/lodash.omit-4.5.0.tgz#6eb19ae5a1ee1dd9df0b969e66ce0b7fa30b5e60"
 
-lodash.partial@^4.2.1:
-  version "4.2.1"
-  resolved "https://registry.yarnpkg.com/lodash.partial/-/lodash.partial-4.2.1.tgz#49f3d8cfdaa3bff8b3a91d127e923245418961d4"
-
-lodash.pick@4.4.0, lodash.pick@^4.4.0:
+lodash.pick@4.4.0:
   version "4.4.0"
   resolved "https://registry.yarnpkg.com/lodash.pick/-/lodash.pick-4.4.0.tgz#52f05610fff9ded422611441ed1fc123a03001b3"
-
-lodash.sample@^4.2.1:
-  version "4.2.1"
-  resolved "https://registry.yarnpkg.com/lodash.sample/-/lodash.sample-4.2.1.tgz#5e4291b0c753fa1abeb0aab8fb29df1b66f07f6d"
 
 lodash.set@^4.3.2:
   version "4.3.2"
   resolved "https://registry.yarnpkg.com/lodash.set/-/lodash.set-4.3.2.tgz#d8757b1da807dde24816b0d6a84bea1a76230b23"
-
-lodash.shuffle@^4.2.0:
-  version "4.2.0"
-  resolved "https://registry.yarnpkg.com/lodash.shuffle/-/lodash.shuffle-4.2.0.tgz#145b5053cf875f6f5c2a33f48b6e9948c6ec7b4b"
 
 lodash.snakecase@4.1.1:
   version "4.1.1"
@@ -4943,10 +4859,6 @@ lodash.topairs@4.3.0:
 lodash.upperfirst@4.3.1:
   version "4.3.1"
   resolved "https://registry.yarnpkg.com/lodash.upperfirst/-/lodash.upperfirst-4.3.1.tgz#1365edf431480481ef0d1c68957a5ed99d49f7ce"
-
-lodash.values@^4.3.0:
-  version "4.3.0"
-  resolved "https://registry.yarnpkg.com/lodash.values/-/lodash.values-4.3.0.tgz#a3a6c2b0ebecc5c2cba1c17e6e620fe81b53d347"
 
 lodash@^4.11.1, lodash@^4.13.1, lodash@^4.17.10, lodash@^4.17.4, lodash@^4.17.5, lodash@^4.2.0, lodash@^4.2.1, lodash@^4.3.0:
   version "4.17.10"
@@ -6176,13 +6088,9 @@ redeyed@~1.0.0:
   dependencies:
     esprima "~3.0.0"
 
-redis-commands@^1.2.0, redis-commands@^1.3.5:
+redis-commands@^1.3.5:
   version "1.3.5"
   resolved "https://registry.yarnpkg.com/redis-commands/-/redis-commands-1.3.5.tgz#4495889414f1e886261180b1442e7295602d83a2"
-
-redis-parser@^2.4.0:
-  version "2.6.0"
-  resolved "https://registry.yarnpkg.com/redis-parser/-/redis-parser-2.6.0.tgz#52ed09dacac108f1a631c07e9b69941e7a19504b"
 
 regenerate-unicode-properties@^6.0.0:
   version "6.0.0"
