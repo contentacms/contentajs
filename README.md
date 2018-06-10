@@ -5,7 +5,7 @@
 -->
 
 <!--
-  emdaerHash:7bc77c82cad4e2515f05d350a160d660
+  emdaerHash:08221dc76a1d99d18342145659cc9717
 -->
 
 <h1 id="contentajs-img-align-right-src-logo-svg-alt-contenta-logo-title-contenta-logo-width-100-">ContentaJS <img align="right" src="./logo.svg" alt="Contenta logo" title="Contenta logo" width="100"></h1>
@@ -38,7 +38,7 @@ upgrade paths or backwards compatibility. The model for this is <em>Fork &amp; G
 <li><a href="#license">License</a></li>
 </ul>
 <!-- tocstop -->
-<p><a href="https://travis-ci.org/contentacms/contentajs/"><img src="https://img.shields.io/travis/contentacms/contentajs.svg?style=flat-square" alt="Travis"></a> <a href="https://coveralls.io/github/contentacms/contentajs/"><img src="https://img.shields.io/coveralls/github/contentacms/contentajs.svg?style=flat-square" alt="Coverage"></a> <a href="https://github.com/emdaer/emdaer"><img src="https://img.shields.io/badge/📓-documented%20with%20emdaer-F06632.svg?style=flat-square" alt="Documented with emdaer"></a></p>
+<p><a href="https://travis-ci.org/contentacms/contentajs/"><img src="https://img.shields.io/travis/contentacms/contentajs.svg?style=flat-square" alt="Travis"></a> <a href="https://coveralls.io/github/contentacms/contentajs/"><img src="https://img.shields.io/coveralls/github/contentacms/contentajs.svg?style=flat-square" alt="Coverage"></a> <a href="https://david-dm.org/contentacms/contentajs"><img src="https://img.shields.io/david/contentacms/contentajs.svg?style=flat-square" alt="David Dependency Management"></a> <a href="https://github.com/contentacms/contentajs"><img src="https://img.shields.io/github/last-commit/contentacms/contentajs.svg?style=flat-square" alt="Last Commit"></a> <a href="http://npmjs.com/package/@contentacms/contentajs"><img src="https://img.shields.io/node/v/@contentacms/contentajs.svg?style=flat-square" alt="Node"></a> <a href="https://github.com/emdaer/emdaer"><img src="https://img.shields.io/badge/📓-documented%20with%20emdaer-F06632.svg?style=flat-square" alt="Documented with emdaer"></a></p>
 <h2 id="why-">Why?</h2>
 <p><strong>Contenta CMS</strong> (aka <em>the Drupal part</em>) is designed to serve your project’s
 content. ContentaJS (aka <em>the node.js part</em>) is designed to serve the requests
