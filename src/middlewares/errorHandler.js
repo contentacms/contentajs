@@ -1,11 +1,21 @@
 // @flow
 
+import type {
+  $Request as Request,
+  $Response as Response,
+  NextFunction,
+} from 'express';
+
 const _ = require('lodash');
 const config = require('config');
 const logger = require('pino')();
 
-// eslint-disable-next-line no-unused-vars
-module.exports = (err: any, req: any, res: any, next: Function): void => {
+module.exports = (
+  err: any,
+  req: Request,
+  res: Response,
+  next: NextFunction // eslint-disable-line no-unused-vars
+): void => {
   const errors = Array.isArray(err) ? err : [err];
   res.set('Cache-Control', 'private, max-age=0, no-cache');
   res.status(errors[0].status || 500);

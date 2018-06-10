@@ -1,5 +1,11 @@
 // @flow
 
+import type {
+  $Request as Request,
+  $Response as Response,
+  NextFunction,
+} from 'express';
+
 const _ = require('lodash');
 const logger = require('pino')();
 const proxy = require('express-http-proxy');
@@ -13,7 +19,7 @@ const errorHandler = require('../middlewares/errorHandler');
  *
  * This uses 'express-http-proxy' which terminates the request after proxying.
  */
-module.exports = (req: any, res: any, next: Function): void => {
+module.exports = (req: Request, res: Response, next: NextFunction): void => {
   const options = {
     proxyReqPathResolver(rq) {
       const thePath: string = _.get(url.parse(rq.url), 'path', '');

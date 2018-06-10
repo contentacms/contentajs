@@ -1,10 +1,16 @@
 // @flow
 
+import type {
+  $Request as Request,
+  $Response as Response,
+  NextFunction,
+} from 'express';
+
 const config = require('config');
 
 const subRouteRE = new RegExp(`^/[^/]+/([^/?#]+)`);
 
-module.exports = (req: any, res: any, next: Function): void => {
+module.exports = (req: Request, res: Response, next: NextFunction): void => {
   // If this is a GET, set our global cache control header. Routes will be
   // able to override or remove this as needed.
   if (req.method === 'GET' || req.method === 'OPTIONS') {

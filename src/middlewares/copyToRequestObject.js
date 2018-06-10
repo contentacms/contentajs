@@ -1,5 +1,11 @@
 // @flow
 
+import type {
+  $Request as Request,
+  $Response as Response,
+  NextFunction,
+} from 'express';
+
 import type { ObjectLiteral } from '../../flow/types/common';
 
 /**
@@ -9,9 +15,9 @@ import type { ObjectLiteral } from '../../flow/types/common';
  * middleware down the process.
  */
 module.exports = (args: ObjectLiteral) => (
-  req: any,
-  res: any,
-  next: Function
+  req: Request,
+  res: Response,
+  next: NextFunction
 ): void => {
   Object.keys(args).forEach(key => {
     req[key] = args[key];

@@ -6,6 +6,7 @@ just meant to save ideas for documentation to process some other time._
 - Create a separate package using passport to integrate with Simple OAuth.
 - Make CORS customizable from configuration.
 - If all subrequests are to the CMS forward the blueprint to Drupal's subrequests.
+- Compute the appropriate cache-control header from subquests responses.
 - Make Flow types nicer in the middlewares.
 - Validate the request bodies before reaching the CMS using the resource schemas.
 - Filter requests that the CMS should not be bothered with using the resource lists.
