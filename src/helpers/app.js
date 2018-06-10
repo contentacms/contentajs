@@ -12,7 +12,6 @@ const express = require('express');
 
 const cacheControl = require('../middlewares/cacheControl');
 const copyToRequestObject = require('../middlewares/copyToRequestObject');
-const customCors = require('../middlewares/customCors');
 const errorHandler = require('../middlewares/errorHandler');
 const healthcheck = require('../routes/healthcheck');
 const proxyHandler = require('../routes/proxyHandler');
@@ -34,9 +33,6 @@ app.options('*', corsHandler);
 
 // Initialize the request object with valuable information.
 app.use(copyToRequestObject({ jsonApiPrefix, cmsHost }));
-
-// Add headers.
-app.use(customCors);
 
 // Healthcheck is a special endpoint used for application monitoring.
 app.get('/healthcheck', healthcheck);
