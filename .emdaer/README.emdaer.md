@@ -7,7 +7,7 @@
 <!--emdaer-p
   - '@emdaer/plugin-import'
   - path: .emdaer/docs/header.md
-    runEmdaer: false
+    runEmdaer: true
 -->
 
 <!--emdaer-t

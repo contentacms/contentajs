@@ -8,7 +8,7 @@ describe('The generic CMS Meta loader', () => {
       check: jest.fn(),
     };
     const sut = new CmsMetaLoader(manager, 'the-id');
-    const requestor = { execute: jest.fn() };
+    const requestor = { execute: jest.fn().mockReturnValue(Promise.resolve()) };
     const actual = sut.exportSync({ requestor }).fetch;
     expect(actual).toEqual(expect.any(Function));
     actual();

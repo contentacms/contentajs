@@ -21,24 +21,11 @@ cms:
   # Example: https://www.example.com
   host: http://localhost
 
-redis:
-  # Add the URL including the protocol to your Redis node or Cluster using the
-  # "redis" scheme name (https://www.iana.org/assignments/uri-schemes/prov/redis).
-  # Example: redis://:authpassword@127.0.0.1:6380/4 (Connect to 127.0.0.1:6380,
-  # db 4, using password "authpassword")
-  host: redis://127.0.0.1:6379
-  # Additional options for ioredis https://www.npmjs.com/package/ioredis passed
-  # verbatim.
-  options:
-    scaleReads: 'slave'
-  # Configuration about the connection pool using generic-pool. The options are
-  # passed verbatim to the pool. These defaults are very generic, you should
-  # take the time to tune it for your traffic.
-  pool:
-    # Limit the connection pool to the specified number of sockets.
-    max: 30
-    autostart: true
-    testOnBorrow: true
+applicationCache:
+  activePlugin: lru
+  plugins:
+    lru:
+      maxSize: 524288
 
 # These settings will determine the TTL for edge cache.
 cache:

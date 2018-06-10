@@ -4,11 +4,16 @@
   Its template can be found at .emdaer/README.emdaer.md
 -->
 
+<!--
+  emdaerHash:7bc77c82cad4e2515f05d350a160d660
+-->
+
 <h1 id="contentajs-img-align-right-src-logo-svg-alt-contenta-logo-title-contenta-logo-width-100-">ContentaJS <img align="right" src="./logo.svg" alt="Contenta logo" title="Contenta logo" width="100"></h1>
 <p>ContentaJS is a project that integrates with Contenta CMS to provide
 an ultra high performing headless CMS. It also provides a nodejs application
 where to host your Server Side Rendering and custom code integrations.</p>
-<p><img src="./.emdaer/docs/assets/contentacms-node.png" alt="Contenta Stack Architecture"></p>
+<p align="center"><img src="./.emdaer/docs/assets/contentacms-node.png" alt="Contenta Stack Architecture"></p>
+
 <p><strong>IMPORTANT:</strong> this project is meant to be a starting kit for the node
 integration of your application based on Contenta CMS. We <strong>do not</strong> provide
 upgrade paths or backwards compatibility. The model for this is <em>Fork &amp; Go</em>.</p>

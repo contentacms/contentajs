@@ -24,11 +24,7 @@ const spawnWebWorker = (
   context: { [string]: any },
   webWorkers: { [number]: * }
 ) => {
-  const info = Object.assign(
-    {},
-    { type: 'webWorker', redisHost: process.env.redisHost },
-    context
-  );
+  const info = Object.assign({}, { type: 'webWorker' }, context);
   const worker = cluster.fork(info);
   webWorkers[worker.process.pid] = worker;
   logger.info('Starting web worker with pid: %d.', worker.process.pid);

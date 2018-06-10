@@ -4,6 +4,10 @@
   Its template can be found at .emdaer/docs/subrequests.emdaer.md
 -->
 
+<!--
+  emdaerHash:ec34d2c8e198aafe0c6235d5cf245548
+-->
+
 <h1 id="contentajs-img-align-right-src-logo-svg-alt-contenta-logo-title-contenta-logo-width-100-">ContentaJS <img align="right" src="./logo.svg" alt="Contenta logo" title="Contenta logo" width="100"></h1>
 <h1 id="subrequests">Subrequests</h1>
 <p>Subrequests is a request aggregator project that will allow you to turn multiple

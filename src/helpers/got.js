@@ -9,7 +9,9 @@ const Keyv = require('keyv');
 const logger = require('pino')();
 const pkg = require('../../package.json');
 
-const keyv = new Keyv(config.get('redis.host'));
+const activeApplicationCache = config.get('applicationCache.activePlugin');
+const opts = config.get(`applicationCache.plugins.${activeApplicationCache}`);
+const keyv = new Keyv(opts);
 keyv.on('error', logger.error.bind(logger));
 
 const defaults = {
