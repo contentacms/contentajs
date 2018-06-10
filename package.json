@@ -74,6 +74,7 @@
     "adios": "^2.0.0",
     "body-parser": "^1.18.2",
     "config": "^1.30.0",
+    "cors": "^2.8.4",
     "express": "^4.16.3",
     "express-http-proxy": "^1.2.0",
     "got": "^8.3.1",

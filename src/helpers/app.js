@@ -7,6 +7,7 @@
 const _ = require('lodash');
 const bodyParser = require('body-parser');
 const config = require('config');
+const cors = require('cors');
 const express = require('express');
 
 const cacheControl = require('../middlewares/cacheControl');
@@ -25,6 +26,11 @@ app.enable('etag');
 app.set('etag', 'strong');
 const jsonApiPrefix = `/${_.get(process, 'env.jsonApiPrefix')}`;
 const cmsHost = config.get('cms.host');
+
+const corsHandler = cors(config.util.toObject(config.get('cors')));
+app.use(corsHandler);
+// Adds support for preflight OPTIONS requests on all routes.
+app.options('*', corsHandler);
 
 // Initialize the request object with valuable information.
 app.use(copyToRequestObject({ jsonApiPrefix, cmsHost }));
