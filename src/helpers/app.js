@@ -27,7 +27,7 @@ app.set('etag', 'strong');
 const jsonApiPrefix = `/${_.get(process, 'env.jsonApiPrefix')}`;
 const cmsHost = config.get('cms.host');
 
-const corsHandler = cors(config.get('cors').toObject());
+const corsHandler = cors(config.util.toObject(config.get('cors')));
 app.use(corsHandler);
 // Adds support for preflight OPTIONS requests on all routes.
 app.options('*', corsHandler);
