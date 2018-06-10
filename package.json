@@ -14,6 +14,9 @@
   "author": "Mateu Aguiló Bosch <mateu.aguilo.bosch@gmail.com> (e0ipso)",
   "license": "MIT",
   "private": false,
+  "engines" : {
+    "node" : ">=8.11.2"
+  },
   "scripts": {
     "start": "npm run build && node ./lib/server.js",
     "debug": "npm run build && DEBUG:* node ./debug/singleWorker.js",
