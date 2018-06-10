@@ -26,12 +26,6 @@ applicationCache:
   plugins:
     lru:
       maxSize: 524288
-    redis:
-      # Additional options for node_redis
-      # http://redis.js.org/#api-rediscreateclient passed verbatim.
-      host: 127.0.0.1
-      port: 6379
-      prefix: 'contentajs::'
 
 # These settings will determine the TTL for edge cache.
 cache:

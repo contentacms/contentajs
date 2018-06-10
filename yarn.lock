@@ -778,75 +778,73 @@
   dependencies:
     find-up "^2.1.0"
 
-"@emdaer/cli@^2.4.0":
-  version "2.4.0"
-  resolved "https://registry.yarnpkg.com/@emdaer/cli/-/cli-2.4.0.tgz#3351f71e1128221a5fdd3eaad0be8c88685f8e9e"
+"@emdaer/cli@^3.2.3":
+  version "3.2.3"
+  resolved "https://registry.yarnpkg.com/@emdaer/cli/-/cli-3.2.3.tgz#3886a6d0f5e968bdbbf3617d54a45c618932cf4b"
   dependencies:
-    "@emdaer/core" "^2.4.0"
-    chalk "2.0.1"
+    "@emdaer/core" "^3.2.3"
+    bluebird "^3.5.1"
+    chalk "^2.4.1"
     commander "2.11.0"
     fs-extra "3.0.1"
     glob "^7.1.2"
-    rxjs "^5.5.5"
+    inquirer "^5.1.0"
 
-"@emdaer/core@^2.4.0":
-  version "2.4.0"
-  resolved "https://registry.yarnpkg.com/@emdaer/core/-/core-2.4.0.tgz#a4a10bbe0d4ad0aaa19668f3c114fa9712eee558"
+"@emdaer/core@^3.2.3":
+  version "3.2.3"
+  resolved "https://registry.yarnpkg.com/@emdaer/core/-/core-3.2.3.tgz#03d45de6cd3d3ac207aff556f4acf249922eff52"
   dependencies:
     html-minifier "^3.5.14"
     js-yaml "3.8.4"
     marked "^0.3.19"
 
-"@emdaer/plugin-contributors-details-github@^2.4.0":
-  version "2.4.0"
-  resolved "https://registry.yarnpkg.com/@emdaer/plugin-contributors-details-github/-/plugin-contributors-details-github-2.4.0.tgz#ad7114767ce53383979b8330269de4eb8611e490"
+"@emdaer/plugin-contributors-details-github@^3.2.3":
+  version "3.2.3"
+  resolved "https://registry.yarnpkg.com/@emdaer/plugin-contributors-details-github/-/plugin-contributors-details-github-3.2.3.tgz#75e37ba1c07c6647ae0842922df0d7bb9361ad45"
   dependencies:
     fs-extra "^4.0.2"
     glob "^7.1.2"
     node-fetch "^1.7.3"
 
-"@emdaer/plugin-import@^2.4.0":
-  version "2.4.0"
-  resolved "https://registry.yarnpkg.com/@emdaer/plugin-import/-/plugin-import-2.4.0.tgz#e1ed595c2a911e5b7d832a6e614bec99c2a0320b"
+"@emdaer/plugin-image@^3.2.3":
+  version "3.2.3"
+  resolved "https://registry.yarnpkg.com/@emdaer/plugin-image/-/plugin-image-3.2.3.tgz#9ea28ccb08eb05b52cc3dcb0ed3f66b15905cfeb"
+
+"@emdaer/plugin-import@^3.2.3":
+  version "3.2.3"
+  resolved "https://registry.yarnpkg.com/@emdaer/plugin-import/-/plugin-import-3.2.3.tgz#ef5f49d96c7d86e67d04e630d2bbd14eafd21156"
   dependencies:
-    "@emdaer/core" "^2.4.0"
+    "@emdaer/core" "^3.2.3"
     fs-extra "3.0.1"
     lodash.get "^4.4.2"
 
-"@emdaer/plugin-license-reference@^2.4.0":
-  version "2.4.0"
-  resolved "https://registry.yarnpkg.com/@emdaer/plugin-license-reference/-/plugin-license-reference-2.4.0.tgz#75642a20249f30916f158c9430ae43ce8c8ea166"
+"@emdaer/plugin-license-reference@^3.2.3":
+  version "3.2.3"
+  resolved "https://registry.yarnpkg.com/@emdaer/plugin-license-reference/-/plugin-license-reference-3.2.3.tgz#6e35fb7dd11310e404c3698f2300d25c808a8c20"
   dependencies:
-    "@emdaer/plugin-value-from-package" "^2.4.0"
+    "@emdaer/plugin-value-from-package" "^3.2.3"
 
-"@emdaer/plugin-shields@^2.4.0":
-  version "2.4.0"
-  resolved "https://registry.yarnpkg.com/@emdaer/plugin-shields/-/plugin-shields-2.4.0.tgz#ad9661350e86fc4ef45bc757cc93308801e6c68f"
+"@emdaer/plugin-shields@^3.2.3":
+  version "3.2.3"
+  resolved "https://registry.yarnpkg.com/@emdaer/plugin-shields/-/plugin-shields-3.2.3.tgz#5b87e505145b2106c0804a9b6c0c029c635de96f"
 
-"@emdaer/plugin-value-from-package@^2.4.0":
-  version "2.4.0"
-  resolved "https://registry.yarnpkg.com/@emdaer/plugin-value-from-package/-/plugin-value-from-package-2.4.0.tgz#b4cd558ce4a1562048cd8508904ce9a2b75aba5a"
+"@emdaer/plugin-value-from-package@^3.2.3":
+  version "3.2.3"
+  resolved "https://registry.yarnpkg.com/@emdaer/plugin-value-from-package/-/plugin-value-from-package-3.2.3.tgz#485e9c62d6715b49381271d462dd1804e2f2974e"
   dependencies:
     fs-extra "3.0.1"
 
-"@emdaer/transform-prettier@^2.4.0":
-  version "2.4.0"
-  resolved "https://registry.yarnpkg.com/@emdaer/transform-prettier/-/transform-prettier-2.4.0.tgz#ececa4ce5ae6148e9c9c8aa99f7d5ca472378209"
+"@emdaer/transform-prettier@^3.2.3":
+  version "3.2.3"
+  resolved "https://registry.yarnpkg.com/@emdaer/transform-prettier/-/transform-prettier-3.2.3.tgz#38e8f628608957ddd77c58e038ecabbcbb66d9e9"
   dependencies:
     prettier "^1.12.0"
 
-"@emdaer/transform-table-of-contents@^2.4.0":
-  version "2.4.0"
-  resolved "https://registry.yarnpkg.com/@emdaer/transform-table-of-contents/-/transform-table-of-contents-2.4.0.tgz#e86dc97cc11baa456eabcf03f8f5a445ffdf54d5"
+"@emdaer/transform-table-of-contents@^3.2.3":
+  version "3.2.3"
+  resolved "https://registry.yarnpkg.com/@emdaer/transform-table-of-contents/-/transform-table-of-contents-3.2.3.tgz#30538ca9ec8425b4661e1fe808f2d03d9b610e51"
   dependencies:
     markdown-toc "^1.2.0"
-
-"@keyv/redis@^1.3.8":
-  version "1.3.8"
-  resolved "https://registry.yarnpkg.com/@keyv/redis/-/redis-1.3.8.tgz#049abc6f86466291db7388071749afe7b75bf7df"
-  dependencies:
-    pify "3.0.0"
-    redis "2.8.0"
 
 "@marionebl/sander@^0.6.0":
   version "0.6.1"
@@ -1070,7 +1068,7 @@ ansi-styles@^2.2.1:
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/ansi-styles/-/ansi-styles-2.2.1.tgz#b432dd3358b634cf75e1e4664368240533c1ddbe"
 
-ansi-styles@^3.1.0, ansi-styles@^3.2.0, ansi-styles@^3.2.1:
+ansi-styles@^3.2.0, ansi-styles@^3.2.1:
   version "3.2.1"
   resolved "https://registry.yarnpkg.com/ansi-styles/-/ansi-styles-3.2.1.tgz#41fbb20243e50b12be0f04b8dedbf07520ce841d"
   dependencies:
@@ -1469,7 +1467,7 @@ binary-extensions@^1.0.0:
   version "1.11.0"
   resolved "https://registry.yarnpkg.com/binary-extensions/-/binary-extensions-1.11.0.tgz#46aa1751fb6a2f93ee5e689bb1087d4b14c6c205"
 
-bluebird@^3.3.4, bluebird@^3.4.1:
+bluebird@^3.3.4, bluebird@^3.4.1, bluebird@^3.5.1:
   version "3.5.1"
   resolved "https://registry.yarnpkg.com/bluebird/-/bluebird-3.5.1.tgz#d9551f9de98f1fcda1e683d17ee91a0602ee2eb9"
 
@@ -1693,14 +1691,6 @@ center-align@^0.1.1:
   dependencies:
     align-text "^0.1.3"
     lazy-cache "^1.0.3"
-
-chalk@2.0.1:
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/chalk/-/chalk-2.0.1.tgz#dbec49436d2ae15f536114e76d14656cdbc0f44d"
-  dependencies:
-    ansi-styles "^3.1.0"
-    escape-string-regexp "^1.0.5"
-    supports-color "^4.0.0"
 
 chalk@2.3.1:
   version "2.3.1"
@@ -2366,10 +2356,6 @@ dot-prop@^4.1.0:
   dependencies:
     is-obj "^1.0.0"
 
-double-ended-queue@^2.1.0-0:
-  version "2.1.0-0"
-  resolved "https://registry.yarnpkg.com/double-ended-queue/-/double-ended-queue-2.1.0-0.tgz#103d3527fd31528f40188130c841efdd78264e5c"
-
 duplexer2@~0.1.0:
   version "0.1.4"
   resolved "https://registry.yarnpkg.com/duplexer2/-/duplexer2-0.1.4.tgz#8b12dab878c0d69e3e7891051662a32fc6bddcc1"
@@ -2796,7 +2782,7 @@ extend@3, extend@~3.0.1:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/extend/-/extend-3.0.1.tgz#a755ea7bc1adfcc5a31ce7e762dbaadc5e636444"
 
-external-editor@^2.0.4:
+external-editor@^2.0.4, external-editor@^2.1.0:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/external-editor/-/external-editor-2.2.0.tgz#045511cfd8d133f3846673d1047c154e214ad3d5"
   dependencies:
@@ -3433,10 +3419,6 @@ has-flag@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/has-flag/-/has-flag-1.0.0.tgz#9d9e793165ce017a00f00418c43f942a7b1d11fa"
 
-has-flag@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/has-flag/-/has-flag-2.0.0.tgz#e8207af1cc7b30d446cc70b734b5e8be18f88d51"
-
 has-flag@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/has-flag/-/has-flag-3.0.0.tgz#b5d454dc2199ae225699f3467e5a07f3b955bafd"
@@ -3693,6 +3675,24 @@ inquirer@^3.0.0, inquirer@^3.0.6:
     run-async "^2.2.0"
     rx-lite "^4.0.8"
     rx-lite-aggregates "^4.0.8"
+    string-width "^2.1.0"
+    strip-ansi "^4.0.0"
+    through "^2.3.6"
+
+inquirer@^5.1.0:
+  version "5.2.0"
+  resolved "https://registry.yarnpkg.com/inquirer/-/inquirer-5.2.0.tgz#db350c2b73daca77ff1243962e9f22f099685726"
+  dependencies:
+    ansi-escapes "^3.0.0"
+    chalk "^2.0.0"
+    cli-cursor "^2.1.0"
+    cli-width "^2.0.0"
+    external-editor "^2.1.0"
+    figures "^2.0.0"
+    lodash "^4.3.0"
+    mute-stream "0.0.7"
+    run-async "^2.2.0"
+    rxjs "^5.5.2"
     string-width "^2.1.0"
     strip-ansi "^4.0.0"
     through "^2.3.6"
@@ -5847,13 +5847,13 @@ performance-now@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/performance-now/-/performance-now-2.1.0.tgz#6309f4e0e5fa913ec1c69307ae364b4b377c9e7b"
 
-pify@3.0.0, pify@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/pify/-/pify-3.0.0.tgz#e5a4acd2c101fdf3d9a4d07f0dbc4db49dd28176"
-
 pify@^2.0.0:
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/pify/-/pify-2.3.0.tgz#ed141a6ac043a849ea588498e7dca8b15330e90c"
+
+pify@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/pify/-/pify-3.0.0.tgz#e5a4acd2c101fdf3d9a4d07f0dbc4db49dd28176"
 
 pinkie-promise@^2.0.0:
   version "2.0.1"
@@ -6180,17 +6180,9 @@ redis-commands@^1.2.0, redis-commands@^1.3.5:
   version "1.3.5"
   resolved "https://registry.yarnpkg.com/redis-commands/-/redis-commands-1.3.5.tgz#4495889414f1e886261180b1442e7295602d83a2"
 
-redis-parser@^2.4.0, redis-parser@^2.6.0:
+redis-parser@^2.4.0:
   version "2.6.0"
   resolved "https://registry.yarnpkg.com/redis-parser/-/redis-parser-2.6.0.tgz#52ed09dacac108f1a631c07e9b69941e7a19504b"
-
-redis@2.8.0:
-  version "2.8.0"
-  resolved "https://registry.yarnpkg.com/redis/-/redis-2.8.0.tgz#202288e3f58c49f6079d97af7a10e1303ae14b02"
-  dependencies:
-    double-ended-queue "^2.1.0-0"
-    redis-commands "^1.2.0"
-    redis-parser "^2.6.0"
 
 regenerate-unicode-properties@^6.0.0:
   version "6.0.0"
@@ -6488,9 +6480,15 @@ rx-lite@*, rx-lite@^4.0.8:
   version "4.0.8"
   resolved "https://registry.yarnpkg.com/rx-lite/-/rx-lite-4.0.8.tgz#0b1e11af8bc44836f04a6407e92da42467b79444"
 
-rxjs@^5.4.2, rxjs@^5.5.5:
+rxjs@^5.4.2:
   version "5.5.10"
   resolved "https://registry.yarnpkg.com/rxjs/-/rxjs-5.5.10.tgz#fde02d7a614f6c8683d0d1957827f492e09db045"
+  dependencies:
+    symbol-observable "1.0.1"
+
+rxjs@^5.5.2:
+  version "5.5.11"
+  resolved "https://registry.yarnpkg.com/rxjs/-/rxjs-5.5.11.tgz#f733027ca43e3bec6b994473be4ab98ad43ced87"
   dependencies:
     symbol-observable "1.0.1"
 
@@ -7207,12 +7205,6 @@ supports-color@^3.1.2:
   resolved "https://registry.yarnpkg.com/supports-color/-/supports-color-3.2.3.tgz#65ac0504b3954171d8a64946b2ae3cbb8a5f54f6"
   dependencies:
     has-flag "^1.0.0"
-
-supports-color@^4.0.0:
-  version "4.5.0"
-  resolved "https://registry.yarnpkg.com/supports-color/-/supports-color-4.5.0.tgz#be7a0de484dec5c5cddf8b3d59125044912f635b"
-  dependencies:
-    has-flag "^2.0.0"
 
 supports-color@^5.2.0, supports-color@^5.3.0:
   version "5.4.0"
