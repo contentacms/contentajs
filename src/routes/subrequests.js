@@ -1,10 +1,16 @@
 // @flow
 
+import type {
+  $Request as Request,
+  $Response as Response,
+  NextFunction,
+} from 'express';
+
 const config = require('config');
 const JsonResponse = require('subrequests-json-merger');
 const { subrequestsRouterFactory } = require('subrequests-express');
 
-const processor = (req: any, res: any, next: Function): void => {
+const processor = (req: Request, res: Response, next: NextFunction): void => {
   const merger = config.get('subrequests.responseMerger');
   if (merger === 'json') {
     // Make sure that subrequests-json-merger merges responses using JSON.
