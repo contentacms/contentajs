@@ -5,7 +5,7 @@
 -->
 
 <!--
-  emdaerHash:08221dc76a1d99d18342145659cc9717
+  emdaerHash:fd626352cb7f595c5f3c47cc6b373f5c
 -->
 
 <h1 id="contentajs-img-align-right-src-logo-svg-alt-contenta-logo-title-contenta-logo-width-100-">ContentaJS <img align="right" src="./logo.svg" alt="Contenta logo" title="Contenta logo" width="100"></h1>
@@ -27,12 +27,7 @@ upgrade paths or backwards compatibility. The model for this is <em>Fork &amp; G
 </ul>
 </li>
 <li><a href="#features">Features</a></li>
-<li><a href="#installation">Installation</a><ul>
-<li><a href="#local-installation">Local Installation</a></li>
-<li><a href="#aws-installation">AWS Installation</a></li>
-<li><a href="#install-using-docker">Install Using Docker</a></li>
-</ul>
-</li>
+<li><a href="#installation">Installation</a></li>
 <li><a href="#internal-development-notes">Internal Development Notes</a></li>
 <li><a href="#contributors">Contributors</a></li>
 <li><a href="#license">License</a></li>
@@ -93,47 +88,37 @@ Just provide the URL of the site and everything is taken care of for you.</li>
 <li>Multi-threaded nodejs server that takes advantage of all the cores of the
 server’s CPU.</li>
 <li>A Subrequests server for request aggregation. Learn more about <a href="./.emdaer/docs/subrequests.md">subrequests</a>.</li>
-<li>A <a href="http://redis.io">Redis</a> integration. This comes with a connection pool to
-eliminate latency obtaining connections with the server.</li>
+<li>A <a href="http://redis.io">Redis</a> integration via <a href="https://github.com/contentacms/contentajsRedis">@contentacms/redis</a>.</li>
 <li>Type safe development environment using <a href="http://flow.org">Flow</a>.</li>
 <li><a href="https://github.com/contentacms/contentajs/blob/master/config/default.yml#L66-L85">Configurable CORS</a>.</li>
 </ul>
 <h2 id="installation">Installation</h2>
-<p>In order to install ContentaJS you will need to meet the following requirements:</p>
+<p>In order to install ContentaJS you will need to meet the following
+<strong>requirements</strong>:</p>
 <ul>
-<li><code>nodejs</code> ^8.11.1 or higher.</li>
-<li>A working installation of <a href="https://github.com/contentacms/contenta_jsonapi">Contenta CMS</a>.<ul>
-<li>You should enable the <em>Contenta Redis</em> optional module.</li>
-<li>You should configure the connection from Drupal to Redis according to the instructions <a href="https://cgit.drupalcode.org/redis/tree/README.Predis.txt">here</a>.</li>
+<li><code>nodejs</code> ^8.11.1 or higher. This corresponds to <code>lts/carbon</code>.</li>
+<li>A working installation of <a href="https://github.com/contentacms/contenta_jsonapi">Contenta CMS</a>.</li>
+<li>A Redis server (optional). Use the
+<a href="https://github.com/contentacms/contentajsRedis">@contentacms/redis</a> module
+to leverage the Redis cache back-end.</li>
 </ul>
-</li>
-<li>A Redis server.</li>
-</ul>
-<h3 id="local-installation">Local Installation</h3>
-<p><em>Fill in the instructions on how to install locally</em></p>
-<h3 id="aws-installation">AWS Installation</h3>
-<p><em>Fill in the instructions on how to install in AWS with ElastiCache using CloudFormation or a custom AMI</em></p>
-<h3 id="install-using-docker">Install Using Docker</h3>
-<p><em>Fill in the instructions on how to install using Docker.</em></p>
-<p><em>Ideally this installs Contenta CMS (Drupal), ContentaJS, and the Redis server.</em></p>
+<p>See the <a href="./docs/install.md">installation instructions</a>.</p>
 <h2 id="internal-development-notes">Internal Development Notes</h2>
 <p><em>This is a dumping ground of notes. This section will disappear eventually, it’s
 just meant to save ideas for documentation to process some other time.</em></p>
 <ul>
-<li>Mention that both Drupal and node need to talk to the same Redis server.</li>
-<li>Make it clear that this is a starting point. To this node install you can:
-proxy to other microservices, add server side rendering, etc.</li>
-<li>Server side rendering can be added as a package / middleware.</li>
 <li>Introduce the ability to timeout requests.</li>
 <li>Create a separate package using passport to integrate with Simple OAuth.</li>
 <li>Make CORS customizable from configuration.</li>
 <li>If all subrequests are to the CMS forward the blueprint to Drupal’s subrequests.</li>
+<li>Compute the appropriate cache-control header from subquests responses.</li>
 <li>Make Flow types nicer in the middlewares.</li>
-<li>Fix the link in the responses from Contenta CMS.</li>
 <li>Validate the request bodies before reaching the CMS using the resource schemas.</li>
 <li>Filter requests that the CMS should not be bothered with using the resource lists.</li>
 <li>Make sure to mention that the /healthckeck is for auto-scaling policies.</li>
 <li>Create @contentacms/… submodules for logging interfaces like Splunk.</li>
+<li>Create a @contentacms/redisShare submodule for a shared Redis server between
+Drupal and node.</li>
 </ul>
 <h2 id="contributors">Contributors</h2>
 <details>

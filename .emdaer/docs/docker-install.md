@@ -1,4 +1,4 @@
-### Install Using Docker
+## Install Using Docker
 
 _Fill in the instructions on how to install using Docker._
 

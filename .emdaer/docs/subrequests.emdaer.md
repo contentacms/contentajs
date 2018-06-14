@@ -1,7 +1,7 @@
 <!--emdaer-p
   - '@emdaer/plugin-import'
   - path: .emdaer/docs/title.md
-    runEmdaer: false
+    runEmdaer: true
 -->
 
 # Subrequests
