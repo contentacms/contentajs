@@ -57,7 +57,7 @@
 <!--emdaer-p
   - '@emdaer/plugin-import'
   - path: .emdaer/docs/install.md
-    runEmdaer: true
+    runEmdaer: false
 -->
 
 <!--emdaer-p
