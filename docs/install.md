@@ -5,11 +5,10 @@
 -->
 
 <!--
-  emdaerHash:34bab1f11a7fbc21921ef61928976fd5
+  emdaerHash:3f7e01d20d33584741ff96d522a1a509
 -->
 
-<h1 id="contentajs-img-align-right-src-logo-svg-alt-contenta-logo-title-contenta-logo-width-100-">ContentaJS <img align="right" src="./logo.svg" alt="Contenta logo" title="Contenta logo" width="100"></h1>
-<h1 id="installation">Installation</h1>
+<h1 id="installation-img-align-right-src-logo-svg-alt-contenta-logo-title-contenta-logo-width-100-">Installation <img align="right" src="./logo.svg" alt="Contenta logo" title="Contenta logo" width="100"></h1>
 <p>In order to install ContentaJS you will need to meet the following requirements:</p>
 <ul>
 <li><code>nodejs</code> ^8.11.1 or higher.</li>

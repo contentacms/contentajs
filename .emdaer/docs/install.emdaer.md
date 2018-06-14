@@ -1,10 +1,4 @@
-<!--emdaer-p
-  - '@emdaer/plugin-import'
-  - path: .emdaer/docs/title.md
-    runEmdaer: true
--->
-
-# Installation
+# Installation <img align="right" src="./logo.svg" alt="Contenta logo" title="Contenta logo" width="100">
 In order to install ContentaJS you will need to meet the following requirements:
   - `nodejs` ^8.11.1 or higher.
   - A working installation of [Contenta CMS](https://github.com/contentacms/contenta_jsonapi).

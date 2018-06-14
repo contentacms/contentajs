@@ -5,11 +5,10 @@
 -->
 
 <!--
-  emdaerHash:ec34d2c8e198aafe0c6235d5cf245548
+  emdaerHash:14ec6609a21879c9b2db5fb5c6bc09ee
 -->
 
-<h1 id="contentajs-img-align-right-src-logo-svg-alt-contenta-logo-title-contenta-logo-width-100-">ContentaJS <img align="right" src="./logo.svg" alt="Contenta logo" title="Contenta logo" width="100"></h1>
-<h1 id="subrequests">Subrequests</h1>
+<h1 id="subrequests-img-align-right-src-logo-svg-alt-contenta-logo-title-contenta-logo-width-100-">Subrequests <img align="right" src="./logo.svg" alt="Contenta logo" title="Contenta logo" width="100"></h1>
 <p>Subrequests is a request aggregator project that will allow you to turn multiple
 requests into a single one. To do so client-side applications describe the
 requests they want to do in a JSON document and send that document to the
