@@ -73,8 +73,7 @@ class ContentaJsonRpc {
     }
     return (
       got(`${this.host}/jsonrpc`, {
-        method: 'POST',
-        body: request,
+        query: { query: request },
       })
         // Reject if the request errored and is not a batched request.
         .then(res => {

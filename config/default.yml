@@ -25,7 +25,7 @@ applicationCache:
   activePlugin: lru
   plugins:
     lru:
-      maxSize: 524288
+      max: 524288
 
 # These settings will determine the TTL for edge cache.
 cache:

@@ -12,7 +12,7 @@ fetchCmsMeta().then(res => {
     Object.keys(map).forEach(variableName => {
       const variableValue = _.get(jsonRpcResponse, [
         'result',
-        map[variableName],
+        ...map[variableName].split('.'),
       ]);
       mapped[variableName] = variableValue;
     });

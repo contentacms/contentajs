@@ -23,7 +23,7 @@ app.disable('x-powered-by');
 // Enable etags.
 app.enable('etag');
 app.set('etag', 'strong');
-const jsonApiPrefix = `/${_.get(process, 'env.jsonApiPrefix')}`;
+const jsonApiPrefix = _.get(process, 'env.jsonApiPrefix');
 const cmsHost = config.get('cms.host');
 
 const corsHandler = cors(config.util.toObject(config.get('cors')));

@@ -6,5 +6,6 @@ type: cms-meta-plugin
 
 rpcMethod: jsonapi.metadata
 resultMap:
-  # The name of the node.js environment variable: The path in the JSON RPC's result object.
-  jsonApiPrefix: prefix
+  # The name of the node.js environment variable: The path in the JSON RPC's
+  # result object.
+  jsonApiPrefix: openApi.basePath
