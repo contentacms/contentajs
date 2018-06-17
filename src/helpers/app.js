@@ -23,7 +23,8 @@ app.disable('x-powered-by');
 // Enable etags.
 app.enable('etag');
 app.set('etag', 'strong');
-const jsonApiPrefix = _.get(process, 'env.jsonApiPrefix');
+const jsonApiPrefix = _.get(process, 'env.jsonApiPrefix', '/jsonapi');
+const jsonApiPaths = JSON.parse(_.get(process, 'env.jsonApiPaths', '[]'));
 const cmsHost = config.get('cms.host');
 
 const corsHandler = cors(config.util.toObject(config.get('cors')));
@@ -32,7 +33,7 @@ app.use(corsHandler);
 app.options('*', corsHandler);
 
 // Initialize the request object with valuable information.
-app.use(copyToRequestObject({ jsonApiPrefix, cmsHost }));
+app.use(copyToRequestObject({ jsonApiPrefix, jsonApiPaths, cmsHost }));
 
 // Healthcheck is a special endpoint used for application monitoring.
 app.get('/healthcheck', healthcheck);

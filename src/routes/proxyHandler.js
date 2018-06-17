@@ -21,6 +21,18 @@ const errorHandler = require('../middlewares/errorHandler');
  */
 module.exports = (req: Request, res: Response, next: NextFunction): void => {
   const options = {
+    // We have a list of the JSON API resources available in Contenta CMS. This
+    // list is a list of regular expressions that can match any path a resource,
+    // taking variables into account. Filter the requests that are for
+    // non-existing resources.
+    filter(rq) {
+      // Extract the path part, without query string, of the current request.
+      const parsed = url.parse(rq.url);
+      // Return false if it doesn't apply any regular expression path.
+      return !!rq.jsonApiPaths.find(p =>
+        new RegExp(p).test(parsed.pathname || '')
+      );
+    },
     proxyReqPathResolver(rq) {
       const thePath: string = _.get(url.parse(rq.url), 'path', '');
       return `${req.jsonApiPrefix}${thePath}`;

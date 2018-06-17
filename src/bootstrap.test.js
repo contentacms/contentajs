@@ -7,7 +7,17 @@ jest
   .mockImplementation(() => ({ process: { pid: 42 } }));
 jest.mock('./helpers/fetchCmsMeta', () => () =>
   Promise.resolve([
-    [{ jsonApiPrefix: 'prefix' }, { result: { prefix: 'myPrefix' } }],
+    [
+      { jsonApiPrefix: 'prefix' },
+      {
+        result: {
+          openApi: {
+            basePath: '/myPrefix',
+            paths: ['/foo', '/foo/{bar}', '/foo/{bar}/oof/{baz}'],
+          },
+        },
+      },
+    ],
   ])
 );
 jest.spyOn(Adios.master, 'init').mockImplementation();

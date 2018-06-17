@@ -41,6 +41,7 @@ describe('The fallback to CMS', () => {
     expect(next).not.toHaveBeenCalled();
     expect(proxy.mock.calls[0][0]).toBe('foo');
     expect(Object.keys(proxy.mock.calls[0][1])).toEqual([
+      'filter',
       'proxyReqPathResolver',
       'proxyReqBodyDecorator',
       'proxyErrorHandler',
@@ -100,5 +101,24 @@ describe('The fallback to CMS', () => {
       'Cache-Control': 'public, max-age=900',
       foo: 'bar',
     });
+  });
+
+  test('the filter', () => {
+    expect.assertions(1);
+    proxyHandler(req, res);
+    const { filter } = proxy.mock.calls[0][1];
+    const actual = filter(
+      { url: 'https://example.org/lorem', jsonApiPaths: ['/lorem/?'] },
+      req
+    );
+    expect(actual).toBe(true);
+  });
+
+  test('the filter with an empty path', () => {
+    expect.assertions(1);
+    proxyHandler(req, res);
+    const { filter } = proxy.mock.calls[0][1];
+    const actual = filter({ url: '', jsonApiPaths: ['/lorem/?'] }, req);
+    expect(actual).toBe(false);
   });
 });

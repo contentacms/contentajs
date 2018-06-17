@@ -14,3 +14,4 @@ just meant to save ideas for documentation to process some other time._
 - Create @contentacms/… submodules for logging interfaces like Splunk.
 - Create a @contentacms/redisShare submodule for a shared Redis server between
   Drupal and node.
+- Forward requests to /jsonrpc

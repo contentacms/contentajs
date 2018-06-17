@@ -11,7 +11,7 @@ const logger = require('pino')();
 const cmsHost = config.get('cms.host');
 
 const jsonrpc = require('./jsonrpc')(cmsHost);
-
+const openApiPathToRegExp = require('./openApiPathToRegExp');
 /**
  * Connects to the CMS to get some important bootstrap information.
  *
@@ -46,11 +46,27 @@ module.exports = (): Promise<Array<[ObjectLiteral, JsonRpcResponseItem]>> => {
             .then((plugin: PluginInstance) =>
               Promise.all([
                 plugin.descriptor.resultMap,
-                plugin.exports.fetch().catch(error => {
-                  // If a particular fetcher returns an error, log it then swallow.
-                  logger.error(error);
-                  return error;
-                }),
+                plugin.exports
+                  .fetch()
+                  .then(res => {
+                    // Contenta CMS will send the paths as the Open API
+                    // specification, we need them to match incoming requests
+                    // so we transform them into regular expressions.
+                    const paths = openApiPathToRegExp(
+                      Object.keys(res.result.openApi.paths)
+                    );
+                    return {
+                      result: {
+                        basePath: res.result.openApi.basePath,
+                        paths: JSON.stringify(paths),
+                      },
+                    };
+                  })
+                  .catch(error => {
+                    // If a particular fetcher returns an error, log it then swallow.
+                    logger.error(error);
+                    return error;
+                  }),
               ])
             )
         )

@@ -5,7 +5,7 @@
 -->
 
 <!--
-  emdaerHash:fd626352cb7f595c5f3c47cc6b373f5c
+  emdaerHash:766f7f04de1a95368ac0e89e88166413
 -->
 
 <h1 id="contentajs-img-align-right-src-logo-svg-alt-contenta-logo-title-contenta-logo-width-100-">ContentaJS <img align="right" src="./logo.svg" alt="Contenta logo" title="Contenta logo" width="100"></h1>
@@ -119,6 +119,7 @@ just meant to save ideas for documentation to process some other time.</em></p>
 <li>Create @contentacms/… submodules for logging interfaces like Splunk.</li>
 <li>Create a @contentacms/redisShare submodule for a shared Redis server between
 Drupal and node.</li>
+<li>Forward requests to /jsonrpc</li>
 </ul>
 <h2 id="contributors">Contributors</h2>
 <details>

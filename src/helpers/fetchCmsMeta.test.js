@@ -23,7 +23,16 @@ describe('The metadata bootstrap process', () => {
   test('It requests the correct data', () => {
     expect.assertions(1);
     const jsonrpc = require('./jsonrpc');
-    jsonrpc.execute.mockImplementationOnce(() => Promise.resolve());
+    jsonrpc.execute.mockImplementationOnce(() =>
+      Promise.resolve({
+        result: {
+          openApi: {
+            basePath: '/foo',
+            paths: { lorem: 'ipsum' },
+          },
+        },
+      })
+    );
     return fetchCmsMeta().then(() => {
       expect(jsonrpc.execute).toHaveBeenCalledWith({
         id: 'req-jsonapi.metadata',

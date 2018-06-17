@@ -5,7 +5,7 @@ jest.mock('./got', () =>
       case 'foo/jsonrpc/methods':
         return resFromObj({ data: [{ id: 'lorem' }, { id: 'broken' }] });
       case 'foo/jsonrpc':
-        switch (options.body.method) {
+        switch (options.query.query.method) {
           case 'lorem':
             return resFromObj({ result: { foo: 'bar' } });
           case 'broken':
