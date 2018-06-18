@@ -28,9 +28,11 @@ module.exports = (req: Request, res: Response, next: NextFunction): void => {
     filter(rq) {
       // Extract the path part, without query string, of the current request.
       const parsed = url.parse(rq.url);
-      // Return false if it doesn't apply any regular expression path.
-      return !!rq.jsonApiPaths.find(p =>
-        new RegExp(p).test(parsed.pathname || '')
+      return (
+        // Only filter paths if there are any whitelisted paths.
+        rq.jsonApiPaths.length &&
+        // Return false if it doesn't apply any regular expression path.
+        !!rq.jsonApiPaths.find(p => new RegExp(p).test(parsed.pathname || ''))
       );
     },
     proxyReqPathResolver(rq) {

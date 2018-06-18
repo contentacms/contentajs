@@ -14,6 +14,7 @@ const cacheControl = require('../middlewares/cacheControl');
 const copyToRequestObject = require('../middlewares/copyToRequestObject');
 const errorHandler = require('../middlewares/errorHandler');
 const healthcheck = require('../routes/healthcheck');
+const jsonrpcProxy = require('../routes/jsonrpcProxy');
 const proxyHandler = require('../routes/proxyHandler');
 const { initSubrequests } = require('../routes/subrequests');
 
@@ -43,8 +44,9 @@ app.use(cacheControl);
 
 // Proxy for the JSON API server in Contenta CMS.
 app.use(jsonApiPrefix, bodyParser.json({ type: 'application/vnd.api+json' }));
-// Try to load from cache, then fallback to the CMS.
 app.use(jsonApiPrefix, proxyHandler);
+// Forward JSON RPC requests to the CMS.
+app.use('/jsonrpc', jsonrpcProxy);
 
 initSubrequests(app);
 

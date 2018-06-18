@@ -5,7 +5,7 @@
 -->
 
 <!--
-  emdaerHash:766f7f04de1a95368ac0e89e88166413
+  emdaerHash:979efa3b866bc2b990f451e12aa55b7c
 -->
 
 <h1 id="contentajs-img-align-right-src-logo-svg-alt-contenta-logo-title-contenta-logo-width-100-">ContentaJS <img align="right" src="./logo.svg" alt="Contenta logo" title="Contenta logo" width="100"></h1>
@@ -109,17 +109,11 @@ just meant to save ideas for documentation to process some other time.</em></p>
 <ul>
 <li>Introduce the ability to timeout requests.</li>
 <li>Create a separate package using passport to integrate with Simple OAuth.</li>
-<li>Make CORS customizable from configuration.</li>
 <li>If all subrequests are to the CMS forward the blueprint to Drupal’s subrequests.</li>
 <li>Compute the appropriate cache-control header from subquests responses.</li>
-<li>Make Flow types nicer in the middlewares.</li>
-<li>Validate the request bodies before reaching the CMS using the resource schemas.</li>
-<li>Filter requests that the CMS should not be bothered with using the resource lists.</li>
 <li>Make sure to mention that the /healthckeck is for auto-scaling policies.</li>
-<li>Create @contentacms/… submodules for logging interfaces like Splunk.</li>
 <li>Create a @contentacms/redisShare submodule for a shared Redis server between
 Drupal and node.</li>
-<li>Forward requests to /jsonrpc</li>
 </ul>
 <h2 id="contributors">Contributors</h2>
 <details>
