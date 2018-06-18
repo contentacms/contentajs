@@ -1,11 +1,15 @@
 // @flow
 
-import type { $Request as Request } from 'express';
+import type {
+  $Request as Request,
+  $Response as Response,
+  NextFunction,
+} from 'express';
 
 const proxy = require('express-http-proxy');
 
-module.exports = (req: Request): void => {
-  proxy(req.cmsHost, {
+module.exports = (req: Request, res: Response, next: NextFunction): void => {
+  return proxy(req.cmsHost, {
     proxyReqPathResolver: req => `/jsonrpc${req.url}`,
-  });
+  })(req, res, next);
 };

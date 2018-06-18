@@ -5,7 +5,7 @@
 -->
 
 <!--
-  emdaerHash:979efa3b866bc2b990f451e12aa55b7c
+  emdaerHash:7afae3b4ed72adcaf27e9a3e785bab8a
 -->
 
 <h1 id="contentajs-img-align-right-src-logo-svg-alt-contenta-logo-title-contenta-logo-width-100-">ContentaJS <img align="right" src="./logo.svg" alt="Contenta logo" title="Contenta logo" width="100"></h1>
@@ -114,6 +114,10 @@ just meant to save ideas for documentation to process some other time.</em></p>
 <li>Make sure to mention that the /healthckeck is for auto-scaling policies.</li>
 <li>Create a @contentacms/redisShare submodule for a shared Redis server between
 Drupal and node.</li>
+<li>Document that the proxied requests are not cached because they are considered
+end responses. The appropriate caching should be in the edge cache layer.</li>
+<li>Make Cache-Control header overrides configurable.</li>
+<li>Check feature conflict between cors.maxAge and OPTIONS cache control header.</li>
 </ul>
 <h2 id="contributors">Contributors</h2>
 <details>

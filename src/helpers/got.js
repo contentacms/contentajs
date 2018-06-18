@@ -11,12 +11,14 @@ const Keyv = require('keyv');
 const logger = require('pino')();
 const pkg = require('../../package.json');
 
-const activeApplicationCache = config.get('applicationCache.activePlugin');
-const opts = config.get(`applicationCache.plugins.${activeApplicationCache}`);
+const activeApplicationCache = config.get('got.applicationCache.activePlugin');
+const opts = config.get(
+  `got.applicationCache.plugins.${activeApplicationCache}`
+);
 const keyv = new Keyv(opts);
 keyv.on('error', logger.error.bind(logger));
 
-const agentOptions = config.util.toObject(config.get('cms.httpAgent'));
+const agentOptions = config.util.toObject(config.get('got.httpAgent'));
 
 const defaults = {
   headers: {
@@ -26,6 +28,8 @@ const defaults = {
   },
   json: true,
   cache: keyv,
+  // Override the global agent options, since that is tuned for
+  // express-http-proxy.
   agents: {
     http: new HttpAgent(agentOptions),
     https: new HttpsAgent(agentOptions),

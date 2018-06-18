@@ -9,6 +9,8 @@ const bodyParser = require('body-parser');
 const config = require('config');
 const cors = require('cors');
 const express = require('express');
+const { globalAgent: httpGlobalAgent } = require('http');
+const { globalAgent: httpsGlobalAgent } = require('https');
 
 const cacheControl = require('../middlewares/cacheControl');
 const copyToRequestObject = require('../middlewares/copyToRequestObject');
@@ -27,6 +29,13 @@ app.set('etag', 'strong');
 const jsonApiPrefix = _.get(process, 'env.jsonApiPrefix', '/jsonapi');
 const jsonApiPaths = JSON.parse(_.get(process, 'env.jsonApiPaths', '[]'));
 const cmsHost = config.get('cms.host');
+
+// Set the global agent options
+const agentOptions = config.util.toObject(config.get('cms.httpAgent'));
+Object.keys(agentOptions).forEach(key => {
+  _.set(httpGlobalAgent, [key], agentOptions[key]);
+  _.set(httpsGlobalAgent, [key], agentOptions[key]);
+});
 
 const corsHandler = cors(config.util.toObject(config.get('cors')));
 app.use(corsHandler);

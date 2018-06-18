@@ -28,11 +28,21 @@ cms:
     # CMS for performance reasons.
     keepAlive: true
 
-applicationCache:
-  activePlugin: lru
-  plugins:
-    lru:
-      max: 524288
+# The HTTP client. Use this client to make any kind of HTTP requests.
+got:
+  # These options will be used both for HTTP and HTTPS.
+  httpAgent:
+    # It may not be a good option to keep the connection alive since got is used
+    # to make HTTP connections to arbitrary hosts. Like to a weather API.
+    keepAlive: true
+  # All responses gotten via 'got' will be cached locally based on the
+  # Cache-Control headers in the response. This will allow to avoid unnecessary
+  # requests and to leverage ETags.
+  applicationCache:
+    activePlugin: lru
+    plugins:
+      lru:
+        max: 524288
 
 # These settings will determine the TTL for edge cache.
 cache:
