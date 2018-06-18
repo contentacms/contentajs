@@ -5,6 +5,8 @@ import type { GotResponse } from '../../flow/types/got';
 
 const config = require('config');
 const got = require('got');
+const { Agent: HttpAgent } = require('http');
+const { Agent: HttpsAgent } = require('https');
 const Keyv = require('keyv');
 const logger = require('pino')();
 const pkg = require('../../package.json');
@@ -14,6 +16,8 @@ const opts = config.get(`applicationCache.plugins.${activeApplicationCache}`);
 const keyv = new Keyv(opts);
 keyv.on('error', logger.error.bind(logger));
 
+const agentOptions = config.util.toObject(config.get('cms.httpAgent'));
+
 const defaults = {
   headers: {
     'user-agent': `${pkg.name}/${
@@ -22,6 +26,10 @@ const defaults = {
   },
   json: true,
   cache: keyv,
+  agents: {
+    http: new HttpAgent(agentOptions),
+    https: new HttpsAgent(agentOptions),
+  },
 };
 
 /**

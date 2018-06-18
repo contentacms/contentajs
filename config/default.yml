@@ -20,6 +20,13 @@ cms:
   # Add the URL including the protocol to your Contenta CMS installation.
   # Example: https://www.example.com
   host: http://localhost
+  # Options for the HTTP client created in helpers/got.js. This uses core's
+  # agent https://nodejs.org/api/http.html#http_class_http_agent. These options
+  # will be used both for HTTP and HTTPS.
+  httpAgent:
+    # It is a good idea to keep the connection alive between the proxy an the
+    # CMS for performance reasons.
+    keepAlive: true
 
 applicationCache:
   activePlugin: lru
