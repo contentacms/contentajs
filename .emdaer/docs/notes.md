@@ -13,3 +13,5 @@ just meant to save ideas for documentation to process some other time._
   end responses. The appropriate caching should be in the edge cache layer.
 - Make Cache-Control header overrides configurable.
 - Check feature conflict between cors.maxAge and OPTIONS cache control header.
+- Document better the JSON RPC support.
+- Add documentation about the cache controls

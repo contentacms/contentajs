@@ -5,7 +5,7 @@
 -->
 
 <!--
-  emdaerHash:adfbe29d32e461f8b1c289b43a0eb13a
+  emdaerHash:263e509f9950b57ffeae74d609419d0c
 -->
 
 <h1 id="contentajs-img-align-right-src-logo-svg-alt-contenta-logo-title-contenta-logo-width-100-">ContentaJS <img align="right" src="./logo.svg" alt="Contenta logo" title="Contenta logo" width="100"></h1>
@@ -124,6 +124,8 @@ Drupal and node.</li>
 end responses. The appropriate caching should be in the edge cache layer.</li>
 <li>Make Cache-Control header overrides configurable.</li>
 <li>Check feature conflict between cors.maxAge and OPTIONS cache control header.</li>
+<li>Document better the JSON RPC support.</li>
+<li>Add documentation about the cache controls</li>
 </ul>
 <h2 id="contributors">Contributors</h2>
 <details>

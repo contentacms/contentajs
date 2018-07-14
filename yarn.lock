@@ -4642,6 +4642,10 @@ keyv-lru@^2.1.0:
   dependencies:
     tiny-lru "^1.6.1"
 
+keyv-null@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/keyv-null/-/keyv-null-1.0.0.tgz#f4b34d540b4e4afa5999faefadde4a2b7b4d6d2c"
+
 keyv@3.0.0, keyv@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/keyv/-/keyv-3.0.0.tgz#44923ba39e68b12a7cec7df6c3268c031f2ef373"

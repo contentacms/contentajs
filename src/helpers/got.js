@@ -7,16 +7,9 @@ const config = require('config');
 const got = require('got');
 const { Agent: HttpAgent } = require('http');
 const { Agent: HttpsAgent } = require('https');
-const Keyv = require('keyv');
-const logger = require('pino')();
 const pkg = require('../../package.json');
 
-const activeApplicationCache = config.get('got.applicationCache.activePlugin');
-const opts = config.get(
-  `got.applicationCache.plugins.${activeApplicationCache}`
-);
-const keyv = new Keyv(opts);
-keyv.on('error', logger.error.bind(logger));
+const keyv = require('./keyvInstance');
 
 const agentOptions = config.util.toObject(config.get('got.httpAgent'));
 

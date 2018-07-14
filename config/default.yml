@@ -43,6 +43,9 @@ got:
     plugins:
       lru:
         max: 524288
+      # Select nullStore as your cache store to avoid caching completely. This
+      # is useful during development.
+      nullStore: {}
 
 # These settings will determine the TTL for edge cache.
 cache:
