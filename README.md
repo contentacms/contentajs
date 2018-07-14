@@ -5,7 +5,7 @@
 -->
 
 <!--
-  emdaerHash:7afae3b4ed72adcaf27e9a3e785bab8a
+  emdaerHash:adfbe29d32e461f8b1c289b43a0eb13a
 -->
 
 <h1 id="contentajs-img-align-right-src-logo-svg-alt-contenta-logo-title-contenta-logo-width-100-">ContentaJS <img align="right" src="./logo.svg" alt="Contenta logo" title="Contenta logo" width="100"></h1>
@@ -84,7 +84,13 @@ the LAMP stack.</p>
 <p>The main features of this project cover:</p>
 <ul>
 <li>Automatic integration with the API exposed by your Contenta CMS install.
-Just provide the URL of the site and everything is taken care of for you.</li>
+Just provide the URL of the site and everything is taken care of for you.<ul>
+<li>JSON API integration.</li>
+<li>JSON RPC integration.</li>
+<li>Subrequests integration.</li>
+<li>Open API integration.</li>
+</ul>
+</li>
 <li>Multi-threaded nodejs server that takes advantage of all the cores of the
 server’s CPU.</li>
 <li>A Subrequests server for request aggregation. Learn more about <a href="./.emdaer/docs/subrequests.md">subrequests</a>.</li>

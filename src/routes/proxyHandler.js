@@ -28,12 +28,13 @@ module.exports = (req: Request, res: Response, next: NextFunction): void => {
     filter(rq) {
       // Extract the path part, without query string, of the current request.
       const parsed = url.parse(rq.url);
-      return (
+      const pathIsWhitelisted =
         // Only filter paths if there are any whitelisted paths.
         rq.jsonApiPaths.length &&
         // Return false if it doesn't apply any regular expression path.
-        !!rq.jsonApiPaths.find(p => new RegExp(p).test(parsed.pathname || ''))
-      );
+        !!rq.jsonApiPaths.find(p => new RegExp(p).test(parsed.pathname || ''));
+      // Make sure that the JSON API entry point is also whitelisted.
+      return parsed.pathname === '/' || pathIsWhitelisted;
     },
     proxyReqPathResolver(rq) {
       const thePath: string = _.get(url.parse(rq.url), 'path', '');
