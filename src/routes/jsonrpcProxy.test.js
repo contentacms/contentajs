@@ -1,6 +1,6 @@
 const jsonrpcProxy = require('./jsonrpcProxy');
 
-jest.mock('express-http-proxy');
+jest.mock('express-http-proxy', () => jest.fn().mockReturnValue(() => {}));
 
 const proxy = require('express-http-proxy');
 
