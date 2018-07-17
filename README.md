@@ -46,10 +46,13 @@ and optimized starter kit that will solve many of your needs without effort.</p>
 <p>If your API needs to aggregate data for use on the front-end from other services
 you <strong>should not</strong> use PHP for that. That is because, in practice, all I/O in
 Drupal is blocking and the performance of these tasks is usually very poor.</p>
-<p>An example of this would be if you are showing weather data from a 3rd party
-API. Another example is if you need to make requests to an analytics tool.
-Another example is if you need to run a request through an anti-fraud service
-before accessing the content.</p>
+<p>Examples of this are:
+<ul>
+  <li>Showing weather data from a 3rd party API.</li>
+  <li>If you need to make requests to an analytics tool.</li>
+  <li>If you need to run a request through an anti-fraud service before accessing the content.</li>
+</ul>
+</p>
 <p>In these situations you will want to treat <strong>Contenta CMS</strong> just as any other
 microservice. Then you will need a server, like this one written in node.js, to
 orchestrate the different microservices.</p>
