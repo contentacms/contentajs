@@ -24,7 +24,7 @@ to leverage the Redis cache back-end.</li>
 <h3 id="install-contentajs">Install ContentaJS</h3>
 <p>Install the starter kit by using:</p>
 <pre><code>
-yarn add @cotentacms/contentajs
+yarn add @contentacms/contentajs
 </code></pre>
 <h3 id="configure">Configure</h3>
 <p>Create a local configuration file. This configuration file will contain all the
