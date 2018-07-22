@@ -5,7 +5,7 @@
 -->
 
 <!--
-  emdaerHash:3f7e01d20d33584741ff96d522a1a509
+  emdaerHash:0fb5ef7c247e491ef81f5a65b60d26a8
 -->
 
 <h1 id="installation-img-align-right-src-logo-svg-alt-contenta-logo-title-contenta-logo-width-100-">Installation <img align="right" src="./logo.svg" alt="Contenta logo" title="Contenta logo" width="100"></h1>
@@ -22,9 +22,15 @@ to leverage the Redis cache back-end.</li>
 <p>Install Contenta CMS using <a href="http://www.contentacms.org/#install">the instructions</a>.</p>
 <p>Take note of the installation URL. For instance <code>http://localhost:8888</code>.</p>
 <h3 id="install-contentajs">Install ContentaJS</h3>
-<p>Install the starter kit by using:</p>
+<p>Install the starter kit by using downloading <a href="https://github.com/contentacms/contentajs/archive/master.tar.gz">the
+package</a> and
+extracting it. In MacOS and Linux you can do:</p>
 <pre><code>
-yarn add @cotentacms/contentajs
+curl -Lo contenta.tar.gz https://github.com/contentacms/contentajs/archive/master.tar.gz
+tar -xzf contenta.tar.gz
+mv contenta-master YOUR_PROJECT_NAME
+cd YOUR_PROJECT_NAME
+git init && git add . && git ci -m 'feat: project initialization with Contenta JS'
 </code></pre>
 <h3 id="configure">Configure</h3>
 <p>Create a local configuration file. This configuration file will contain all the
@@ -47,11 +53,11 @@ cors:
     - '*'
 ```
 <p>It is important to note that you can override configuration per environment.
-That means that your <code>config/dev.yml</code> may look like contain:</p>
+That means that your <code>config/dev.yml</code> may contain:</p>
 
 ```yaml
 cms:
-  host: http://127.0.0.1:8080/contentacms
+  host: http://dev.example.com
 ```
 <p>Learn more about configuration in the
 <a href="https://www.npmjs.com/package/config">config module’s documentation</a>.</p>

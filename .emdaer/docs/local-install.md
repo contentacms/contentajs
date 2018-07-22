@@ -6,9 +6,16 @@ Install Contenta CMS using [the instructions](http://www.contentacms.org/#instal
 Take note of the installation URL. For instance `http://localhost:8888`.
 
 ### Install ContentaJS
-Install the starter kit by using:
+Install the starter kit by using downloading [the
+package](https://github.com/contentacms/contentajs/archive/master.tar.gz) and
+extracting it. In MacOS and Linux you can do:
+
 ```
-yarn add @cotentacms/contentajs
+curl -Lo contenta.tar.gz https://github.com/contentacms/contentajs/archive/master.tar.gz
+tar -xzf contenta.tar.gz
+mv contenta-master YOUR_PROJECT_NAME
+cd YOUR_PROJECT_NAME
+git init && git add . && git ci -m 'feat: project initialization with Contenta JS'
 ```
 
 ### Configure
@@ -35,11 +42,11 @@ cors:
 ```
 
 It is important to note that you can override configuration per environment.
-That means that your `config/dev.yml` may look like contain:
+That means that your `config/dev.yml` may contain:
 
 ```yaml
 cms:
-  host: http://127.0.0.1:8080/contentacms
+  host: http://dev.example.com
 ```
 
 Learn more about configuration in the
