@@ -5,7 +5,7 @@
 -->
 
 <!--
-  emdaerHash:0fb5ef7c247e491ef81f5a65b60d26a8
+  emdaerHash:245f97c9103513ad3bf8949467d885e8
 -->
 
 <h1 id="installation-img-align-right-src-logo-svg-alt-contenta-logo-title-contenta-logo-width-100-">Installation <img align="right" src="./logo.svg" alt="Contenta logo" title="Contenta logo" width="100"></h1>
@@ -64,10 +64,10 @@ cms:
 <h3 id="start-your-server">Start your server</h3>
 <p>Start your server with multiple threads serving requests (one per CPU core).</p>
 <pre><code>
-yarn start
+npm start
 </code></pre>
 <p>Inspect the <code>&quot;scripts&quot;</code> section in the <a href="./package.json"><code>package.json</code></a> to find
-other useful scripts like <code>yarn debug</code>, <code>yarn stop</code> and <code>yarn test</code>.</p>
+other useful scripts like <code>npm run debug</code>, <code>npm run stop</code> and <code>npm run test</code>.</p>
 <h3 id="-optional-install-the-redis-server">(Optional) Install the redis server</h3>
 <p>Optionally you can install the Redis server by doing <code>gem install redis</code> then
 follow the setup in <a href="https://github.com/contentacms/contentajsRedis#readme"><code>@contentacms/redis</code></a>.</p>

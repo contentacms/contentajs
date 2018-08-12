@@ -15,8 +15,7 @@
   "license": "MIT",
   "private": false,
   "engines": {
-    "node": ">=8.11.2",
-    "yarn": ">=1.0.0"
+    "node": ">=8.9"
   },
   "scripts": {
     "start": "npm run build && node ./lib/server.js",

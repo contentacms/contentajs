@@ -56,11 +56,11 @@ Learn more about configuration in the
 Start your server with multiple threads serving requests (one per CPU core).
 
 ```
-yarn start
+npm start
 ```
 
 Inspect the `"scripts"` section in the [`package.json`](./package.json) to find
-other useful scripts like `yarn debug`, `yarn stop` and `yarn test`.
+other useful scripts like `npm run debug`, `npm run stop` and `npm run test`.
 
 ### (Optional) Install the redis server
 Optionally you can install the Redis server by doing `gem install redis` then
