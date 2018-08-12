@@ -28,7 +28,7 @@
     "precommit": "lint-staged && npm run emdaer && npm run flow",
     "emdaer": "emdaer --yes && git add *.md",
     "prepush": "npm run lint && npm run flow && npm test",
-    "prepublish": "npm run build",
+    "prepare": "npm run build",
     "flow": "flow status",
     "build": "./node_modules/.bin/babel src -d lib --copy-files --delete-dir-on-start",
     "prettier": "prettier --write './**/*.js' && eslint './**/*.js' --fix",
