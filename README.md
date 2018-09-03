@@ -5,7 +5,7 @@
 -->
 
 <!--
-  emdaerHash:eb21937d50f7a69bfc4e947c9d0c7331
+  emdaerHash:a7431e8c786484e64dc8de1fcaf757f1
 -->
 
 <h1 id="contentajs-img-align-right-src-logo-svg-alt-contenta-logo-title-contenta-logo-width-100-">ContentaJS <img align="right" src="./logo.svg" alt="Contenta logo" title="Contenta logo" width="100"></h1>
@@ -42,8 +42,7 @@ data from Contenta CMS, others won’t.</p>
 <p>You may need <strong>ContentaJS</strong> because for many reasons <strong>you will end up needing a
 node.js server for your project anyways</strong>. You may as well use an opinionated
 and optimized starter kit that will solve many of your needs without effort.</p>
-<iframe src="https://www.youtube.com/embed/6bdbqo2tETg?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
-
+<p><a href="https://www.youtube.com/watch?v=6bdbqo2tETg"><img src="https://img.youtube.com/vi/6bdbqo2tETg/0.jpg" alt="Contenta JS video"></a></p>
 <h3 id="microservices">Microservices</h3>
 <p>If your API needs to aggregate data for use on the front-end from other services
 you <strong>should not</strong> use PHP for that. That is because, in practice, all I/O in

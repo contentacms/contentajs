@@ -9,7 +9,8 @@ You may need **ContentaJS** because for many reasons **you will end up needing a
 node.js server for your project anyways**. You may as well use an opinionated
 and optimized starter kit that will solve many of your needs without effort.
 
-<iframe src="https://www.youtube.com/embed/6bdbqo2tETg?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+
+[![Contenta JS video](https://img.youtube.com/vi/6bdbqo2tETg/0.jpg)](https://www.youtube.com/watch?v=6bdbqo2tETg)
 
 ### Microservices
 If your API needs to aggregate data for use on the front-end from other services
