@@ -44,6 +44,12 @@
 
 <!--emdaer-p
   - '@emdaer/plugin-import'
+  - path: .emdaer/docs/videos.md
+    runEmdaer: false
+-->
+
+<!--emdaer-p
+  - '@emdaer/plugin-import'
   - path: .emdaer/docs/why.md
     runEmdaer: false
 -->

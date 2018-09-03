@@ -5,7 +5,7 @@
 -->
 
 <!--
-  emdaerHash:a7431e8c786484e64dc8de1fcaf757f1
+  emdaerHash:6a0ac3213af886b61b0a58a3f2e822bd
 -->
 
 <h1 id="contentajs-img-align-right-src-logo-svg-alt-contenta-logo-title-contenta-logo-width-100-">ContentaJS <img align="right" src="./logo.svg" alt="Contenta logo" title="Contenta logo" width="100"></h1>
@@ -19,6 +19,11 @@ integration of your application based on Contenta CMS. We <strong>do not</strong
 upgrade paths or backwards compatibility. The model for this is <em>Fork &amp; Go</em>.</p>
 <!-- toc -->
 <ul>
+<li><a href="#videos">Videos</a><ul>
+<li><a href="#contenta-js-introduction">Contenta JS: Introduction</a></li>
+<li><a href="#tutorial-install-contenta-cms--contenta-js">Tutorial: Install Contenta CMS + Contenta JS</a></li>
+</ul>
+</li>
 <li><a href="#why">Why?</a><ul>
 <li><a href="#microservices">Microservices</a></li>
 <li><a href="#server-side-rendering">Server-Side Rendering</a></li>
@@ -34,6 +39,17 @@ upgrade paths or backwards compatibility. The model for this is <em>Fork &amp; G
 </ul>
 <!-- tocstop -->
 <p><a href="https://travis-ci.org/contentacms/contentajs/"><img src="https://img.shields.io/travis/contentacms/contentajs.svg?style=flat-square" alt="Travis"></a> <a href="https://coveralls.io/github/contentacms/contentajs/"><img src="https://img.shields.io/coveralls/github/contentacms/contentajs.svg?style=flat-square" alt="Coverage"></a> <a href="https://david-dm.org/contentacms/contentajs"><img src="https://img.shields.io/david/contentacms/contentajs.svg?style=flat-square" alt="David Dependency Management"></a> <a href="https://github.com/contentacms/contentajs"><img src="https://img.shields.io/github/last-commit/contentacms/contentajs.svg?style=flat-square" alt="Last Commit"></a> <a href="http://npmjs.com/package/@contentacms/contentajs"><img src="https://img.shields.io/node/v/@contentacms/contentajs.svg?style=flat-square" alt="Node"></a> <a href="https://github.com/emdaer/emdaer"><img src="https://img.shields.io/badge/📓-documented%20with%20emdaer-F06632.svg?style=flat-square" alt="Documented with emdaer"></a></p>
+<h2 id="videos">Videos</h2>
+<h3 id="contenta-js-introduction">Contenta JS: Introduction</h3>
+<p align="center">
+<a href="https://www.youtube.com/watch?v=6bdbqo2tETg"><img src="https://img.youtube.com/vi/6bdbqo2tETg/0.jpg" alt="Contenta JS video"></a>
+</p>
+
+<h3 id="tutorial-install-contenta-cms-contenta-js">Tutorial: Install Contenta CMS + Contenta JS</h3>
+<p align="center">
+<a href="https://www.youtube.com/watch?v=KGhA61WeTuw"><img src="https://img.youtube.com/vi/KGhA61WeTuw/0.jpg" alt="Contenta JS video"></a>
+</p>
+
 <h2 id="why-">Why?</h2>
 <p><strong>Contenta CMS</strong> (aka <em>the Drupal part</em>) is designed to serve your project’s
 content. ContentaJS (aka <em>the node.js part</em>) is designed to serve the requests
@@ -42,7 +58,6 @@ data from Contenta CMS, others won’t.</p>
 <p>You may need <strong>ContentaJS</strong> because for many reasons <strong>you will end up needing a
 node.js server for your project anyways</strong>. You may as well use an opinionated
 and optimized starter kit that will solve many of your needs without effort.</p>
-<p><a href="https://www.youtube.com/watch?v=6bdbqo2tETg"><img src="https://img.youtube.com/vi/6bdbqo2tETg/0.jpg" alt="Contenta JS video"></a></p>
 <h3 id="microservices">Microservices</h3>
 <p>If your API needs to aggregate data for use on the front-end from other services
 you <strong>should not</strong> use PHP for that. That is because, in practice, all I/O in
