@@ -7,7 +7,9 @@ data from Contenta CMS, others won't.
 
 You may need **ContentaJS** because for many reasons **you will end up needing a
 node.js server for your project anyways**. You may as well use an opinionated
-and optimized starter kit that will solve many of your needs without effort. 
+and optimized starter kit that will solve many of your needs without effort.
+
+<iframe src="https://www.youtube.com/embed/6bdbqo2tETg?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
 
 ### Microservices
 If your API needs to aggregate data for use on the front-end from other services
