@@ -5,7 +5,7 @@
 -->
 
 <!--
-  emdaerHash:245f97c9103513ad3bf8949467d885e8
+  emdaerHash:80c8315300ab5186215047df082ca38f
 -->
 
 <h1 id="installation-img-align-right-src-logo-svg-alt-contenta-logo-title-contenta-logo-width-100-">Installation <img align="right" src="./logo.svg" alt="Contenta logo" title="Contenta logo" width="100"></h1>
@@ -30,6 +30,7 @@ curl -Lo contenta.tar.gz https://github.com/contentacms/contentajs/archive/maste
 tar -xzf contenta.tar.gz
 mv contenta-master YOUR_PROJECT_NAME
 cd YOUR_PROJECT_NAME
+npm install
 git init && git add . && git ci -m 'feat: project initialization with Contenta JS'
 </code></pre>
 <h3 id="configure">Configure</h3>
