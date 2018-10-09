@@ -15,6 +15,7 @@ curl -Lo contenta.tar.gz https://github.com/contentacms/contentajs/archive/maste
 tar -xzf contenta.tar.gz
 mv contenta-master YOUR_PROJECT_NAME
 cd YOUR_PROJECT_NAME
+npm install
 git init && git add . && git ci -m 'feat: project initialization with Contenta JS'
 ```
 
