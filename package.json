@@ -15,18 +15,17 @@
   "license": "MIT",
   "private": false,
   "engines": {
-    "node": ">=8.9"
+    "node": ">=8.10"
   },
   "scripts": {
-    "start": "npm run build && node ./lib/server.js",
-    "debug": "npm run build && DEBUG:* node ./debug/singleWorker.js",
-    "stop": "pkill -SIGINT contentajs",
+    "start": "npm run build && node ./node_modules/.bin/pm2 start contentajs --env production",
+    "debug": "DEBUG=*,-babel node ./node_modules/.bin/babel-node --inspect-brk ./src/server.js",
     "test": "NODE_ENV=test jest --coverage",
     "test-ci": "NODE_ENV=test jest --coverage --ci --runInBand",
     "debug-test": "npm run build && NODE_ENV=test node --inspect-brk ./node_modules/.bin/jest --runInBand",
     "commitmsg": "commitlint -e $GIT_PARAMS",
-    "precommit": "lint-staged && npm run emdaer && npm run flow",
-    "emdaer": "emdaer --yes && git add *.md",
+    "precommit": "lint-staged && npm run flow",
+    "documentation": "emdaer --yes && git add *.md",
     "prepush": "npm run lint && npm run flow && npm test",
     "prepare": "npm run build",
     "flow": "flow status",
@@ -74,7 +73,6 @@
     "semantic-release-conventional-commits": "^2.0.0"
   },
   "dependencies": {
-    "adios": "^2.0.0",
     "body-parser": "^1.18.2",
     "config": "^1.30.0",
     "cors": "^2.8.4",
@@ -89,6 +87,7 @@
     "lodash": "^4.17.10",
     "pino": "^4.16.1",
     "plugnplay": "^3.3.0",
+    "pm2": "^3.2.2",
     "subrequests": "^2.9.0",
     "subrequests-express": "^3.2.0",
     "subrequests-json-merger": "^1.13.0"

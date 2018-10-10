@@ -43,11 +43,11 @@ cors:
 ```
 
 It is important to note that you can override configuration per environment.
-That means that your `config/dev.yml` may contain:
+That means that your `config/staging.yml` may contain:
 
 ```yaml
 cms:
-  host: http://dev.example.com
+  host: http://stg.example.com
 ```
 
 Learn more about configuration in the
@@ -55,6 +55,11 @@ Learn more about configuration in the
 
 ### Start your server
 Start your server with multiple threads serving requests (one per CPU core).
+This uses the [PM2](https://pm2.io/doc/en/runtime/overview/) module. Edit the
+[`ecosystem.config.js`](./ecosystem.config.js) file to tune how to start your
+app. Read
+[the documentation](https://pm2.io/doc/en/runtime/reference/ecosystem-file/) for
+the PM2 ecosystem file.
 
 ```
 npm start

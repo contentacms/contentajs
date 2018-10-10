@@ -5,7 +5,7 @@
 -->
 
 <!--
-  emdaerHash:80c8315300ab5186215047df082ca38f
+  emdaerHash:a1d5fe3f5694380aacb3e6929e6d4022
 -->
 
 <h1 id="installation-img-align-right-src-logo-svg-alt-contenta-logo-title-contenta-logo-width-100-">Installation <img align="right" src="./logo.svg" alt="Contenta logo" title="Contenta logo" width="100"></h1>
@@ -54,16 +54,21 @@ cors:
     - '*'
 ```
 <p>It is important to note that you can override configuration per environment.
-That means that your <code>config/dev.yml</code> may contain:</p>
+That means that your <code>config/staging.yml</code> may contain:</p>
 
 ```yaml
 cms:
-  host: http://dev.example.com
+  host: http://stg.example.com
 ```
 <p>Learn more about configuration in the
 <a href="https://www.npmjs.com/package/config">config module’s documentation</a>.</p>
 <h3 id="start-your-server">Start your server</h3>
-<p>Start your server with multiple threads serving requests (one per CPU core).</p>
+<p>Start your server with multiple threads serving requests (one per CPU core).
+This uses the <a href="https://pm2.io/doc/en/runtime/overview/">PM2</a> module. Edit the
+<a href="./ecosystem.config.js"><code>ecosystem.config.js</code></a> file to tune how to start your
+app. Read
+<a href="https://pm2.io/doc/en/runtime/reference/ecosystem-file/">the documentation</a> for
+the PM2 ecosystem file.</p>
 <pre><code>
 npm start
 </code></pre>

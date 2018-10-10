@@ -3,19 +3,6 @@
 # DO NOT CHANGE THIS FILE. Instead create a new configuration file that holds
 # the overwrites as explained in https://www.npmjs.com/package/config.
 
-app:
-  name:
-    machine: 'contentajs'
-    human-readable: 'ContentaJS'
-  # The port for the server to listen on.
-  port: 3000
-
-  # The number of child processes to start. The total number of processes will be
-  # split between web workers. 0 will instruct the application to use the maximum
-  # number of processors available on the machine.
-  processes: 0
-  adiosSocket: ./adios.sock
-
 cms:
   # Add the URL including the protocol to your Contenta CMS installation.
   # Example: https://www.example.com
