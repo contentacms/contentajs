@@ -1,0 +1,8 @@
+type Recipe {
+  id: String!
+  title: String!
+  ingredients: [String!]
+  instructions: String!
+  preparationTime: Int
+  author: User!
+}

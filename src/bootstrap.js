@@ -17,6 +17,6 @@ module.exports = async port => {
     });
   });
   // Proxy for the JSON API server in Contenta CMS.
-  const app = startApp(mapped);
+  const app = await startApp(mapped);
   return app.listen(port);
 };

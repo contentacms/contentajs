@@ -1,14 +1,10 @@
 // @flow
 
-import type { ObjectLiteral } from '../../flow/types/common';
-import type { GotResponse } from '../../flow/types/got';
-
 /**
  * Base application definition.
  */
 
 const _ = require('lodash');
-const { ApolloServer, gql } = require('apollo-server-express');
 const bodyParser = require('body-parser');
 const config = require('config');
 const cors = require('cors');
@@ -23,8 +19,9 @@ const healthcheck = require('../routes/healthcheck');
 const jsonrpcProxy = require('../routes/jsonrpcProxy');
 const proxyHandler = require('../routes/proxyHandler');
 const { initSubrequests } = require('../routes/subrequests');
+const apolloServerWithContext = require('./graphql/apolloServerWithContext');
 
-module.exports = (cmsMeta: Object) => {
+module.exports = async (cmsMeta: Object) => {
   const app = express();
   app.disable('x-powered-by');
 
@@ -68,131 +65,11 @@ module.exports = (cmsMeta: Object) => {
   // catch them here to allow the app to continue normally.
   app.use(errorHandler);
 
-  const got = require('./got');
-  const Recipe = gql`
-    type Recipe {
-      id: String!
-      title: String!
-      author: User!
-    }
-  `;
-  const Article = gql`
-    type Article {
-      id: String!
-      title: String!
-      owner: User!
-    }
-  `;
-  const User = gql`
-    type User {
-      id: String!
-      name: String!
-      recipes: [Recipe]
-    }
-  `;
-  const Query = gql`
-  type Query {
-    recipesByAuthor(authorName: String!): [Recipe] @fromJsonApi(/recipes?filter[author.name]={authorName}&include=author)
-    articlesByAuthor(authorName: String!): [Article] @fromJsonApi(/articles?filter[owner.name]={authorName}&include=owner)
-  }
-`;
-  type JsonApiResourceIdentifier = {
-    type: string,
-    id: string,
-  };
-  type JsonApiBase = {
-    meta: ObjectLiteral,
-    links: { [string]: string },
-  };
-  type JsonApiRelatonship = ?JsonApiBase & {
-    data: JsonApiResourceIdentifier | JsonApiResourceIdentifier[],
-  };
-  type JsonApiResource = JsonApiResourceIdentifier &
-    ?JsonApiBase & {
-      attributes?: ObjectLiteral,
-      relationships?: { [string]: JsonApiRelatonship },
-    };
-  type JsonApiDocument = ?JsonApiBase & {
-    data: JsonApiResource | JsonApiResource[],
-  };
-
-  /**
-   *
-   * @param rels
-   * @param includes
-   * @param relMap
-   * @return {{[p: string]: any}|{}|(function(): {[p: string]: *})}
-   */
-  function findRelsInIncludes(
-    rels: { [string]: JsonApiRelatonship },
-    includes: JsonApiResource[],
-    relMap: Map<string, ?JsonApiResource>
-  ) {
-    const relNames = Object.keys(rels);
-    const relVals = relNames.map(relName => {
-      const type = _.get(rels, [relName, 'data', 'type']);
-      const id = _.get(rels, [relName, 'data', 'id']);
-      const cacheKey = `${type}:${id}`;
-      let included;
-      if (relMap.has(cacheKey)) {
-        included = relMap.get(cacheKey);
-      } else {
-        included = includes.find(
-          include => include.type === type && include.id === id
-        );
-        relMap.set(cacheKey, included);
-      }
-      return included ? mapJsonApiObjects(included) : null;
-    });
-    return _.zipObject(relNames, relVals);
-  }
-
-  /**
-   *
-   * @param input
-   * @param includes
-   * @return {any}
-   */
-  function mapJsonApiObjects(
-    input: JsonApiResource[] | JsonApiResource,
-    includes: JsonApiResource[] = []
-  ) {
-    const relMap = new Map();
-    const mapped = [].concat(input).map(item => ({
-      id: _.get(item, 'id'),
-      type: _.get(item, 'type'),
-      ..._.get(item, 'attributes'),
-      ...findRelsInIncludes(_.get(item, 'relationships'), includes, relMap),
-    }));
-    return Array.isArray(input) ? mapped : mapped.pop();
-  }
-  const resolvers = {
-    Query: {
-      // TODO: Use the jsonApiPaths variable for this below.
-      recipesByAuthor: async (___, { authorName }) => {
-        const jsonApiQuery = `${cmsHost}${jsonApiPrefix}/recipes?filter[author.name]=${authorName}&include=author`;
-        const res: GotResponse = await got(jsonApiQuery);
-        return mapJsonApiObjects(
-          _.get(res, 'body.data'),
-          _.get(res, 'body.included')
-        );
-      },
-      articlesByAuthor: async (___, { authorName }) => {
-        const jsonApiQuery = `${cmsHost}${jsonApiPrefix}/articles?filter[owner.name]=${authorName}&include=owner`;
-        const res: GotResponse = await got(jsonApiQuery);
-        return mapJsonApiObjects(
-          _.get(res, 'body.data'),
-          _.get(res, 'body.included')
-        );
-      },
-    },
-  };
-  const server = new ApolloServer({
-    // These will be defined for both new or existing servers
-    typeDefs: [Recipe, Article, User, Query],
-    resolvers,
+  const apolloServer = await apolloServerWithContext({
+    cmsHost,
+    jsonApiPrefix,
   });
-  server.applyMiddleware({
+  apolloServer.applyMiddleware({
     app,
     path: '/graphql',
   });
