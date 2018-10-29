@@ -18,7 +18,7 @@
     "node": ">=8.10"
   },
   "scripts": {
-    "start": "npm run build && node ./node_modules/.bin/pm2 start contentajs --env production",
+    "start": "npm run build && node ./node_modules/.bin/pm2 start --name contentajs --env production",
     "debug": "DEBUG=*,-babel node ./node_modules/.bin/babel-node --inspect-brk ./src/server.js",
     "test": "NODE_ENV=test jest --coverage",
     "test-ci": "NODE_ENV=test jest --coverage --ci --runInBand",
