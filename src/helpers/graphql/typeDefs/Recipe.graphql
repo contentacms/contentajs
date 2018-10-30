@@ -5,4 +5,11 @@ type Recipe {
   instructions: String!
   preparationTime: Int
   author: User!
+
+  """
+  This field illustrates that you can insert additional fields to the type that
+  are not resolved from Drupal, but by any arbitrary JS code (see resolverMap.js
+  to learn how the "random" field is populated).
+  """
+  random: String!
 }
