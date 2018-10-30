@@ -1,5 +1,0 @@
-type User {
-  id: String!
-  name: String!
-  recipes: [Recipe]
-}

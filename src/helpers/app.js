@@ -19,7 +19,6 @@ const healthcheck = require('../routes/healthcheck');
 const jsonrpcProxy = require('../routes/jsonrpcProxy');
 const proxyHandler = require('../routes/proxyHandler');
 const { initSubrequests } = require('../routes/subrequests');
-const apolloServerWithContext = require('./graphql/apolloServerWithContext');
 
 module.exports = async (cmsMeta: Object) => {
   const app = express();
@@ -64,15 +63,6 @@ module.exports = async (cmsMeta: Object) => {
   // Fallback error handling. If there is any unhandled exception or error,
   // catch them here to allow the app to continue normally.
   app.use(errorHandler);
-
-  const apolloServer = await apolloServerWithContext({
-    cmsHost,
-    jsonApiPrefix,
-  });
-  apolloServer.applyMiddleware({
-    app,
-    path: '/graphql',
-  });
 
   return app;
 };
