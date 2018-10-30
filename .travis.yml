@@ -1,34 +1,37 @@
 language: node_js
+node_js: lts/carbon
 cache:
   directories:
     - node_modules
     - .tmp
+    - ~/.npm
 notifications:
   email: false
 before_install:
-  - git fetch --tags
+  - git fetch origin --tags
 
 stages:
   - name: test
     # require the event type to not be a semantic release tag.
     if: NOT tag =~ ^v\d+\.\d+\.\d+$
+  - name: release
+    if: branch = master AND fork = false AND type IN (push, api)
 
 jobs:
   include:
     -
       stage: test
-      node_js: 'lts/carbon'
       script:
         - npm run lint
+        - npm run flow
         - npm run test-ci
+      after_success:
         - npm install --no-save coveralls
         # Report coverage to coveralls.io
         - cat ./__coverage__/lcov.info | ./node_modules/coveralls/bin/coveralls.js
         - rm -fr ./__coverage__
 
     -
-      stage: deploy
-      if: branch = master
-      # Semantic release will fail if it's not using node 8.
-      node_js: 'lts/carbon'
-      script: npm run semantic-release
+      stage: release
+      script:
+        - npm run semantic-release

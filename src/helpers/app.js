@@ -20,7 +20,7 @@ const jsonrpcProxy = require('../routes/jsonrpcProxy');
 const proxyHandler = require('../routes/proxyHandler');
 const { initSubrequests } = require('../routes/subrequests');
 
-module.exports = (cmsMeta: Object) => {
+module.exports = async (cmsMeta: Object) => {
   const app = express();
   app.disable('x-powered-by');
 
