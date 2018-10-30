@@ -63,6 +63,5 @@ module.exports = async (cmsMeta: Object) => {
   // Fallback error handling. If there is any unhandled exception or error,
   // catch them here to allow the app to continue normally.
   app.use(errorHandler);
-
   return app;
 };
