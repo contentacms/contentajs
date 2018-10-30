@@ -1,17 +1,12 @@
-/* @flow */
+// @flow
 
-const _ = require('lodash');
-const readFile = require('../../readFileUtf8');
-const path = require('path');
+const readRelativeFile = require('@contentacms/contentajs-graphql').readRelativeFile(
+  __dirname
+);
 
-const relativeToFull = p => path.join(__dirname, p);
-
-const readRelativeFile = _.flow([relativeToFull, readFile]);
-
-module.exports = Promise.all([
-  readRelativeFile('./directives.graphql'),
+module.exports = [
   readRelativeFile('./Article.graphql'),
   readRelativeFile('./Query.graphql'),
   readRelativeFile('./Recipe.graphql'),
   readRelativeFile('./User.graphql'),
-]);
+];

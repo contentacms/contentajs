@@ -36,11 +36,12 @@
     "semantic-release": "semantic-release"
   },
   "devDependencies": {
-    "@babel/cli": "^7.0.0-beta.47",
-    "@babel/core": "^7.0.0-beta.47",
-    "@babel/node": "^7.0.0-beta.47",
-    "@babel/preset-env": "^7.0.0-beta.47",
-    "@babel/preset-flow": "^7.0.0-beta.47",
+    "@babel/cli": "^7.1.2",
+    "@babel/core": "^7.1.2",
+    "@babel/node": "^7.0.0",
+    "@babel/plugin-proposal-object-rest-spread": "^7.0.0",
+    "@babel/preset-env": "^7.1.0",
+    "@babel/preset-flow": "^7.0.0",
     "@commitlint/cli": "^6.2.0",
     "@commitlint/config-angular": "^6.1.3",
     "@emdaer/cli": "^3.2.3",
@@ -73,6 +74,7 @@
     "semantic-release-conventional-commits": "^2.0.0"
   },
   "dependencies": {
+    "@contentacms/contentajs-graphql": "^2.0.2",
     "apollo-server-express": "^2.0.5",
     "body-parser": "^1.18.2",
     "config": "^1.30.0",

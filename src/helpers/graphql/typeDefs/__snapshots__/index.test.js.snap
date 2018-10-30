@@ -2,12 +2,6 @@
 
 exports[`typeDefs is what we expect 1`] = `
 Array [
-  "# Causes the field to resolve to the results of a JSON API query. The result is
-# then massaged to remove the JSON API specific shapes.
-directive @fromJsonApi(
-  query: String!
-) on FIELD_DEFINITION | INPUT_FIELD_DEFINITION
-",
   "type Article {
   id: String!
   title: String!
