@@ -32,6 +32,16 @@ module.exports = async (cmsMeta: Object) => {
   const jsonApiPaths = JSON.parse(_.get(cmsMeta, 'jsonApiPaths', '[]'));
   const cmsHost = config.get('cms.host');
 
+  const apolloServer = await apolloServerWithContext({
+    cmsHost,
+    jsonApiPrefix,
+  });
+  apolloServer.applyMiddleware({
+    app,
+    path: '/graphql',
+    bodyParserConfig: true,
+  });
+
   // Set the global agent options
   const agentOptions = config.util.toObject(config.get('cms.httpAgent'));
   Object.keys(agentOptions).forEach(key => {
@@ -64,15 +74,5 @@ module.exports = async (cmsMeta: Object) => {
   // Fallback error handling. If there is any unhandled exception or error,
   // catch them here to allow the app to continue normally.
   app.use(errorHandler);
-
-  const apolloServer = await apolloServerWithContext({
-    cmsHost,
-    jsonApiPrefix,
-  });
-  apolloServer.applyMiddleware({
-    app,
-    path: '/graphql',
-  });
-
   return app;
 };
