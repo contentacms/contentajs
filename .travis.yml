@@ -1,10 +1,5 @@
 language: node_js
 node_js: lts/carbon
-cache:
-  directories:
-    - node_modules
-    - .tmp
-    - ~/.npm
 notifications:
   email: false
 before_install:
