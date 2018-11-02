@@ -1,7 +1,4 @@
 module.exports = {
-  linters: {
-    '*.js': ['npm run prettier --', 'git add'],
-    '.emdaer/**/*.md': ['npm run documentation --', 'git add *.md'],
-  },
-  ignore: ['lib/**/*.js'],
+  '*.js': ['eslint --fix', 'prettier --write', 'git add'],
+  '*.md': ['npm run documentation --', 'git add *.md'],
 };
