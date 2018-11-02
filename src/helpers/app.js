@@ -33,7 +33,7 @@ module.exports = async (cmsMeta: Object) => {
   const cmsHost = config.get('cms.host');
 
   const apolloServer = await apolloServerWithContext({
-    cmsHost,
+    cmsHost: `//127.0.0.1:${_.get(process, 'env.PORT', 80)}`,
     jsonApiPrefix,
   });
   apolloServer.applyMiddleware({
