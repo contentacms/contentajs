@@ -1,6 +1,6 @@
 {
   "name": "@contentacms/contentajs",
-  "version": "0.0.1",
+  "version": "0.0.0-development",
   "description": "A nodejs server that proxies to Contenta CMS and holds custom code.",
   "main": "lib/server.js",
   "repository": {
