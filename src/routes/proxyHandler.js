@@ -25,14 +25,14 @@ module.exports = (req: Request, res: Response, next: NextFunction): void => {
     // list is a list of regular expressions that can match any path a resource,
     // taking variables into account. Filter the requests that are for
     // non-existing resources.
-    filter() {
+    filter(pRq, uRq) {
       // Extract the path part, without query string, of the current request.
-      const parsed = url.parse(req.url);
+      const parsed = url.parse(uRq.url);
       const pathIsWhitelisted =
         // Only filter paths if there are any whitelisted paths.
-        req.jsonApiPaths.length &&
+        uRq.jsonApiPaths.length &&
         // Return false if it doesn't apply any regular expression path.
-        !!req.jsonApiPaths.find(p => new RegExp(p).test(parsed.pathname || ''));
+        !!uRq.jsonApiPaths.find(p => new RegExp(p).test(parsed.pathname || ''));
       // Make sure that the JSON API entry point is also whitelisted.
       return parsed.pathname === '/' || pathIsWhitelisted;
     },
