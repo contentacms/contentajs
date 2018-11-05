@@ -1,4 +1,4 @@
-# Subrequests <img align="right" src="./logo.svg" alt="Contenta logo" title="Contenta logo" width="100">
+# Subrequests <img align="right" src="../logo.svg" alt="Contenta logo" title="Contenta logo" width="100">
 
 Subrequests is a request aggregator project that will allow you to turn multiple
 requests into a single one. To do so client-side applications describe the
