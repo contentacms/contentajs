@@ -19,6 +19,8 @@
   },
   "scripts": {
     "start": "npm run build && node ./node_modules/.bin/pm2 start --name contentajs --env production",
+    "stop": "node ./node_modules/.bin/pm2 stop contentajs",
+    "delete": "node ./node_modules/.bin/pm2 delete contentajs",
     "debug": "DEBUG=*,-babel node ./node_modules/.bin/babel-node --inspect-brk ./src/server.js",
     "test": "NODE_ENV=test jest --coverage",
     "test-ci": "NODE_ENV=test jest --coverage --ci --runInBand",
