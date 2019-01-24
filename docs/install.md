@@ -28,7 +28,7 @@ extracting it. In MacOS and Linux you can do:</p>
 <pre><code>
 curl -Lo contenta.tar.gz https://github.com/contentacms/contentajs/archive/master.tar.gz
 tar -xzf contenta.tar.gz
-mv contenta-master YOUR_PROJECT_NAME
+mv contentajs-master YOUR_PROJECT_NAME
 cd YOUR_PROJECT_NAME
 npm install
 git init && git add . && git ci -m 'feat: project initialization with Contenta JS'
