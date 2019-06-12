@@ -15,9 +15,7 @@ const agentOptions = config.util.toObject(config.get('got.httpAgent'));
 
 const defaults = {
   headers: {
-    'user-agent': `${pkg.name}/${
-      pkg.version
-    } (https://github.com/contentacms/contentajs)`,
+    'user-agent': `${pkg.name}/${pkg.version} (https://github.com/contentacms/contentajs)`,
   },
   json: true,
   cache: keyv,

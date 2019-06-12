@@ -22,9 +22,7 @@ class CmsMetaLoader extends PluginLoaderBase {
     const method: string = this.descriptor.rpcMethod;
     if (!method) {
       throw new Error(
-        `Impossible to fetch metadata from the CMS using "${
-          this.descriptor.id
-        }" because the "rpcMethod" key is missing in plugnplay.yml`
+        `Impossible to fetch metadata from the CMS using "${this.descriptor.id}" because the "rpcMethod" key is missing in plugnplay.yml`
       );
     }
     return {
