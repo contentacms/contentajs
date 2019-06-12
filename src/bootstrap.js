@@ -5,16 +5,14 @@ const startApp = require('./helpers/app');
 
 module.exports = async port => {
   // Initialize JSON RPC.
-  const fetched = await fetchCmsMeta();
+  const [map, jsonRpcResponse] = await fetchCmsMeta();
   const mapped = {};
-  fetched.forEach(([map, jsonRpcResponse]) => {
-    Object.keys(map).forEach(variableName => {
-      const variableValue = _.get(jsonRpcResponse, [
-        'result',
-        ...map[variableName].split('.'),
-      ]);
-      mapped[variableName] = variableValue;
-    });
+  Object.keys(map).forEach(variableName => {
+    const variableValue = _.get(jsonRpcResponse, [
+      'result',
+      ...map[variableName].split('.'),
+    ]);
+    mapped[variableName] = variableValue;
   });
   // Proxy for the JSON API server in Contenta CMS.
   const app = await startApp(mapped);

@@ -1,3 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`The generic CMS Meta loader It fails without an rpcMethod 1`] = `"Impossible to fetch metadata from the CMS using \\"undefined\\" because the \\"rpcMethod\\" key is missing in plugnplay.yml"`;

@@ -86,7 +86,6 @@
     "keyv-null": "^1.0.0",
     "lodash": "^4.17.10",
     "pino": "^4.16.1",
-    "plugnplay": "^3.3.0",
     "pm2": "^3.5.1",
     "subrequests": "^2.16.1",
     "subrequests-express": "^3.2.0",
