@@ -1,4 +1,0 @@
-id: cms-meta-plugin
-name: CMS Meta Type
-description: Defines the plugin type for CMS Meta fetchers
-loader: CmsMetaPluginTypeLoader.js

@@ -2,15 +2,13 @@ const bootstrap = require('./bootstrap');
 
 jest.mock('./helpers/fetchCmsMeta', () => () =>
   Promise.resolve([
-    [
-      { jsonApiPrefix: 'basePath' },
-      {
-        result: {
-          basePath: '/myPrefix',
-          paths: ['/foo', '/foo/{bar}', '/foo/{bar}/oof/{baz}'],
-        },
+    { jsonApiPrefix: 'basePath' },
+    {
+      result: {
+        basePath: '/myPrefix',
+        paths: ['/foo', '/foo/{bar}', '/foo/{bar}/oof/{baz}'],
       },
-    ],
+    },
   ])
 );
 

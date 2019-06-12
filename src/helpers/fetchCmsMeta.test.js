@@ -34,11 +34,13 @@ describe('The metadata bootstrap process', () => {
       })
     );
     return fetchCmsMeta().then(() => {
-      expect(jsonrpc.execute).toHaveBeenCalledWith({
-        id: 'req-jsonapi.metadata',
-        jsonrpc: '2.0',
-        method: 'jsonapi.metadata',
-      });
+      expect(jsonrpc.execute).toHaveBeenCalledWith([
+        {
+          id: 'req-jsonapi.metadata',
+          jsonrpc: '2.0',
+          method: 'jsonapi.metadata',
+        },
+      ]);
     });
   });
   test('It swallows the errors', () => {

@@ -108,9 +108,11 @@ describe('The fallback to CMS', () => {
     proxyHandler(req, res);
     const { filter } = proxy.mock.calls[0][1];
     const actual = filter(null, {
-      ...req,
-      url: 'https://example.org/lorem',
-      jsonApiPaths: ['/lorem/?'],
+      req: {
+        ...req,
+        url: 'https://example.org/lorem',
+        jsonApiPaths: ['/lorem/?'],
+      },
     });
     expect(actual).toBe(true);
   });
@@ -120,9 +122,11 @@ describe('The fallback to CMS', () => {
     proxyHandler(req, res);
     const { filter } = proxy.mock.calls[0][1];
     const actual = filter(null, {
-      ...req,
-      url: '',
-      jsonApiPaths: ['/lorem/?'],
+      req: {
+        ...req,
+        url: '',
+        jsonApiPaths: ['/lorem/?'],
+      },
     });
     expect(actual).toBe(false);
   });
