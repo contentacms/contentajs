@@ -1,5 +1,6 @@
 [ignore]
 .*/node_modules/config-chain/test/broken.json
+.*/node_modules/@snyk/composer-lockfile-parser/test/fixtures/composer-invalid-json/composer.json
 .*/node_modules/findup/test/fixture/.*
 .*/node_modules/npmconf/test/fixtures/.*
 
