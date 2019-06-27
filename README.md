@@ -10,7 +10,7 @@
 
 <h1 id="contentajs-img-align-right-src-logo-svg-alt-contenta-logo-title-contenta-logo-width-100-">ContentaJS <img align="right" src="./logo.svg" alt="Contenta logo" title="Contenta logo" width="100"></h1>
 <p>ContentaJS is a project that integrates with Contenta CMS to provide
-an high performing headless CMS. It also provides a nodejs application
+an ultra high performing headless CMS. It also provides a nodejs application
 where to host your Server Side Rendering and custom code integrations.</p>
 <p align="center"><img src="./.emdaer/docs/assets/contentacms-node.png" alt="Contenta Stack Architecture"></p>
 
