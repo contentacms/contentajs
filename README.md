@@ -111,7 +111,7 @@ Just provide the URL of the site and everything is taken care of for you.<ul>
 </li>
 <li>Multi-threaded nodejs server that takes advantage of all the cores of the
 server’s CPU.</li>
-<li>A Subrequests server for request aggregation. Learn more about <a href="./.emdaer/docs/subrequests.md">subrequests</a>.</li>
+<li>A Subrequests server for request aggregation. Learn more about <a href="./docs/subrequests.md">subrequests</a>.</li>
 <li>A <a href="http://redis.io">Redis</a> integration via <a href="https://github.com/contentacms/contentajsRedis">@contentacms/redis</a>.</li>
 <li>Type safe development environment using <a href="http://flow.org">Flow</a>.</li>
 <li><a href="https://github.com/contentacms/contentajs/blob/master/config/default.yml#L66-L85">Configurable CORS</a>.</li>
