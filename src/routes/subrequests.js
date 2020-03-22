@@ -19,7 +19,7 @@ const processor = (req: Request, res: Response, next: NextFunction): void => {
 
   // TODO: In order to come up with the appropriate cache control header we
   // would need to analyze all the responses and understand the most
-  // restrictive one. For now, we don't cache blueprints, only individial
+  // restrictive one. For now, we don't cache blueprints, only individual
   // calls.
   res.set('Cache-Control', 'private, max-age=0, no-cache');
   next();
